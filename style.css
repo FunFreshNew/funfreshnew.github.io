@@ -1,13 +1,29 @@
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Courier New, Courier New;
     margin: 0;
     padding: 0;
-    color: #333;
-    background-color: #f9f9f9;
+    color: #ffffff;
+    background-color: #403e47;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    background-color: #ffffff;
+  }
+
+tbody {
+    font-family: Consolas, Consolas;
+    background-color: #ffffff;
+    color: #46bb9e;
+    padding: 10px 20px;
 }
 
 header {
-    background-color: #1a1a1a;
+    font-family: Consolas, Consolas;
+    background-color: #000000;
     color: #fff;
     padding: 10px 20px;
 }
@@ -18,9 +34,16 @@ header .container {
     align-items: center;
 }
 
-header h1 {
+.notice {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #ff0080;
+    background-color: #fff0f0;
+  }
+
+h1  {
     margin: 0;
-    font-size: 24px;
+    font-size: 30 px;
 }
 
 nav ul {
@@ -63,3 +86,51 @@ footer {
     text-align: center;
     padding: 10px 20px;
 }
+
+  h1, h2 {
+    text-align: center;
+  }
+  .description {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .button-container {
+    text-align: center;
+    margin: 20px 0;
+  }
+  .button-container a {
+    text-decoration: none;
+    color: rgb(51, 51, 51);
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+  .commission-tables {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .commission-table {
+    flex: 1;
+    border: 3px solid #797979;
+    background-color: #dbdbdb;
+    border-radius: 0%;
+    padding: 10px;
+  }
+  .commission-table h3 {
+    text-align: center;
+  }
+  .commission-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .commission-table th, .commission-table td {
+    border: 3px solid #0e0e0e;
+    padding: 8px;
+    text-align: center;
+  }
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #f8f8f8;}
