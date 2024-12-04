@@ -190,7 +190,7 @@ h1  {
   text-align: center;
 }
 
-.button-t {
+.twitter {
   display: inline-block;
   text-decoration: none;
   font-family: consolas;
@@ -205,7 +205,7 @@ h1  {
   text-align: center;
 }
 
-.button-t:hover {
+.twitter:hover {
   background-color: #353535; /* Hover color */
 }
 
