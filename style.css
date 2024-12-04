@@ -79,7 +79,7 @@ h1  {
     margin-top: 40px;
     margin-left: 450px ;
     padding: 10px;
-    background-color: #ffffff;
+    background-color: #;
 
 
 
@@ -159,7 +159,7 @@ h1  {
   }
 
 
-  .button-container a {
+  .button-container b {
     font-family: consolas;
     text-decoration: none;
     color: rgb(253, 253, 253);
@@ -190,8 +190,23 @@ h1  {
   text-align: center;
 }
 
-.button:hover {
-  background-color: #e49a2c; /* Hover color */
+.button-t {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #1DA1F2;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0; /* Solid rectangle shape */
+  transition: background-color 0.3s ease; /* Smooth color change */
+  text-align: center;
+}
+
+.button-t:hover {
+  background-color: #353535; /* Hover color */
 }
 
 /* Default button styling */
