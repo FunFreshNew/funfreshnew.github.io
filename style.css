@@ -1,44 +1,25 @@
 
 body {
-    font-family: Courier New, Courier New;
+    font-family: consolas, consolas;
     margin: 0;
     padding: 0;
     color: #ffffff;
-    background-color: #292929;
+    background-color: #1f1f1f;
 }
 
 .container {
-    padding: 20px;
+    padding: 0px;
     max-width: 600px;
-    margin: auto;
-    background-color: #829EC6;
+    margin: 100px;
+    background-color: #84A0C8;
   }
 
-tbody {
-    font-family: Consolas, Consolas;
-    background-color: #ffffff;
-    color: #52ad5e;
-    padding: 10px 20px;
-}
-
-header {
-    font-family: Consolas, Consolas;
-    background-color: #000000;
-    color: #fff;
-    padding: 10px 20px;
-}
-
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .notice {
     border-style: solid;
     border-width: 1px;
     border-color: #ff0080;
-    background-color: #fff0f0;
+    background-color: #ffffff;
   }
 
 h1  {
@@ -46,114 +27,214 @@ h1  {
     font-size: 30 px;
 }
 
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .commission-tables {
     display: flex;
-    gap: 15px;
-}
-
-nav ul li {
-    margin: 0;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 16px;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-.hero {
-    background-color: #007acc;
-    color: #fff;
-    text-align: center;
-    padding: 50px 20px;
-}
-
-.content {
-    padding: 20px;
-    text-align: center;
-}
-
-footer {
-    background-color: #1a1a1a;
-    color: #fff;
-    text-align: center;
-    padding: 10px 20px;
-}
-
-  h1, h2 {
-    text-align: center;
+    justify-content: space-between;
+    gap: 20px;
+    
   }
-  .description {
-    text-align: center;
-    margin-bottom: 20px;
+
+  .availibity-notice{
+        
+    color: #ffffff;;
+    padding-block: 15px;
+    animation: vibe 9s infinite;
+   
   }
-  .button-container {
-    text-align: center;
-    margin: 20px 0;
+
+  @keyframes vibe {
+    0% { background-color: #C74140; }
+    50% { background-color: #e49a2c; }
+    100% { background-color: #C74140; }
   }
+
+
+  .commission-table {
+    flex: 1;
+    border: 2px solid #ffffff;
+    background-color: #84A0C8;
+    border-radius: %;
+    padding: px;
+    border-radius: %;     
+}
+
+
+ 
+  .commission-table table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .commission-table th, .commission-table td {
+    border: 3px solid rgb(139, 27, 27);
+    background-color: #9c8585;
+    padding: 8px;
+    text-align: ;
+  }
+  .contact {
+    font-family: 'Courier New';
+    text-align: middle;
+    font-variant: small-caps;
+    color: #C74140;
+    margin-top: 40px;
+    margin-left: 450px ;
+    padding: 10px;
+    background-color: #ffffff;
+
+
+
+}
+.table-title {
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: #909090;
+    background-color: #e8e8e8;
+}
+
+@keyframes tiny-shake {
+    0%,to {
+        transform: translate3d(-2px,-2px,0)
+    }
+
+    50% {
+        transform: translate3d(2px,2px,0)
+    }
+}
+
+
+.tinyface {
+    display: inline-block;
+    padding: 20px
+}
+
+.tinyface:after {
+    content: "Ɛ  •(人)  •3 | ૮-・౪・-ა";
+    white-space: nowrap
+}
+
+.tinyface:hover {
+    animation: tiny-shake .1s infinite;
+    will-change: transform
+}
+
+.tinyface:hover:after {
+    content: "Ɛ'-(人)  -3 | ૮- >౪< -ა"
+}
+
+@keyframes loading-animation {
+    0%,to {
+        content: ""
+    }
+
+    25% {
+        content: "."
+    }
+
+    50% {
+        content: ".."
+    }
+
+    75% {
+        content: "..."
+    }
+}
+
+.asrieldremurr {
+    
+    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+    background-size: 800% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hyperbeam 50s linear infinite;
+  }
+  
+  @keyframes hyperbeam {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 800% 50%;
+    }
+  }
+
+
   .button-container a {
     font-family: consolas;
     text-decoration: none;
     color: rgb(253, 253, 253);
     background-color: #C74140;
-    border-radius: 50px;
+    border-radius: 0px;
     padding: 10px 20px;
-    outline-color: #007acc;
-    outline: 2px;
+    outline-color: #ffffff;
+    outline: 52px;
   }
-  .commission-tables {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  .commission-table {
-    flex: 1;
-    border: 3px solid #505050;
-    background-color: #969696;
-    border-radius: 0%;
-    padding: 10px;
-  }
-  .availibity-notice{
-    text-align: center;   
-    background-color: #C74140;
-    border-radius: 50px;
-    padding-block: 20px;
-    animation: mymove 9s infinite;
-  }
-      @keyframes mymove {
-        0% { background-color: #C74140; }
-        50% { background-color: rgb(255, 192, 57); }
-        100% { background-color: #C74140; }
-      }
-  .commission-table h3 {
-    text-align: center;
-  }
-  .commission-table table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  .commission-table th, .commission-table td {
-    border: 3px solid #0e0e0e;
-    padding: 8px;
-    text-align: center;
-  }
-  .footer {
-    text-align: center;
-    color: #C74140;
-    margin-top: 40px;
-    padding: 10px;
-    background-color: #f8f8f8;}
 
-    .tblcap {
-        border-style: solid;
-        border-width: 1px;
-        border-color: #909090;
-        background-color: #e8e8e8;
-      }
+  .button-container {
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}
+
+.button {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #C74140;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0; /* Solid rectangle shape */
+  transition: background-color 0.3s ease; /* Smooth color change */
+  text-align: center;
+}
+
+.button:hover {
+  background-color: #e49a2c; /* Hover color */
+}
+
+/* Default button styling */
+.hover-change {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Courier New', monospace;
+  background-color: #7289da;
+  padding: 10px 20px;
+  border: px solid #C74140;
+  border-radius: ;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.hover-change:hover {
+  color: transparent; /* Hide original text */
+  background-color: ; /* Change background color */
+}
+
+.hover-change::after {
+  content: 'funfreshnew';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: #ffffff; /* New text color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  opacity: 0; /* Initially hidden */
+}
+
+/* On hover, reveal the new text and ensure it matches the background */
+.hover-change:hover::after {
+  opacity: 1;
+  color: #ffffff; /* Ensure the text remains white */
+}
+
+
+/* credit-->
+pony.town team*/
