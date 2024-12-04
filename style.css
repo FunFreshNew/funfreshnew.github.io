@@ -175,7 +175,7 @@ h1  {
   gap: 10px; /* Space between buttons */
 }
 
-.button {
+.redirect {
   display: inline-block;
   text-decoration: none;
   font-family: consolas;
@@ -190,7 +190,7 @@ h1  {
   text-align: center;
 }
 
-.twitter {
+.button {
   display: inline-block;
   text-decoration: none;
   font-family: consolas;
@@ -205,7 +205,7 @@ h1  {
   text-align: center;
 }
 
-.twitter:hover {
+.button:hover {
   background-color: #353535; /* Hover color */
 }
 
