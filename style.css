@@ -65,15 +65,10 @@ h1  {
  
   .commission-table table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: ;
   }
 
-  .commission-table th, .commission-table td {
-    border: 3px solid rgb(139, 27, 27);
-    background-color: #9c8585;
-    padding: 8px;
-    text-align: ;
-  }
+  
   .contact {
     font-family: 'Courier New';
     text-align: middle;
@@ -113,11 +108,11 @@ h1  {
 
 .tinyface:after {
     content: "Ɛ  •(人)  •3 | ૮-・౪・-ა";
-    white-space: nowrap
+    white-space: 
 }
 
 .tinyface:hover {
-    animation: tiny-shake .1s infinite;
+    animation: tiny-shake 0.1s infinite;
     will-change: transform
 }
 
@@ -176,7 +171,27 @@ h1  {
   text-align: center;
 }
 
-.button {
+
+.button-p {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #e6aeca;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 0; /* Solid rectangle shape */
+  transition: background-color 0.3s ease; /* Smooth color change */
+  text-align: center;
+}
+
+.button-p:hover {
+  background-color: #353535; /* Hover color */
+}
+
+.button-t {
   display: inline-block;
   text-decoration: none;
   font-family: consolas;
@@ -191,7 +206,7 @@ h1  {
   text-align: center;
 }
 
-.button:hover {
+.button-t:hover {
   background-color: #353535; /* Hover color */
 }
 
