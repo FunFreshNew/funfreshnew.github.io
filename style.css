@@ -8,11 +8,14 @@ body {
 }
 
 .container {
-    padding: 0px;
-    max-width: 600px;
-    margin: 100px;
-    background-color: #84A0C8;
-  }
+  width: 666px; 
+  position: relative;
+  height: auto; 
+  max-width: 600px; 
+  margin-top: 40px; 
+  background-color: #84A0C8;
+  overflow: hidden; 
+}
 
 
 .notice {
@@ -157,23 +160,6 @@ h1  {
       background-position: 800% 50%;
     }
   }
-
-
-  .button-container b {
-    font-family: consolas;
-    text-decoration: none;
-    color: rgb(253, 253, 253);
-    background-color: #C74140;
-    border-radius: 0px;
-    padding: 10px 20px;
-    outline-color: #ffffff;
-    outline: 52px;
-  }
-
-  .button-container {
-  display: flex;
-  gap: 10px; /* Space between buttons */
-}
 
 .redirect {
   display: inline-block;
