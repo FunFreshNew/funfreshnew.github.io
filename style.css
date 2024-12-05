@@ -156,21 +156,6 @@ h1  {
     }
   }
 
-.redirect {
-  display: inline-block;
-  text-decoration: none;
-  font-family: consolas;
-  font-size: 14px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #C74140;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 0; /* Solid rectangle shape */
-  transition: background-color 0.3s ease; /* Smooth color change */
-  text-align: center;
-}
-
 
 .button-p {
   display: inline-block;
@@ -182,13 +167,12 @@ h1  {
   background-color: #e6aeca;
   padding: 10px 20px;
   border: none;
-  border-radius: 0; /* Solid rectangle shape */
-  transition: background-color 0.3s ease; /* Smooth color change */
+  transition: background-color 0.3s ease; 
   text-align: center;
 }
 
 .button-p:hover {
-  background-color: #353535; /* Hover color */
+  background-color: #353535;
 }
 
 .button-t {
@@ -201,16 +185,15 @@ h1  {
   background-color: #1DA1F2;
   padding: 10px 20px;
   border: none;
-  border-radius: 0; /* Solid rectangle shape */
-  transition: background-color 0.3s ease; /* Smooth color change */
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
 .button-t:hover {
-  background-color: #353535; /* Hover color */
+  background-color: #353535;
+
 }
 
-/* Default button styling */
 .hover-change {
   position: relative;
   display: inline-block;
@@ -224,13 +207,13 @@ h1  {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Hover effect */
+
 .hover-change:hover {
-  color: transparent; /* Hide original text */
-  background-color: ; /* Change background color */
+  color: transparent; 
+  background-color: ; 
 }
 
-.hover-change::after {
+.hover-change:after {
   content: 'funfreshnew';
   position: absolute;
   left: 0;
