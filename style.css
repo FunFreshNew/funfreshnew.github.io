@@ -56,9 +56,7 @@ h1  {
     flex: 1;
     border: 2px solid #ffffff;
     background-color: #84A0C8;
-    border-radius: %;
-    padding: px;
-    border-radius: %;     
+      
 }
 
 
@@ -156,22 +154,77 @@ h1  {
     }
   }
 
+.button-w {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  color: #ffffff;
+  background-color: #b0ce80;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+  }
+  
+  .button-w:hover {
+    background-color: #353535;
+  }
 
 .button-p {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  color: #ffffff;
+  background-color: #e4915a;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+  }
+  
+  .button-p:hover {
+    background-color: #353535;
+  }
+
+
+
+.button-v {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  color: #ffffff;
+  background-color: #e7766e;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+  }
+  
+  .button-v:hover {
+    background-color: #353535;
+  }
+
+.button-b {
   display: inline-block;
   text-decoration: none;
   font-family: consolas;
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
-  background-color: #e6aeca;
+  background-color: #cf558e;
   padding: 10px 20px;
   border: none;
   transition: background-color 0.3s ease; 
   text-align: center;
 }
 
-.button-p:hover {
+.button-b:hover {
   background-color: #353535;
 }
 
@@ -235,5 +288,112 @@ h1  {
 }
 
 
-/* credit-->
-pony.town team*/
+
+/* Container to hold the image */
+.tinyfurball-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Image styles and animations */
+.tinyfurball {
+  position: absolute;
+  width: 100px; /* Adjust the size of the image */
+  animation: horizontal-move 5s linear infinite, random-bounce 3s ease-in-out infinite alternate, spin 10s linear infinite; 
+  transition: transform 0.2s ease;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.tinyfurball:hover {
+  transform: translateY(-10px); /* Jumps up slightly on hover */
+}
+
+/* Horizontal movement with looping effect */
+@keyframes horizontal-move {
+  0% {
+    left: -100px; /* Starts off-screen */
+  }
+  50% {
+    left: 50%; /* Moves to the center */
+    transform: translateX(-505%);
+  }
+  100% {
+    left: 110%; /* Exits off-screen to the right */
+  }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Randomized up-and-down bouncing */
+@keyframes random-bounce {
+  0% {
+    top: 50%; /* Initial vertical position */
+    transform: translateY(-50%);
+  }
+  25% {
+    top: 48%; /* Moves slightly up */
+  }
+  50% {
+    top: 52%; /* Moves slightly down */
+  }
+  75% {
+    top: 49%; /* Moves slightly up again */
+  }
+  100% {
+    top: 51%; /* Moves slightly down again */
+  }
+}
+
+
+@font-face {
+  font-family: pixeltxt ;
+  src: url(/source/Mojangles.ttf);
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 800% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: pixelwave 50s linear infinite;
+}
+
+@keyframes .pixelwave {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 800% 50%;
+  }
+}
+
+.pixeltxt {
+  font-family: "pixeltxt";
+}
+
+@font-face {
+  font-family: mojangles;
+  src:("source\Mojangles.ttf");
+}
+
+.mojangles{
+  font-family: mojangles;
+}
+
+
+/* inspired-->
+pony.town team
+Sytemax [Paint Tool Sai's website] 
+*/
+
+/* HOLYSHIT DID YOU MAKE THIS WEBSITE YOURSELF!?-->
+well, not really. 😂 I use chat gpt to write complex code ones.
+*/
