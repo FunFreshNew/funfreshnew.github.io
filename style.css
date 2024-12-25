@@ -300,9 +300,9 @@ h1  {
 /* Image styles and animations */
 .tinyfurball {
   position: absolute;
-  width: 100px; /* Adjust the size of the image */
-  animation: horizontal-move 5s linear infinite, random-bounce 3s ease-in-out infinite alternate, spin 10s linear infinite; 
-  transition: transform 0.2s ease;
+  width: 50px; /* Adjust the size of the image */
+  animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite; 
+  transition: transform 0.5s ease;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
