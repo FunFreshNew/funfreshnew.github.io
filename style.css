@@ -381,13 +381,74 @@ h1  {
 
 @font-face {
   font-family: mojangles;
-  src:("source\Mojangles.ttf");
+  src:("/source/Mojangles.ttf");
 }
 
 .mojangles{
   font-family: mojangles;
 }
 
+
+@font-face {
+  font-family: pixel;
+  src:url("/source/BestTen-DOT.otf");
+}
+
+.bestendot{
+  font-family: pixel;
+}
+
+
+
+
+
+
+.video-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns for left and right */
+  gap: 0; /* No gap between the videos */
+  width: 100%; /* Full-width container */
+  max-width: 1200px; /* Optional: Limits the maximum width */
+}
+
+video {
+  width: 100%; /* Videos take up full column width */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  object-fit: cover; /* Ensures no distortion */
+}
+
+
+.video-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns for left and right */
+  gap: 0; /* No gap between the videos */
+  width: 100%; /* Full-width container */
+  max-width: 1200px; /* Optional: Limits the maximum width */
+}
+
+.video-wrapper {
+  position: relative;
+}
+
+
+.button-y {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  color: #ffffff;
+  background-color: #e45a5a;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+}
+
+.button-y:hover {
+  background-color: #353535;
+}
 
 /* inspired-->
 pony.town team
