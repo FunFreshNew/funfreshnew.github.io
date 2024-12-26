@@ -13,3 +13,20 @@ function copyDiscordName() {
       console.error("Could not copy text: ", err);
     });
   }
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.getElementById("autoplay-video");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+    });
+
+    observer.observe(video);
+});
