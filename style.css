@@ -217,7 +217,7 @@ h1  {
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
-  background-color: #cf558e;
+  background-color: #87c7e0;
   padding: 10px 20px;
   border: none;
   transition: background-color 0.3s ease; 
@@ -228,6 +228,43 @@ h1  {
   background-color: #353535;
 }
 
+.button-f {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #ddb074;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+}
+
+.button-f:hover {
+  background-color: #353535;
+}
+
+.button-d {
+  display: inline-block;
+  text-decoration: none;
+  font-family: consolas;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #7fc071;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+}
+
+.button-d:hover {
+  background-color: #353535;
+}
+
+
 .button-t {
   display: inline-block;
   text-decoration: none;
@@ -235,7 +272,7 @@ h1  {
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
-  background-color: #1DA1F2;
+  background-color: #535353;
   padding: 10px 20px;
   border: none;
   transition: background-color 0.3s ease;
@@ -243,7 +280,7 @@ h1  {
 }
 
 .button-t:hover {
-  background-color: #353535;
+  background-color: #4fa7f0;
 
 }
 
@@ -435,7 +472,7 @@ video {
 .button-y {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
   background-color: #e45a5a;
   padding: 10px 20px;
