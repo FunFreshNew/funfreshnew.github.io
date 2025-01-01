@@ -17,6 +17,8 @@ body {
   overflow: hidden; 
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reggae+One&family=Tsukimi+Rounded&display=swap');
+
 
 .notice {
     border-style: solid;
@@ -68,7 +70,7 @@ h1  {
 
   
   .contact {
-    font-family: 'Courier New';
+    font-family: ;
     text-align: middle;
     font-variant: small-caps;
     color: #C74140;
@@ -427,6 +429,14 @@ h1  {
   font-family: mojangles;
 }
 
+@font-face {
+  font-family: inter;
+  src:url("/source/Inter-VariableFont_opsz\,wght.ttf");
+}
+
+.inter{
+  font-family: inter;
+}
 
 @font-face {
   font-family: pixel;
