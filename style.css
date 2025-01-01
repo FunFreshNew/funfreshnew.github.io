@@ -1,6 +1,6 @@
 
 body {
-    font-family: consolas, consolas;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     padding: 0;
     color: #ffffff;
@@ -11,7 +11,7 @@ body {
   width: 666px; 
   position: relative;
   height: auto; 
-  max-width: 600px; 
+  max-width: 666px; 
   margin-top: 40px; 
   background-color: #84A0C8;
   overflow: hidden; 
@@ -41,13 +41,13 @@ h1  {
         
     color: #ffffff;;
     padding-block: 15px;
-    animation: vibe 9s infinite;
+    animation: vibe 5s infinite;
    
   }
 
   @keyframes vibe {
     0% { background-color: #C74140; }
-    50% { background-color: #e49a2c; }
+    50% { background-color: #3b8a53; }
     100% { background-color: #C74140; }
   }
 
@@ -157,7 +157,7 @@ h1  {
 .button-w {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
   color: #ffffff;
   background-color: #b0ce80;
   padding: 10px 20px;
@@ -175,7 +175,7 @@ h1  {
 .button-p {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
   background-color: #e4915a;
   padding: 10px 20px;
@@ -195,7 +195,7 @@ h1  {
 .button-v {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #ffffff;
   background-color: #e7766e;
   padding: 10px 20px;
@@ -213,7 +213,7 @@ h1  {
 .button-b {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
@@ -231,7 +231,7 @@ h1  {
 .button-f {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
@@ -249,7 +249,7 @@ h1  {
 .button-d {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
@@ -268,7 +268,7 @@ h1  {
 .button-t {
   display: inline-block;
   text-decoration: none;
-  font-family: consolas;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   font-weight: bold;
   color: #ffffff;
@@ -284,26 +284,28 @@ h1  {
 
 }
 
-.hover-change {
+.discord {
   position: relative;
   display: inline-block;
   text-decoration: none;
   color: #ffffff;
-  font-family: 'Courier New', monospace;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #7289da;
   padding: 10px 20px;
   border: px solid #C74140;
+  font-size: 14px;
+  font-weight: bold;
   border-radius: ;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 
-.hover-change:hover {
+.discord:hover {
   color: transparent; 
   background-color: ; 
 }
 
-.hover-change:after {
+.discord:after {
   content: 'funfreshnew';
   position: absolute;
   left: 0;
@@ -319,7 +321,7 @@ h1  {
 }
 
 /* On hover, reveal the new text and ensure it matches the background */
-.hover-change:hover::after {
+.discord:hover::after {
   opacity: 1;
   color: #ffffff; /* Ensure the text remains white */
 }
@@ -486,6 +488,32 @@ video {
 .button-y:hover {
   background-color: #353535;
 }
+
+
+.jumpy:hover {
+
+  animation: jumping 0.6s normal ease;
+}
+
+@keyframes jumping {
+  0% {
+    transform: translateY(0); /* Starting position */
+  }
+  20% {
+    transform: translateY(-5px); /* Strong jump upward */
+  }
+  50% {
+    transform: translateY(0); /* Gravity pulls it back down */
+  }
+  80% {
+    transform: translateY(-5px);}
+  }
+  100% {
+    transform: translateY(0); /* Settle back to the starting position */
+  }
+
+
+  
 
 /* inspired-->
 pony.town team
