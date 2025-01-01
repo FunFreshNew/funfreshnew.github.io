@@ -32,6 +32,10 @@ h1  {
     font-size: 30 px;
 }
 
+h2 {
+  font-weight: bold;
+}
+
   .commission-tables {
     display: flex;
     justify-content: space-between;
@@ -159,11 +163,11 @@ h1  {
 .button-w {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+  font-family: inter;
   color: #ffffff;
   background-color: #b0ce80;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   border: none;
   transition: background-color 0.3s ease; 
@@ -177,11 +181,11 @@ h1  {
 .button-p {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: inter;
   color: #ffffff;
   background-color: #e4915a;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   border: none;
   transition: background-color 0.3s ease; 
@@ -197,11 +201,11 @@ h1  {
 .button-v {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: inter;
   color: #ffffff;
   background-color: #e7766e;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   border: none;
   transition: background-color 0.3s ease; 
@@ -215,8 +219,8 @@ h1  {
 .button-b {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-family: inter;
+  font-size: 13px;
   font-weight: bold;
   color: #ffffff;
   background-color: #87c7e0;
@@ -233,8 +237,8 @@ h1  {
 .button-f {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-family: inter;
+  font-size: 13px;
   font-weight: bold;
   color: #ffffff;
   background-color: #ddb074;
@@ -251,8 +255,8 @@ h1  {
 .button-d {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-family: inter;
+  font-size: 13px;
   font-weight: bold;
   color: #ffffff;
   background-color: #7fc071;
@@ -270,8 +274,8 @@ h1  {
 .button-t {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 14px;
+  font-family: inter;
+  font-size: 13px;
   font-weight: bold;
   color: #ffffff;
   background-color: #535353;
@@ -484,11 +488,11 @@ video {
 .button-y {
   display: inline-block;
   text-decoration: none;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: inter;
   color: #ffffff;
   background-color: #e45a5a;
   padding: 10px 20px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
   border: none;
   transition: background-color 0.3s ease; 
