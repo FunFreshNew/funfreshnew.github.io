@@ -1,0 +1,13 @@
+Copyright (c) [2025] [FunFreshNew|Favian]
+
+Permission is hereby granted to any person obtaining a copy of this software and associated documentation files (the "Software"), to use the Software for educational purposes and non-commercial use only, subject to the following conditions:
+
+1. **Non-Commercial Use**: The Software, in whole or in part, may not be used for commercial purposes. Any use of the Software to generate revenue or as part of a commercial offering is strictly prohibited.
+
+2. **No Modification**: Users are not permitted to modify, alter, adapt, or create derivative works of the Software in any way.
+
+3. **Redistribution Prohibited**: The Software may not be redistributed, in whole or in part, through any means, including but not limited to websites, repositories, or other platforms, without prior written permission from the copyright holder.
+
+4. **Retention of Notices**: All copies or substantial portions of the Software must include this License text and any associated copyright notices.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

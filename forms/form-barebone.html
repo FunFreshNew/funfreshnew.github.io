@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=666, initial-scale=1.0, user-scalable=yes">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <title>FFN</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/source/icon.png" type="image/icon type">
+  <style>
+    .notice {
+      display: none;
+      margin-top: 10px;
+      color: #4CAF50; /* Success message color */
+      font-family: inter;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
+    <center style="margin-top: 69px; margin-bottom: 69%; padding-bottom: 100px; display: flexbox; justify-content: center; align-items: center; height: 100vh;">
+      <div class="container">
+        <!-- Description -->
+        <div style="background-color: #353535; margin-left: 2;">
+          <br>
+          <h1 style="text-align: center; font-family: pixel; margin-top: -20px; margin-bottom:10px; font-weight: normal;">Pixel Commission 
+            <br>
+            <a class="asrieldremurr" style="font-family: pixel; font-weight: normal;">FORMS</a>
+          </h1> 
+          <div style="text-align: middle; border-bottom-style:solid; border-bottom-width: 2px; font-size:9px;"></div>
+          <a href="/commissions-page/commissions-listing/pixel.html" _pageexpand_="12" class="button-v"><</a>        
+        </div>
+
+        <!-- Content -->
+        <div style="background-color: #353535; font-family: inter;">
+          <div style="text-align: left; margin-inline: 5%; background-color: #353535;">
+            <form id="dataForm">
+              <!-- Text Input -->
+              <label for="text-input" style="color: white;">Name:</label>
+              <input type="text" id="text-input" name="text-input" placeholder="Enter name" style="color: white;"><br><br>
+              
+              <!-- Email Input -->
+              <label for="email-input" style="color: white;">Email Input:</label>
+              <input type="email" id="email-input" name="email-input" placeholder="Enter your email" style="color: white;"><br><br>
+              
+              <!-- Number Input -->
+              <label for="number-input" style="color: white;">Number Input:</label>
+              <input type="number" id="number-input" name="number-input" placeholder="Enter a number" min="1" style="color: white;"><br><br>
+              
+              <!-- Textarea -->
+              <label for="textarea-input" style="color: white;">Textarea Input:</label>
+              <textarea style="color: white;" id="textarea-input" name="textarea-input" placeholder="Write something..."></textarea><br><br>
+              
+              <!-- Dropdown Selection -->
+              <label style="color: white;" for="dropdown-input">Dropdown Selection:</label>
+              <select style="color: white;" id="dropdown-input" name="dropdown-input">
+                <option value="" disabled selected>Select an option</option>
+                <option value="option1">Option 1</option>
+                <option value="option2">Option 2</option>
+              </select><br><br>
+              
+              <!-- Checkbox -->
+              <label for="checkbox-input" style="color: white;">Checkbox Input:</label>
+              <input type="checkbox" id="checkbox-input" name="checkbox-input"> Check this box<br><br>
+              
+              <!-- Radio Button -->
+              <label style="color: white;">Radio Button Input:</label>
+              <div style="display: flex; justify-content: space-around;">
+                <div style="text-align: center;">
+                  <img src="path/to/image1.png" alt="Option 1" width="100">
+                  <br>
+                  <input type="radio" name="radio-input" value="option1"> Option 1
+                </div>
+                <div style="text-align: center;">
+                  <img src="path/to/image2.png" alt="Option 2" width="100">
+                  <br>
+                  <input type="radio" name="radio-input" value="option2"> Option 2
+                </div>
+              </div><br><br>
+              
+              <!-- File Input -->
+              <label for="file-upload" style="color: white;">Upload Images:</label>
+              <input type="file" id="file-upload" name="file-upload" accept="image/*" multiple><br><br>
+
+              <!-- Submit Button -->
+              <button type="button" class="download-btn" onclick="downloadFormAsZip()">Download Form as ZIP</button>
+              <!-- Notice -->
+              <div id="notice" class="notice">Your ZIP file has been downloaded successfully!</div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Contact -->
+        <div style="margin-bottom: 20px;">
+          <p>Contact me:</p>
+          <div>
+            <a href="https://x.com/FunFreshNew" target="_blank" class="button-t">Twitter</a>
+            <a class="discord" style="padding-left: 5%; padding-right: 5%; font-weight: bold;">Discord</a>
+          </div>
+        </div>
+        
+        <div style="background-color:#353535;">
+          <a class="tinyface asrieldremurr" style="background-color: #353535; margin-bottom: ;"></a>
+        </div>
+
+        <div style="background-color: ;">2014-2024+ FunFreshNew</div>
+      </div>
+    </center>
+  </table>
+
+  <script>
+    async function downloadFormAsZip() {
+      const form = document.getElementById('dataForm');
+      const notice = document.getElementById('notice');
+      const zip = new JSZip();
+
+      // Collect form data
+      const formData = {
+        name: document.getElementById('text-input').value || 'N/A',
+        email: document.getElementById('email-input').value || 'N/A',
+        number: document.getElementById('number-input').value || 'N/A',
+        textarea: document.getElementById('textarea-input').value || 'N/A',
+        dropdown: document.getElementById('dropdown-input').value || 'N/A',
+        checkbox: document.getElementById('checkbox-input').checked ? 'Checked' : 'Unchecked',
+        radio: form.querySelector('input[name="radio-input"]:checked')?.value || 'None selected',
+      };
+
+      // Add form data as text
+      let formText = '';
+      for (const [key, value] of Object.entries(formData)) {
+        formText += `${key}: ${value}\n`;
+      }
+      zip.file('form_data.txt', formText);
+
+      // Add uploaded files to 'images' folder
+      const files = document.getElementById('file-upload').files;
+      if (files.length > 0) {
+        const imageFolder = zip.folder('images');
+        for (const file of files) {
+          const fileData = await file.arrayBuffer();
+          imageFolder.file(file.name, fileData);
+        }
+      }
+
+      // Generate ZIP and trigger download
+      const zipFileName = formData.name !== 'N/A' ? formData.name : 'form_submission';
+      zip.generateAsync({ type: 'blob' }).then((content) => {
+        saveAs(content, `${zipFileName}.zip`);
+        notice.style.display = 'block';
+      });
+    }
+  </script>
+</body>
+</html>

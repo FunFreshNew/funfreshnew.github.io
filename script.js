@@ -1,63 +1,129 @@
+function toggleDateInput() {
+  var checkbox = document.getElementById('publish-checkbox');
+  var dateTextArea = document.getElementById('publish-date');
 
-
-// Custom controls for video1
-const video1 = document.getElementById("video1");
-const mute1 = document.getElementById("mute1");
-const fullscreen1 = document.getElementById("fullscreen1");
-
-// Custom controls for video2
-const video2 = document.getElementById("video2");
-const mute2 = document.getElementById("mute2");
-const fullscreen2 = document.getElementById("fullscreen2");
-
-// Mute/Unmute functionality
-function toggleMute(video, button) {
-  if (video.muted) {
-    video.muted = false;
-    button.textContent = "🔊";
+  // Show or hide the date input based on checkbox status
+  if (checkbox.checked) {
+    dateTextArea.style.display = 'inline-block';  // Show date input when checked
   } else {
-    video.muted = true;
-    button.textContent = "🔇";
+    dateTextArea.style.display = 'none';          // Hide the date input when unchecked
   }
 }
 
-// Fullscreen functionality
-function toggleFullscreen(video) {
-  if (video.requestFullscreen) {
-    video.requestFullscreen();
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen();
-  } else if (video.msRequestFullscreen) {
-    video.msRequestFullscreen();
+async function downloadFormAsZip() {
+  try {
+    const form = document.getElementById('dataForm');
+    const notice = document.getElementById('notice');
+    const zip = new JSZip();
+
+    // Validate required fields
+    const nameInput = document.getElementById('text-input');
+    const numberInput = document.getElementById('number-input');
+    const socialMediaInput = document.getElementById('social-media-input');
+
+    if (nameInput.value.trim() === '') {
+      alert('Name is required!');
+      nameInput.focus();
+      return;
+    }
+
+    if (socialMediaInput.value.trim() === '') {
+      alert('Social Media Handle is required!');
+      socialMediaInput.focus();
+      return;
+    }
+
+    if (numberInput.value.trim() === '') {
+      alert('Number is required!');
+      numberInput.focus();
+      return;
+    }
+
+    // Collect form data in the specified order
+    const formData = {
+      name: nameInput.value || 'N/A',
+      email: document.getElementById('email-input').value || 'N/A',
+      socialMedia: socialMediaInput.value || 'N/A',
+      selectedCharacters: [],
+      totalSkin: numberInput.value || 'N/A',
+      commissionType: document.getElementById('dropdown-input').value || 'N/A',
+      notes: document.getElementById('textarea-input').value || 'N/A',
+      publishDate: 'N/A'
+    };
+
+    // Handle the selected characters (Steve, Alex)
+    const steveCheckbox = document.getElementById('checkbox-steve');
+    const alexCheckbox = document.getElementById('checkbox-alex');
+
+    if (steveCheckbox.checked) formData.selectedCharacters.push('Steve');
+    if (alexCheckbox.checked) formData.selectedCharacters.push('Alex');
+    if (formData.selectedCharacters.length === 0) {
+      formData.selectedCharacters = 'None selected';
+    }
+
+    // Handle the publish date if the checkbox is checked
+    if (document.getElementById('publish-checkbox').checked) {
+      const publishDateInput = document.getElementById('publish-date');
+      const publishDate = publishDateInput.value;
+
+      if (publishDate) {
+        // Split the date by '/' and handle formatting to D/M/YYYY
+        const dateParts = publishDate.split('/');
+        if (dateParts.length === 3) {
+          const day = parseInt(dateParts[0], 10);   // Remove leading zeros for day
+          const month = parseInt(dateParts[1], 10); // Remove leading zeros for month
+          const year = dateParts[2];                 // Keep the year as is
+          formData.publishDate = `${day}/${month}/${year}`;
+        } else {
+          formData.publishDate = 'N/A';
+        }
+      }
+    }
+
+    // Add form data as text in the correct order and with more readable formatting
+    let formText = '';
+    formText += `Name: ${formData.name} \n\n`;
+    formText += `Email: ${formData.email} \n\n`;
+    formText += `Social Media Handle: ${formData.socialMedia} \n\n`;
+    formText += `--------------------------\n\n`;
+    formText += `Selected Character: ${Array.isArray(formData.selectedCharacters) ? formData.selectedCharacters.join(', ') : formData.selectedCharacters} \n\n`;
+    formText += `Total Skin: ${formData.totalSkin} \n\n`;
+    formText += `Commission Type: ${formData.commissionType} \n\n`;
+    formText += `--------------------------\n\n`;
+    formText += `Notes: ${formData.notes} \n\n`;
+    formText += `Publish Date: ${formData.publishDate} \n\n`;
+
+    zip.file('form_data.txt', formText);
+
+    // Add uploaded files to 'images' folder
+    const files = document.getElementById('file-upload').files;
+    if (files.length > 0) {
+      const imageFolder = zip.folder('images');
+      for (const file of files) {
+        const fileData = await file.arrayBuffer();
+        imageFolder.file(file.name, fileData);
+      }
+    }
+
+    // Generate ZIP and trigger download
+    const zipFileName = formData.name !== 'N/A' ? `${formData.name.replace(/\s+/g, '_')}_commission.zip` : 'form_data.zip';
+    const zipBlob = await zip.generateAsync({ type: 'blob' });
+    saveAs(zipBlob, zipFileName);
+    
+    // Check if ZIP was successfully created
+    if (zipBlob.size > 0) {
+      saveAs(zipBlob, zipFileName);
+    } else {
+      console.error('Error: ZIP file is empty');
+      alert('Failed to create ZIP file. Please check the form and uploaded files.');
+    }
+
+    // Show notice (keeps it visible)
+    notice.style.visibility = 'visible';
+    notice.style.opacity = '1';
+
+  } catch (error) {
+    console.error('Error creating ZIP file:', error);
+    alert('Failed to create ZIP file. Please check the console for more details.');
   }
 }
-
-// Attach events for video1
-mute1.addEventListener("click", () => toggleMute(video1, mute1));
-fullscreen1.addEventListener("click", () => toggleFullscreen(video1));
-
-// Attach events for video2
-mute2.addEventListener("click", () => toggleMute(video2, mute2));
-fullscreen2.addEventListener("click", () => toggleFullscreen(video2));
-
-
-
-
-
-function copyDiscordName() {
-    const discordName = "funfreshnew"; //  Discord name
-    navigator.clipboard.writeText(discordName).then(() => {
-      // Show notification
-      const notification = document.getElementById("notification");
-      notification.classList.add("visible");
-
-      // Hide notification after 2 seconds
-      setTimeout(() => {
-        notification.classList.remove("visible");
-      }, 2000);
-    }).catch(err => {
-      console.error("what the: ", err);
-    });
-  }
-
-

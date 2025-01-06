@@ -252,6 +252,25 @@ h2 {
   background-color: #353535;
 }
 
+
+.button-i {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #e997b6;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease; 
+  text-align: center;
+}
+
+.button-i:hover {
+  background-color: #353535;
+}
+
 .button-d {
   display: inline-block;
   text-decoration: none;
@@ -453,7 +472,29 @@ h2 {
 
 
 
+.download-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  
+  margin: 20px auto;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
+.download-btn:hover {
+  background-color: #45a049;
+  transform: scale(1);
+}
+
+.download-btn:active {
+  background-color: #3e8e41;
+  transform: scale(0.98);
+}
 
 
 .video-container {
@@ -527,9 +568,97 @@ video {
   }
 
 
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    font-family: inter;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #444242;
+
+    font-size: 14px;
+    box-sizing: border-box;
+    background-color: #272727; 
+    transition: box-shadow 0.5s ease, border 0.5s ease; /* Smooth transition */
+  }
+  
+  /* Glowing effect when focused */
+  input:focus, textarea:focus, select:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(117, 117, 117, 0.8); /* Adds blue glowing effect */
+    border: 1px solid #c9e3ff; /* Optional: Change border color on focus */
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: #bbbbbb;
+    font-style: italic;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: #ffffff; /* Placeholder text color */
+    font-style: italic; /* Placeholder font style */
+  }
+
+  input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+  }
+
   
 
-/* inspired-->
+  .checkbox-label, .radio-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: normal;
+    color: #b1b1b1;
+  }
+
+  .notice {
+    display: none; /* Hidden by default */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    animation: exist 4s ease-in;
+    z-index: 1000;
+  }
+  
+  @keyframes exist {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(20px);
+    }
+  }
+
+
+
+
+  
+  
+/* Heavily inspired-->
 pony.town team
 Sytemax [Paint Tool Sai's website] 
 */

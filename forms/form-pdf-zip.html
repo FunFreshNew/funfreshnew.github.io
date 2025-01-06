@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form to PDF</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <form id="dataForm">
+    <label for="textInput">Text Input:</label>
+    <input type="text" id="textInput" name="textInput"><br><br>
+
+    <label for="imageInput">Image Input (Multiple):</label>
+    <input type="file" id="imageInput" name="imageInput" accept="image/*" multiple><br><br>
+
+    <button type="button" onclick="createPdf()">Download as PDF</button>
+  </form>
+
+  <script>
+    async function createPdf() {
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF();
+
+      // Add text input data
+      const textInput = document.getElementById("textInput").value;
+      pdf.text(`Text Input: ${textInput}`, 10, 10);
+
+      // Add multiple images
+      const imageFiles = document.getElementById("imageInput").files;
+      let yOffset = 20; // Start position for images
+      for (const imageFile of imageFiles) {
+        const reader = new FileReader();
+        reader.onload = function (event) {
+          const imgData = event.target.result;
+          pdf.addImage(imgData, "JPEG", 10, yOffset, 180, 160); // Adjust image size
+          yOffset += 170; // Update yOffset for the next image
+          if (yOffset > 270) {
+            pdf.addPage(); // Add a new page if needed
+            yOffset = 20; // Reset yOffset for the new page
+          }
+        };
+        reader.readAsDataURL(imageFile);
+        await new Promise((resolve) => reader.onloadend = resolve); // Wait for image load
+      }
+
+      // Save PDF
+      pdf.save("form-data.pdf");
+    }
+  </script>
+</body>
+</html>
