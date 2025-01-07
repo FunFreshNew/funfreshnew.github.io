@@ -47,14 +47,14 @@
                   <img src="/source/steve.png" style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="Steve" width="250">
                   <br>
                   <label>
-                    <input type="checkbox" id="checkbox-steve" name="character" style="width: 25px; height: 25px; value="Steve">
+                    <input type="checkbox" id="checkbox-steve" name="character" style="width: 25px; height: 25px; accent-color: #4cb9bb;" value="Steve" required>
                   </label>
                 </div>
                 <div style="text-align: center;">
                   <img src="/source/alex.png" style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="Alex" width="250">
                   <br>
                   <label>
-                    <input type="checkbox" id="checkbox-alex" name="character" style="width: 25px; height: 25px; accent-color: #d88c19;" value="Alex">
+                    <input type="checkbox" id="checkbox-alex" name="character" style="width: 25px; height: 25px; accent-color: #8bb27a;" value="Alex" required>
                   </label>
                 </div>
               </div><br><br>
@@ -66,11 +66,14 @@
               <input type="number" id="number-input" name="number-input" placeholder="0" min="1" style="color: white; width: 100px; margin-left: 20px" required><br><br>
 
               <!-- Dropdown Selection -->
-              <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Dropdown Selection:</label>
-              <select style="color: white; margin-left: 20px;" id="dropdown-input" name="dropdown-input"  required>
-                <option value="" disabled selected>Select an option</option>
+              <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Commission Type:</label>
+              <select style="color: white; margin-left: 20px;" id="dropdown-input" name="dropdown-input" required>
+                <option value="" disabled selected>Select a type</option>
                 <option value="Minecraft Skin">Minecraft Skin</option>
+                
                 <option value="Minecraft Skin + Custom Model">Minecraft Skin + Custom Model</option>
+                <option value="Custom Model">Custom Model</option>
+                
               </select>
               </div>
               <br><br>
@@ -104,8 +107,11 @@
               <!-- Submit Button -->
               <button type="button" class="download-btn" onclick="downloadFormAsZip()">Download Form as ZIP</button>
               <div id="notice" style="visibility: hidden; opacity: 0; transition: opacity 0.5s ease; color: white; margin-top: 10px;">
-                Your ZIP file has been downloaded successfully!
-                Please send it to my email [funfreshnew.work@gmail.com] or Discord [funfreshnew]
+                <a>Your ZIP file has been downloaded successfully!
+                Please send it to my email<br>
+                <p><a href="mailto:funfreshnew.work@gmail.com" class="asrieldremurr">[funfreshnew.work@gmail.com]</a></p>
+                or Discord [funfreshnew]</a>
+                
                 <br><br><br><br>
               </div>
             </form>
