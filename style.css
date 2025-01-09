@@ -1,164 +1,177 @@
-
 body {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 0;
-    color: #ffffff;
-    background-color: #1f1f1f;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  background-color: #1f1f1f;
 }
 
 .container {
-  width: 666px; 
+  width: 666px;
   position: relative;
-  height: auto; 
-  max-width: 666px; 
-  margin-top: 40px; 
+  height: auto;
+  max-width: 666px;
+  margin-top: 40px;
   background-color: #84A0C8;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reggae+One&family=Tsukimi+Rounded&display=swap');
 
 
 .notice {
-    border-style: solid;
-    border-width: 1px;
-    border-color: #ff0080;
-    background-color: #ffffff;
-  }
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ff0080;
+  background-color: #ffffff;
+}
 
-h1  {
-    margin: 0;
-    font-size: 30 px;
+h1 {
+  margin: 0;
+  font-size: 30 px;
 }
 
 h2 {
   font-weight: bold;
 }
 
-  .commission-tables {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    
+.commission-tables-split {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.availibity-notice {
+
+  color: #ffffff;
+  ;
+  padding-block: 15px;
+  animation: vibe 5s infinite;
+
+}
+
+@keyframes vibe {
+  0% {
+    background-color: #C74140;
   }
 
-  .availibity-notice{
-        
-    color: #ffffff;;
-    padding-block: 15px;
-    animation: vibe 5s infinite;
-   
+  50% {
+    background-color: #3b8a53;
   }
 
-  @keyframes vibe {
-    0% { background-color: #C74140; }
-    50% { background-color: #3b8a53; }
-    100% { background-color: #C74140; }
+  100% {
+    background-color: #C74140;
   }
-
-
-  .commission-table {
-    flex: 1;
-    border: 2px solid #ffffff;
-    background-color: #84A0C8;
-      
 }
 
 
- 
-  .commission-table table {
-    width: 100%;
-    border-collapse: ;
-  }
+.commission-table {
+  flex: 1;
+  border: 2px solid #ffffff;
+  background-color: #84A0C8;
 
-  
-  .contact {
-    font-family: ;
-    text-align: middle;
-    font-variant: small-caps;
-    color: #C74140;
-    margin-top: 40px;
-    margin-left: 450px ;
-    padding: 10px;
-    background-color: #;
+}
+
+
+
+.commission-table table {
+  width: 100%;
+  border-collapse: ;
+}
+
+
+.contact {
+  font-family: ;
+  text-align: middle;
+  font-variant: small-caps;
+  color: #C74140;
+  margin-top: 40px;
+  margin-left: 450px;
+  padding: 10px;
+  background-color: #;
 
 
 
 }
+
 .table-title {
 
-    border-style: solid;
-    border-width: 1px;
-    border-color: #909090;
-    background-color: #e8e8e8;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #909090;
+  background-color: #e8e8e8;
 }
 
 @keyframes tiny-shake {
-    0%,to {
-        transform: translate3d(-2px,-2px,0)
-    }
 
-    50% {
-        transform: translate3d(2px,2px,0)
-    }
+  0%,
+  to {
+    transform: translate3d(-2px, -2px, 0)
+  }
+
+  50% {
+    transform: translate3d(2px, 2px, 0)
+  }
 }
 
 
 .tinyface {
-    display: inline-block;
-    padding: 20px
+  display: inline-block;
+  padding: 20px
 }
 
 .tinyface:after {
-    content: "Ɛ  •(人)  •3 | ૮-・౪・-ა";
-    white-space: 
+  content: "Ɛ  •(人)  •3 | ૮-・౪・-ა";
+  white-space:
 }
 
 .tinyface:hover {
-    animation: tiny-shake 0.1s infinite;
-    will-change: transform
+  animation: tiny-shake 0.1s infinite;
+  will-change: transform
 }
 
 .tinyface:hover:after {
-    content: "Ɛ'-(人)  -3 | ૮- >౪< -ა"
+  content: "Ɛ'-(人)  -3 | ૮- >౪< -ა"
 }
 
 @keyframes loading-animation {
-    0%,to {
-        content: ""
-    }
 
-    25% {
-        content: "."
-    }
+  0%,
+  to {
+    content: ""
+  }
 
-    50% {
-        content: ".."
-    }
+  25% {
+    content: "."
+  }
 
-    75% {
-        content: "..."
-    }
+  50% {
+    content: ".."
+  }
+
+  75% {
+    content: "..."
+  }
 }
 
 .asrieldremurr {
-    
-    background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
-    background-size: 800% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: hyperbeam 50s linear infinite;
+
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 800% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hyperbeam 50s linear infinite;
+}
+
+@keyframes hyperbeam {
+  0% {
+    background-position: 0% 50%;
   }
-  
-  @keyframes hyperbeam {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 800% 50%;
-    }
+
+  100% {
+    background-position: 800% 50%;
   }
+}
 
 .button-w {
   display: inline-block;
@@ -170,13 +183,13 @@ h2 {
   font-size: 13px;
   font-weight: bold;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
-  }
-  
-  .button-w:hover {
-    background-color: #353535;
-  }
+}
+
+.button-w:hover {
+  background-color: #353535;
+}
 
 .button-p {
   display: inline-block;
@@ -188,13 +201,13 @@ h2 {
   font-size: 13px;
   font-weight: bold;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
-  }
-  
-  .button-p:hover {
-    background-color: #353535;
-  }
+}
+
+.button-p:hover {
+  background-color: #353535;
+}
 
 
 
@@ -208,13 +221,13 @@ h2 {
   font-size: 13px;
   font-weight: bold;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
-  }
-  
-  .button-v:hover {
-    background-color: #353535;
-  }
+}
+
+.button-v:hover {
+  background-color: #353535;
+}
 
 .button-b {
   display: inline-block;
@@ -226,7 +239,7 @@ h2 {
   background-color: #87c7e0;
   padding: 10px 20px;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
@@ -244,7 +257,7 @@ h2 {
   background-color: #ddb074;
   padding: 10px 20px;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
@@ -263,7 +276,7 @@ h2 {
   background-color: #e997b6;
   padding: 10px 20px;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
@@ -281,7 +294,7 @@ h2 {
   background-color: #7fc071;
   padding: 10px 20px;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
@@ -326,8 +339,8 @@ h2 {
 
 
 .discord:hover {
-  color: transparent; 
-  background-color: ; 
+  color: transparent;
+  background-color: ;
 }
 
 .discord:after {
@@ -337,18 +350,21 @@ h2 {
   top: 0;
   right: 0;
   bottom: 0;
-  color: #ffffff; /* New text color */
+  color: #ffffff;
+  /* New text color */
   display: flex;
   align-items: center;
   justify-content: center;
   transition: opacity 0.3s ease, color 0.3s ease;
-  opacity: 0; /* Initially hidden */
+  opacity: 0;
+  /* Initially hidden */
 }
 
 /* On hover, reveal the new text and ensure it matches the background */
 .discord:hover::after {
   opacity: 1;
-  color: #ffffff; /* Ensure the text remains white */
+  color: #ffffff;
+  /* Ensure the text remains white */
 }
 
 
@@ -364,28 +380,35 @@ h2 {
 /* Image styles and animations */
 .tinyfurball {
   position: absolute;
-  width: 50px; /* Adjust the size of the image */
-  animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite; 
+  width: 50px;
+  /* Adjust the size of the image */
+  animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite;
   transition: transform 0.5s ease;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
 
 .tinyfurball:hover {
-  transform: translateY(-10px); /* Jumps up slightly on hover */
+  transform: translateY(-10px);
+  /* Jumps up slightly on hover */
 }
 
 /* Horizontal movement with looping effect */
 @keyframes horizontal-move {
   0% {
-    left: -100px; /* Starts off-screen */
+    left: -100px;
+    /* Starts off-screen */
   }
+
   50% {
-    left: 50%; /* Moves to the center */
+    left: 50%;
+    /* Moves to the center */
     transform: translateX(-505%);
   }
+
   100% {
-    left: 110%; /* Exits off-screen to the right */
+    left: 110%;
+    /* Exits off-screen to the right */
   }
 }
 
@@ -394,6 +417,7 @@ h2 {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -402,26 +426,35 @@ h2 {
 /* Randomized up-and-down bouncing */
 @keyframes random-bounce {
   0% {
-    top: 50%; /* Initial vertical position */
+    top: 50%;
+    /* Initial vertical position */
     transform: translateY(-50%);
   }
+
   25% {
-    top: 48%; /* Moves slightly up */
+    top: 48%;
+    /* Moves slightly up */
   }
+
   50% {
-    top: 52%; /* Moves slightly down */
+    top: 52%;
+    /* Moves slightly down */
   }
+
   75% {
-    top: 49%; /* Moves slightly up again */
+    top: 49%;
+    /* Moves slightly up again */
   }
+
   100% {
-    top: 51%; /* Moves slightly down again */
+    top: 51%;
+    /* Moves slightly down again */
   }
 }
 
 
 @font-face {
-  font-family: pixeltxt ;
+  font-family: pixeltxt;
   src: url(/source/Mojangles.ttf);
   background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
   background-size: 800% 100%;
@@ -434,6 +467,7 @@ h2 {
   0% {
     background-position: 0% 50%;
   }
+
   100% {
     background-position: 800% 50%;
   }
@@ -445,28 +479,28 @@ h2 {
 
 @font-face {
   font-family: mojangles;
-  src:("/source/Mojangles.ttf");
+  src: ("/source/Mojangles.ttf");
 }
 
-.mojangles{
+.mojangles {
   font-family: mojangles;
 }
 
 @font-face {
   font-family: inter;
-  src:url("/source/Inter-VariableFont_opsz\,wght.ttf");
+  src: url("/source/Inter-VariableFont_opsz\,wght.ttf");
 }
 
-.inter{
+.inter {
   font-family: inter;
 }
 
 @font-face {
   font-family: pixel;
-  src:url("/source/BestTen-DOT.otf");
+  src: url("/source/BestTen-DOT.otf");
 }
 
-.bestendot{
+.bestendot {
   font-family: pixel;
 }
 
@@ -479,7 +513,7 @@ h2 {
   color: white;
   font-size: 16px;
   font-family: 'Arial', sans-serif;
-  
+
   margin: 20px auto;
   border: none;
   cursor: pointer;
@@ -499,26 +533,37 @@ h2 {
 
 .video-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns for left and right */
-  gap: 0; /* No gap between the videos */
-  width: 100%; /* Full-width container */
-  max-width: 1200px; /* Optional: Limits the maximum width */
+  grid-template-columns: 1fr 1fr;
+  /* Two equal columns for left and right */
+  gap: 0;
+  /* No gap between the videos */
+  width: 100%;
+  /* Full-width container */
+  max-width: 1200px;
+  /* Optional: Limits the maximum width */
 }
 
 video {
-  width: 100%; /* Videos take up full column width */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  /* Videos take up full column width */
+  height: auto;
+  /* Maintain aspect ratio */
   display: block;
-  object-fit: cover; /* Ensures no distortion */
+  object-fit: cover;
+  /* Ensures no distortion */
 }
 
 
 .video-container {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* Two equal columns for left and right */
-  gap: 0; /* No gap between the videos */
-  width: 100%; /* Full-width container */
-  max-width: 1200px; /* Optional: Limits the maximum width */
+  grid-template-columns: 1fr 1fr;
+  /* Two equal columns for left and right */
+  gap: 0;
+  /* No gap between the videos */
+  width: 100%;
+  /* Full-width container */
+  max-width: 1200px;
+  /* Optional: Limits the maximum width */
 }
 
 .video-wrapper {
@@ -536,7 +581,7 @@ video {
   font-size: 13px;
   font-weight: bold;
   border: none;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease;
   text-align: center;
 }
 
@@ -552,112 +597,139 @@ video {
 
 @keyframes jumping {
   0% {
-    transform: translateY(0); /* Starting position */
+    transform: translateY(0);
+    /* Starting position */
   }
+
   20% {
-    transform: translateY(-5px); /* Strong jump upward */
+    transform: translateY(-5px);
+    /* Strong jump upward */
   }
+
   50% {
-    transform: translateY(0); /* Gravity pulls it back down */
+    transform: translateY(0);
+    /* Gravity pulls it back down */
   }
+
   80% {
-    transform: translateY(-5px);}
+    transform: translateY(-5px);
   }
+}
+
+100% {
+  transform: translateY(0);
+  /* Settle back to the starting position */
+}
+
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  font-family: inter;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #444242;
+
+  font-size: 14px;
+  box-sizing: border-box;
+  background-color: #272727;
+  transition: box-shadow 0.5s ease, border 0.5s ease;
+  /* Smooth transition */
+}
+
+/* Glowing effect when focused */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(117, 117, 117, 0.8);
+  /* Adds blue glowing effect */
+  border: 1px solid #c9e3ff;
+  /* Optional: Change border color on focus */
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #bbbbbb;
+  font-style: italic;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ffffff;
+  /* Placeholder text color */
+  font-style: italic;
+  /* Placeholder font style */
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  margin-right: 8px;
+}
+
+
+
+.checkbox-label,
+.radio-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: normal;
+  color: #b1b1b1;
+}
+
+.notice {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  /* Green background */
+  color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  animation: exist 4s ease-in;
+  z-index: 1000;
+}
+
+@keyframes exist {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   100% {
-    transform: translateY(0); /* Settle back to the starting position */
+    opacity: 1;
+    transform: translateY(20px);
   }
-
-
-  label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-    color: #555;
-  }
-
-  input, textarea, select {
-    width: 100%;
-    font-family: inter;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #444242;
-
-    font-size: 14px;
-    box-sizing: border-box;
-    background-color: #272727; 
-    transition: box-shadow 0.5s ease, border 0.5s ease; /* Smooth transition */
-  }
-  
-  /* Glowing effect when focused */
-  input:focus, textarea:focus, select:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(117, 117, 117, 0.8); /* Adds blue glowing effect */
-    border: 1px solid #c9e3ff; /* Optional: Change border color on focus */
-  }
-  
-  input::placeholder, textarea::placeholder {
-    color: #bbbbbb;
-    font-style: italic;
-  }
-  
-  input::placeholder, textarea::placeholder {
-    color: #ffffff; /* Placeholder text color */
-    font-style: italic; /* Placeholder font style */
-  }
-
-  input[type="checkbox"], input[type="radio"] {
-    width: auto;
-    margin-right: 8px;
-  }
-
-  
-
-  .checkbox-label, .radio-label {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    font-weight: normal;
-    color: #b1b1b1;
-  }
-
-  .notice {
-    display: none; /* Hidden by default */
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50; /* Green background */
-    color: white;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    animation: exist 4s ease-in;
-    z-index: 1000;
-  }
-  
-  @keyframes exist {
-    0% {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    20% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    80% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(20px);
-    }
-  }
+}
 
 
 
 
-  
-  
+
+
 /* Heavily inspired-->
 pony.town team
 Sytemax [Paint Tool Sai's website] 
