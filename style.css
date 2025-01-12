@@ -289,14 +289,10 @@ h2 {
   transition: opacity .3s ease-in-out;
   
 }
-
-
-
 .button-m:hover:before {
   opacity: 1;
   
 }
-
 .button-m:after {
   z-index: -1;
   content: '';
