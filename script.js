@@ -108,7 +108,6 @@ async function downloadFormAsZip() {
     // Generate ZIP and trigger download
     const zipFileName = formData.name !== 'N/A' ? `${formData.name.replace(/\s+/g, '_')}_commission.zip` : 'form_data.zip';
     const zipBlob = await zip.generateAsync({ type: 'blob' });
-    saveAs(zipBlob, zipFileName);
     
     // Check if ZIP was successfully created
     if (zipBlob.size > 0) {
@@ -127,3 +126,30 @@ async function downloadFormAsZip() {
     alert('Failed to create ZIP file. Please check the console for more details.');
   }
 }
+
+
+
+
+function getIndonesianTime() {
+  const now = new Date();
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  return new Date(utc + 7 * 3600000);
+}
+
+function updateAnalogClock() {
+  const time = getIndonesianTime();
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+  const seconds = time.getSeconds();
+
+  const hourDeg = (hours % 12) * 30 + minutes * 0.5; // 30 degrees per hour + minute adjustment
+  const minuteDeg = minutes * 6 + seconds * 0.1; // 6 degrees per minute + second adjustment
+  const secondDeg = seconds * 6; // 6 degrees per second
+
+  document.getElementById('hour-hand').style.transform = `rotate(${hourDeg}deg)`;
+  document.getElementById('minute-hand').style.transform = `rotate(${minuteDeg}deg)`;
+  document.getElementById('second-hand').style.transform = `rotate(${secondDeg}deg)`;
+}
+
+setInterval(updateAnalogClock, 1000);
+updateAnalogClock();

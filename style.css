@@ -173,6 +173,33 @@ h2 {
   }
 }
 
+.wobble-container {
+  display: inline-block;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.2; /* Adjust spacing between symbols */
+}
+
+.spanfix {
+  display: inline-block; 
+  width: 30px; 
+  text-align: right;
+}
+
+.tos-category {
+  margin-left: 5%;
+  font-family: ;
+  text-align: left; 
+  color: #e8cb91;
+  font-size: larger ;
+  font-weight: bolder;
+}
+.tos-list {
+  margin-left: 5%;
+  font-family: ;
+  font-size: smaller;
+}
+
 .button-w {
   display: inline-block;
   text-decoration: none;
@@ -228,6 +255,62 @@ h2 {
 .button-v:hover {
   background-color: #353535;
 }
+
+.button-m {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  background: #6bc754;
+}
+
+.button-m:before {
+  content: '';
+  background: linear-gradient(45deg, #5cda66, #ff7300, #75eaff, #cefd22, #ff5e00, #c484ff, #7a00ff, #ff00c8, #95eea8);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(20px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: hyperbeam 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  
+}
+
+
+
+.button-m:hover:before {
+  opacity: 1;
+  
+}
+
+.button-m:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #6bc754;
+  left: 0;
+  top: 0;
+  
+}
+
+
+
 
 .button-b {
   display: inline-block;
@@ -335,6 +418,7 @@ h2 {
   font-weight: bold;
   border-radius: ;
   transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: none;
 }
 
 
@@ -570,6 +654,27 @@ video {
   position: relative;
 }
 
+.star{
+  transition: ;
+}
+
+.button-x {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #e45a5a;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-x:hover {
+  cursor: progress;
+}
 
 .button-y {
   display: inline-block;
@@ -724,9 +829,6 @@ input[type="radio"] {
     transform: translateY(20px);
   }
 }
-
-
-
 
 
 
