@@ -1,9 +1,34 @@
+html {
+  overflow-y: scroll;
+
+    scroll-behavior: smooth;
+
+}
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: auto; /* Ensures links work */
+  object-fit: contain
+}
+
+
 body {
   font-family: 'Courier New', Courier, monospace;
   margin: 0;
   padding: 0;
   color: #ffffff;
   background-color: #1f1f1f;
+}
+
+.scroll-link {
+  color: #007bff; /* Make link visible */
+  text-decoration: underline; /* Make it look like a link */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+.scroll-link:hover {
+  color: #0056b3; /* Change color on hover */
 }
 
 .container {
@@ -13,7 +38,10 @@ body {
   max-width: 666px;
   margin-top: 40px;
   background-color: #84A0C8;
-  overflow: hidden;
+  overflow:hidden ;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reggae+One&family=Tsukimi+Rounded&display=swap');
@@ -256,6 +284,26 @@ h2 {
   background-color: #353535;
 }
 
+.button-s {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #444444;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-s:hover {
+  background-color: #353535;
+}
+
+
+
 .button-m {
   display: inline-block;
   text-decoration: none;
@@ -402,28 +450,30 @@ h2 {
 }
 
 .discord {
+  padding-left: 5%;
+  padding-right: 5%;
   position: relative;
   display: inline-block;
-  text-decoration: none;
+  text-decoration: dotted;
   color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, sans-serif;
   background-color: #7289da;
   padding: 10px 20px;
-  border: px solid #C74140;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: bold;
-  border-radius: ;
   transition: background-color 0.3s ease, color 0.3s ease;
-  cursor: none;
+  cursor: pointer;
+  user-select: none; /* Prevents selection before hover */
+  
 }
 
-
+/* Ensure original text fades out while maintaining space */
 .discord:hover {
-  color: transparent;
-  background-color: ;
+  color: transparent; /* Hides the original text */
 }
 
-.discord:after {
+/* Overlay new text */
+.discord::after {
   content: 'funfreshnew';
   position: absolute;
   left: 0;
@@ -431,21 +481,39 @@ h2 {
   right: 0;
   bottom: 0;
   color: #ffffff;
-  /* New text color */
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s ease, color 0.3s ease;
+  transition: opacity 0.3s ease;
   opacity: 0;
-  /* Initially hidden */
+  pointer-events: none; /* Prevents blocking interaction */
 }
 
-/* On hover, reveal the new text and ensure it matches the background */
+/* Reveal new text and make it selectable on hover */
 .discord:hover::after {
   opacity: 1;
-  color: #ffffff;
-  /* Ensure the text remains white */
+  user-select: text; /* Allows text selection */
+  pointer-events: all; /* Makes sure the text is interactive */
 }
+
+/* Tooltip Styling */
+.tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #b0ce80;
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  z-index: 1000;
+}
+
 
 
 
@@ -454,7 +522,7 @@ h2 {
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 /* Image styles and animations */
@@ -503,17 +571,17 @@ h2 {
   }
 }
 
-/* Randomized up-and-down bouncing */
+
 @keyframes random-bounce {
   0% {
     top: 50%;
-    /* Initial vertical position */
+    
     transform: translateY(-50%);
   }
 
   25% {
     top: 48%;
-    /* Moves slightly up */
+    
   }
 
   50% {
@@ -584,7 +652,21 @@ h2 {
   font-family: pixel;
 }
 
+.card3d {
+  margin: 4px;
+  transform: scale(1);
+  perspective: 600px;
+}
 
+.card3d:hover {
+  z-index: 10;
+  transform: scale(1.3);
+}
+
+.card3d,
+.card3d img {
+  transition: all 250ms ease-out;
+}
 
 .download-btn {
   display: inline-block;
@@ -610,12 +692,16 @@ h2 {
   transform: scale(0.98);
 }
 
+.galery-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .video-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* Two equal columns for left and right */
-  gap: 0;
+  gap: 0%;
   /* No gap between the videos */
   width: 100%;
   /* Full-width container */
@@ -633,18 +719,6 @@ video {
   /* Ensures no distortion */
 }
 
-
-.video-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  /* Two equal columns for left and right */
-  gap: 0;
-  /* No gap between the videos */
-  width: 100%;
-  /* Full-width container */
-  max-width: 1200px;
-  /* Optional: Limits the maximum width */
-}
 
 .video-wrapper {
   position: relative;
@@ -825,6 +899,160 @@ input[type="radio"] {
     transform: translateY(20px);
   }
 }
+
+
+
+.terrain {
+  width: 666px;  /* 🔹 Set fixed width */
+  height: 10px; /* Adjust height as needed */
+  position: absolute;
+  bottom: 0;
+    /* 🔹 Center the terrain */
+  
+  background: url("your_terrain_texture.png") repeat-x;
+  overflow: visible
+}
+
+.ground {
+  position: fixed ;
+  align-items: center;
+  
+  background-color: brown;
+}
+
+.tinipix {
+  position: absolute;
+  bottom: 100px;
+  width: 100px;
+  align-items: 
+  transition: transform 0.05s ease-out;
+  shape-rendering: pixelated;
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+
+
+
+
+.particle {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+
+.zoom {
+  display: -;
+  overflow: hidden;
+  border-radius: 10px; /* Optional: rounded edges */
+  position: ;
+}
+
+.zoom img {
+  display: block;
+  overflow: ;
+  width: 100%;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.zoom:hover img {
+  transform: scale(1.2); /* Zoom in */
+  overflow: visible;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
+}
+
+
+
+
+/* Info-container */
+
+.detail-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* PIXBUTTON */
+
+.pixbutton-container {
+  position: relative; /* Keeps bubble positioned under each button */
+  display: inline-block;
+}
+
+.pixbutton {
+  display: inline-block;
+  width: 55px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  image-rendering: pixelated;
+  background-image: var(--default-img);
+  -webkit-tap-highlight-color: transparent;
+  user-select: none; /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+
+.pixbutton:active {
+  background-image: var(--clicked-img);
+  image-rendering: pixelated;
+}
+
+.pixbutton:focus {
+  outline: none;
+}
+
+/* Bubble styling */
+.bubble {
+  position: absolute;
+  font-family: pixeltxt;
+  left: 50%;
+  bottom: -25px; /* Adjusts to be just under the button */
+  transform: translateX(-50%);
+  background: rgb(63, 63, 63);
+  
+  padding: 5px 10px;
+  
+  font-size: 14px;
+  white-space: nowrap;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease-in-out;
+  z-index: 10;
+}
+
+.bubble a {
+  color: black; /* Change text color */
+  text-decoration: none; /* Remove underline */
+  font-weight: bold; /* Optional: Make it bold */
+  background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+  background-size: 800% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: hyperbeam 50s linear infinite;
+}
+
+.bubble a:hover {
+  color: gray; /* Optional: Change color on hover */
+}
+
+.bubble.hidden {
+  display: none;
+}
+
+.bubble.fade-out {
+  opacity: 0;
+}
+
+
+
+
+
 
 
 

@@ -1,39 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zip Form Example</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-</head>
-<body>
-  <h1>Submit Your Details</h1>
-  <form id="dataForm">
-    <!-- Text Input -->
-    <label for="text-input">Name:</label>
-    <input type="text" id="text-input" name="text-input" placeholder="Enter name" required><br><br>
-
-    <!-- Email Input -->
-    <label for="email-input">Email:</label>
-    <input type="email" id="email-input" name="email-input" placeholder="Enter email" required><br><br>
-
-    <!-- Number Input -->
-    <label for="number-input">Number:</label>
-    <input type="number" id="number-input" name="number-input" placeholder="Enter number" required><br><br>
-
-    <!-- File Input -->
-    <label for="file-upload">Upload Images:</label>
-    <input type="file" id="file-upload" name="file-upload" accept="image/*" multiple required><br><br>
-
-    <!-- Download Button -->
-    <button type="button" onclick="generateZip()">Download ZIP</button>
-  </form>
-
-  <p id="instructions" style="display:none; color: green;">
-    Please send the ZIP file to my email at <strong>youremail@example.com</strong> or Discord at <strong>YourDiscord#1234</strong>.
-  </p>
-
-  <script src="/test-script.js"></script>
-</body>
-</html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinipix Terrarium</title>
+    <link rel="stylesheet" href="test-style.css">
+    <script defer src="test-script.js"></script>
+  </head>
+  <body>
+      <div class="terrain">
+          <div class="ground" id="ground"></div>
+  
+          <!-- Multiple Shimejis -->
+          <img src="source/tinipix/tinipix_fyn.png" alt="tinipix" class="tinipix" id="fyn">
+          <img src="source/tinipix/tinipix_liner_left.png" alt="tinipix" class="tinipix" id="liner">
+          <img src="source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
+          <img src="source/tinipix/tinipix_mega.png" alt="tinipix" class="tinipix" id="mega">
+          <img src="source/tinipix/tinipix_kikan.png" alt="tinipix" class="tinipix" id="kikan">
+  
+          <!-- Particle effect for interaction -->
+          <div class="particle" id="particle">💬</div>
+      </div>
+  </body>
+  </html>

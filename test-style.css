@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #87CEEB;
+}
+
+.terrain {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.ground {
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: brown;
+}
+
+.tinipix {
+    position: absolute;
+    bottom: 50px;
+    width: 100px;
+    transition: transform 0.1s linear;
+    shape-rendering: crispEdges;
+    cursor: pointer;
+}
+
+.tinipix-wrapper {
+    width: 30px;  /* Adjust to control the hitbox size */
+    height: 40px;
+    position: absolute;
+    overflow: visible; /* Ensures the sprite is not clipped */
+}
+.tinipix-wrapper img {
+    width: 100%; /* Make sure the image scales properly */
+    height: auto;
+}
+
+.tinipix img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.particle {
+    position: absolute;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
