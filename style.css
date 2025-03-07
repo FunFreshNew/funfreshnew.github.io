@@ -246,6 +246,8 @@ h2 {
   background-color: #353535;
 }
 
+
+
 .button-p {
   display: inline-block;
   text-decoration: none;
@@ -265,6 +267,23 @@ h2 {
 }
 
 
+.button-back {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #e7766e;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-back:hover {
+  background-color: #a55852;
+}
 
 .button-v {
   display: inline-block;
@@ -302,7 +321,27 @@ h2 {
   background-color: #353535;
 }
 
+.button-mail {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  background: #dd5a5a;
+}
 
+.button-mail:hover {
+  color: #292929;
+  background: #ffffff;
+}
 
 .button-m {
   display: inline-block;
@@ -430,7 +469,7 @@ h2 {
 }
 
 
-.button-t {
+.button-twitter {
   display: inline-block;
   text-decoration: none;
   font-family: inter;
@@ -444,7 +483,7 @@ h2 {
   text-align: center;
 }
 
-.button-t:hover {
+.button-twitter:hover {
   background-color: #4fa7f0;
 
 }
@@ -975,6 +1014,12 @@ input[type="radio"] {
   grid-template-columns: 1fr 1fr;
 }
 
+.detail-container-category {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+
 /* PIXBUTTON */
 
 .pixbutton-container {
@@ -984,8 +1029,8 @@ input[type="radio"] {
 
 .pixbutton {
   display: inline-block;
-  width: 55px;
-  height: 50px;
+  width: 3pc;
+  height: 3pc;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -1052,7 +1097,27 @@ input[type="radio"] {
 
 
 
+/* Splash */
 
+.splash-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%) rotate(-10deg);
+  font-family: Arial, sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+  color: yellow;
+  text-shadow: 2px 2px 0px black;
+  animation: splashBounce 2s infinite ease-in-out alternate;
+  white-space: nowrap;
+}
+
+@keyframes splashBounce {
+  0% { transform: translateX(-50%) rotate(-10deg) translateY(0px); }
+  100% { transform: translateX(-50%) rotate(-10deg) translateY(5px); }
+}
 
 
 

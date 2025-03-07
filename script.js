@@ -796,18 +796,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* Soundcloud Remote Controller */
 
-const iframe = document.getElementById("soundcloudPlayer");
-const playPauseBtn = document.getElementById("playPauseBtn");
+/* Minecraft Splash Text */
 
-playPauseBtn.addEventListener("click", () => {
-    // Try to access the iframe's built-in play button
-    iframe.contentWindow.focus();
-    iframe.contentWindow.document.body.click(); // Simulates clicking inside the iframe
+function preloadImages(urls) {
+    urls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+    });
+}
 
-    // Toggle button text
-    if (playPauseBtn.textContent.includes("Play")) {
-        playPauseBtn.textContent = "⏸ Pause";
-    } else {
-        playPauseBtn.textContent = "▶ Play";
-    }
-});
+const splashTexts = [
+    "Woo! JavaScript!",
+    "Now in HD!",
+    "So smooth!",
+    "Infinite creativity!",
+    "100% organic pixels!",
+    "More pixels, more fun!",
+    "Crafting your experience!",
+    "Procedurally generated fun!",
+    "Blocky but beautiful!",
+    "Limited edition!"
+  ];
+  
+  // Pick a random splash text
+  document.getElementById("splashText").textContent = splashTexts[Math.floor(Math.random() * splashTexts.length)];
