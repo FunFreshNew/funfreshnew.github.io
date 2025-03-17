@@ -456,7 +456,7 @@ h2 {
 }
 
 .button-commission:hover {
-  background-color: #ecc544;
+  background-color: #414141;
 }
 
 .button-w {
@@ -464,7 +464,7 @@ h2 {
   text-decoration: none;
   font-family: inter;
   color: #ffffff;
-  background-color: #b0ce80;
+  background-color: #353535;
   padding: 10px 20px;
   font-size: 13px;
   font-weight: bold;
@@ -1256,7 +1256,7 @@ input[type="radio"] {
 
 
 .terrain {
-  
+
   /* 🔹 Set fixed width */
   height: 0px;
   /* Adjust height as needed */
