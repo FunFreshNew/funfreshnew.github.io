@@ -441,7 +441,7 @@ h2 {
   image-rendering: pixelated;
 }
 
-.button-commission {
+.button-comm {
   display: inline-block;
   text-decoration: none;
   font-family: inter;
@@ -455,7 +455,7 @@ h2 {
   text-align: center;
 }
 
-.button-commission:hover {
+.button-comm:hover {
   background-color: #414141;
 }
 
