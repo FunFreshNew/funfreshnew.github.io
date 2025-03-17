@@ -1,38 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="background-color: #1f1f1f;" lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=888" , initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
   <script src="../script.js"></script>
+
+  <!-- Three.js Core -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/build/three.min.js"></script>
+
+  <!-- Loaders -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+
+  <!-- Post-processing (Effects) -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/shaders/LuminosityHighPassShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/UnrealBloomPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/RenderPixelatedPass.js"></script>
+
   <title>FFN</title>
 
   <link rel="stylesheet" href="../style.css" />
+
   <link rel="icon" href="/source/icon.png" type="image/icon type">
-  <link rel="preload" href="source/icon/ico_ableton_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_ableton_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_aseprite_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_aseprite_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_blender_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_blender_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_blockbench_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_blockbench_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_clipstudiopaint_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_clipstudiopaint_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_gimp_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_gimp_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_inkscape_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_inkscape_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_krita_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_krita_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_mcskin3d_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_mcskin3d_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_painttoolsai_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_painttoolsai_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_procreate_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_procreate_on.png" as="image">
-  <link rel="preload" href="source/icon/ico_visualstudio_off.png" as="image">
-  <link rel="preload" href="source/icon/ico_visualstudio_on.png" as="image">
+  <!-- Icons Buttons preload -->
+  <link rel="preload" href="../source/icon/ico_ableton_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_ableton_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_aseprite_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_aseprite_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blender_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blender_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blockbench_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blockbench_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_clipstudiopaint_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_clipstudiopaint_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_css3_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_css3_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_gimp_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_gimp_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_html5_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_html5_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_inkscape_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_inkscape_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_js_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_js_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_krita_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_krita_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_mcskin3d_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_mcskin3d_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_nomadsculpt_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_nomadsculpt_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_painttoolsai_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_painttoolsai_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_procreate_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_procreate_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_threejs_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_threejs_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_visualstudio_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_visualstudio_on.png" as="image">
 </head>
 <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
   <center style=" 
@@ -41,39 +68,76 @@
                       padding: 0;
                       display: flexbox;
                       justify-content: center;
-                      align-items: center;
-                      ">
+                      align-items: center;">
 
     <body id="asriel">
       <div class="container">
         <!-- Description -->
-        <div style="background-color: #303030;">
+        <div style="background-color: #353535;">
 
 
-          <h1 class="asrieldremurr"
-            style="text-align: center; font-family: pixeltxt; font-size: 69px; margin-bottom: 20px; font-weight: normal; ">
-            Portfolio</h1>
+
+
+          <h1
+            style="display: inline-block; font-family: pixeltxt; font-size: 69px; margin-bottom: 20px; font-weight: normal; ">
+            <div>
+              <a class="thiku-thiku-motion" style="display: flex;">
+
+                <div style="animation-delay: -1.7s">
+                  <div style="animation: fruit-color 9s -1s infinite ;">P</div>
+                </div>
+                <div style="animation-delay: -1.6s">
+                  <div style="animation: fruit-color 9s -1.25s infinite;">o</div>
+                </div>
+                <div style="animation-delay: -1.5s">
+                  <div style="animation: fruit-color 9s -1.50s infinite;">r</div>
+                </div>
+                <div style="animation-delay: -1.4s">
+                  <div style="animation: fruit-color 9s -1.75s infinite;">t</div>
+                </div>
+                <div style="animation-delay: -1.3s">
+                  <div style="animation: fruit-color 9s -2s infinite;">f</div>
+                </div>
+                <div style="animation-delay: -1.2s">
+                  <div style="animation: fruit-color 9s -2.25s infinite;">o</div>
+                </div>
+                <div style="animation-delay: -1.1s">
+                  <div style="animation: fruit-color 9s -2.50s infinite;">l</div>
+                </div>
+                <div style="animation-delay: -1.0s">
+                  <div style="animation: fruit-color 9s -2.75s infinite;">i</div>
+                </div>
+                <div style="animation-delay: -0.9s">
+                  <div style="animation: fruit-color 9s -3s  infinite;">o</div>
+                </div>
+
+              </a>
+            </div>
+          </h1>
 
           <div style="text-align: left; border-bottom-style:solid;  border-bottom-width: 2px; font-size:9px ;">Self
             taught and "Jack
             all of trade" </div>
-
-          <a href="/index.html" class="button-back">
-            ◀ </a>
+          <div style="display:inline-flex;">
+            <button onclick="history.back()" href class="button-back">
+              ◀ </button>
+            <a href="/index.html" class="button-home">▲</a>
+          </div>
 
 
 
           <!-- Insert here -->
           <div class="detail-container" style="font-family: inter; background-color: #353535; text-align: left;">
 
-            <div>
+            <div style="font-family: inter; background-color: #303030;">
               <br>
               <div style="margin-inline: 20px;">
-                This gallery is just a peek at what I've made! There's more; <a class="asrieldremurr"> feel free to
+                This gallery is just a peek at what I've made!
+                I may add more in the future. Also if you want to see more,<a class="asrieldremurr"> feel free to
                   ask!</a>
               </div>
               <br>
-              <div style="font-family: inter; background-color: #303030;">
+              <div style="font-family: inter; background-color: #353535;">
                 <br>
                 <div style="margin-inline: 20px;">
                   Anyway, <br>here are the list of softwares I use!
@@ -81,7 +145,7 @@
                 <br>
               </div>
               <br>
-              <div style="margin-inline: 20px;">
+              <div style="margin-inline: 10px;">
                 <!-- Blender -->
                 <div class="pixbutton-container">
                   <a class="pixbutton" data-software="Blender" data-url="https://www.blender.org/"
@@ -127,10 +191,10 @@
                     <a href="#" target="_blank"></a>
                   </div>
                 </div>
-                <!-- PaintToolSai -->
+                <!-- Nomadsculpt -->
                 <div class="pixbutton-container">
-                  <a class="pixbutton" data-software="PaintToolSai" data-url="https://systemax.jp/en/sai/"
-                    style="--default-img: url('source/icon/ico_painttoolsai_off.png'); --clicked-img: url('source/icon/ico_painttoolsai_on.png');">
+                  <a class="pixbutton" data-software="Nomad Sculpt" data-url="https://nomadsculpt.com/"
+                    style="--default-img: url('../source/icon/ico_nomadsculpt_off.png'); --clicked-img: url('../source/icon/ico_nomadsculpt_on.png');">
                   </a>
                   <div class="bubble hidden">
                     <a href="#" target="_blank"></a>
@@ -142,6 +206,15 @@
                     style="--default-img: url('source/icon/ico_krita_off.png'); --clicked-img: url('source/icon/ico_krita_on.png');">
                   </a>
                   <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+                <!-- PaintToolSai -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="PaintToolSai" data-url="https://systemax.jp/en/sai/"
+                    style="--default-img: url('source/icon/ico_painttoolsai_off.png'); --clicked-img: url('source/icon/ico_painttoolsai_on.png');">
+                  </a>
+                  <div class="bubble hidden" style="overflow:visible ;">
                     <a href="#" target="_blank"></a>
                   </div>
                 </div>
@@ -158,6 +231,15 @@
                 <div class="pixbutton-container">
                   <a class="pixbutton" data-software="Inkscape" data-url="https://www.inkscape.org/"
                     style="--default-img: url('source/icon/ico_inkscape_off.png'); --clicked-img: url('source/icon/ico_inkscape_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+                <!-- VisualStudio -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="VisualStudio" data-url="https://code.visualstudio.com/"
+                    style="--default-img: url('source/icon/ico_visualstudio_off.png'); --clicked-img: url('source/icon/ico_visualstudio_on.png');">
                   </a>
                   <div class="bubble hidden">
                     <a href="#" target="_blank"></a>
@@ -185,15 +267,28 @@
             </div>
             <div>
               <iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/607583238&color=%2355454d&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-              </iframe>
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/647725548&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
               <div
                 style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                <a href="https://soundcloud.com/benmads" title="ben+mads" target="_blank"
-                  style="color: #cccccc; text-decoration: none;">ben+mads</a> · <a
-                  href="https://soundcloud.com/benmads/wintersleep-tennyson-remix"
-                  title="Wintersleep - Tennyson (B&amp;M remix)" target="_blank"
-                  style="color: #cccccc; text-decoration: none;">Wintersleep - Tennyson (B&amp;M remix)</a>
+                <a href="https://soundcloud.com/kagi-toire" title="kagi&#x27;s toilet" target="_blank"
+                  style="color: #cccccc; text-decoration: none;">kagi&#x27;s toilet</a> · <a
+                  href="https://soundcloud.com/kagi-toire/farmville-type-beat" title="farmville type beat"
+                  target="_blank" style="color: #cccccc; text-decoration: none;">farmville type beat</a>
+              </div>
+              <div class="tiny-wave" style="display: flex; font-weight: bolder;">
+                <a>L</a>
+                <a>E</a>
+                <a>T</a>
+                <a>'</a>
+                <a>S</a>
+
+                <a>V</a>
+                <a>I</a>
+                <a>B</a>
+                <a>E</a>
+                <a>!</a>
+
+
               </div>
             </div>
 
@@ -210,16 +305,18 @@
         </div>
         <div class="detail-container-category"
           style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030; margin-top: px;">
-          <a style="margin: 20px;"> Minecraft Skin +<br> Custom
+          <a style="margin: auto; font-size: large;"> Minecraft Skin +<br> Custom
             Model </a>
 
-          <div style="font-family: inter; background-color: #353535; font-size:small ; font-weight: normal;">
+          <div style="font-family: inter; background-color: #353535; font-size:small ; ">
 
-            <div style="font-size: larger;">
-              <a>Description:</a>
-              <br>
-              <div style=" text-align: left ;font-family: inter; font-weight: bolder; font-size: x-small;">
-                Assets such as Players textures or models!
+            <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+              <div
+                style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: x-small; margin: 20px; font-weight: normal; ">
+                <a style="margin: auto;">Description:</a> <br>
+                "I make Minecraft skins and textures. Sometimes I mess around with custom player models for modded
+                Minecraft or OptiFine, too. I also use these models for 3D renders in Blender, where I rig and animate
+                them as needed."
 
               </div>
               <a class="asrieldremurr"
@@ -253,8 +350,28 @@
           <video autoplay loop muted width="360" height="360" id="autoplay-video">
             <source src="\portfolio\portfolio-files\bird.mp4" type="video/mp4">
           </video>
+
+
+
         </a>
-        </a>
+        <div class="threedee-container">
+
+          <div class=" model-container" id="model1" data-model="/portfolio/portfolio-files/fig Favian Alpaca v1.1.glb"
+            data-camera="1.93,2.17,-0.76" data-camera-target="0,1.62,0" data-width="333" data-height="333"
+            data-shadow-res="4096" data-info="Favian" data-ambient-intensity="0.7" data-ambient-color="#ffffff"
+            data-light-intensity="2.0" data-light-color="null" data-light-angle="222" data-light-radius="15"
+            data-light-height="8" data-light-color="#ffcc00" data-light-intensity="1.2">
+          </div>
+
+          <div class=" model-container" id="model2" data-model="/portfolio/portfolio-files/fig Kikan v1.glb"
+            data-camera="-0.49,1.25,-1.51" data-camera-target="0,0.5,0" data-width="333" data-height="333"
+            data-shadow-res="4096" data-info="Kikan" data-ambient-intensity="0.7" data-ambient-color="#ffffff"
+            data-light-intensity="2.0" data-light-color="null" data-light-angle="60" data-light-radius="15"
+            data-light-height="8" data-light-color="#ffcc00" data-light-intensity="1.2">
+          </div>
+
+        </div>
+
 
 
         <div class="detail-container">
@@ -318,26 +435,156 @@
           <br><br><br><br><br><br><br><br><br><br>
         </div>
 
+        <!-- 3D Work -->
+        <section id="3d_work">
+
+          <div class="detail-container-category"
+            style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030; margin-top: px;">
+            <a style="margin: auto;">3D Work</a>
+
+            <div style="font-family: inter; background-color: #353535; font-size:small ; font-weight: normal;">
+
+              <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+                <div
+                  style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: x-small; margin: 20px; font-weight: normal; ">
+                  <a style="margin: auto;">Description:</a> <br>
+                  "I know. It's just one lol- I lost quite a lot of models- so this is one of the example 😂. The one
+                  you see above also ones of my modeling skills too. Also-mostly make lowpoly models and motion graphics
+                  too!"
+                  <br><br>
+                  <a>
+                    Oh yeah I made this 3d preview with threejs!
+                  </a>
+                </div>
+                <a class="asrieldremurr"
+                  style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: xx-small;">
+
+                </a>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+          <div class="threedee-container">
+
+
+
+            <div class=" model-container" id="model2" data-model="/portfolio/portfolio-files/fig kani.glb"
+              data-camera="-0.51,2.81,1.71" data-camera-target="0,2.84,,0" data-width="666" data-height="333"
+              data-shadow-res="4096" data-info="Kikan" data-ambient-intensity="0.01" data-ambient-color="#ffffff"
+              data-light-intensity="0.01" data-light-color="#ffffff" data-light-angle="60" data-light-angle="60"
+              data-light-radius="15" data-light-height="8" data-light-color="#ffcc00" data-light-intensity="0.1">
+            </div>
+
+
+
+
+          </div>
+
+          <div class="detail-container">
+            <div class="buttons-wrapper">
+              <div><span style="font-family: inter;">Program Used:</span></div>
+              <!-- Blender -->
+              <div class="pixbutton-container">
+                <a class="pixbutton" data-software="Blender" data-url="https://www.blender.org/"
+                  style="--default-img: url('source/icon/ico_blender_off.png'); --clicked-img: url('source/icon/ico_blender_on.png');">
+                </a>
+                <div class="bubble hidden">
+                  <a href="#" target="_blank"></a>
+                </div>
+              </div>
+
+              <!-- Aseprite -->
+              <div class="pixbutton-container">
+                <a class="pixbutton" data-software="Aseprite" data-url="https://www.aseprite.org/"
+                  style="--default-img: url('source/icon/ico_aseprite_off.png'); --clicked-img: url('source/icon/ico_aseprite_on.png');">
+                </a>
+                <div class="bubble hidden">
+                  <a href="#" target="_blank"></a>
+                </div>
+              </div>
+
+              <!-- Blockbench -->
+              <div class="pixbutton-container">
+                <a class="pixbutton" data-software="Blockbench" data-url="https://www.blockbench.net/"
+                  style="--default-img: url('source/icon/ico_blockbench_off.png'); --clicked-img: url('source/icon/ico_blockbench_on.png');">
+                </a>
+                <div class="bubble hidden">
+                  <a href="#" target="_blank"></a>
+                </div>
+              </div>
+
+              <!-- Nomadsculpt -->
+              <div class="pixbutton-container">
+                <a class="pixbutton" data-software="Nomad Sculpt" data-url="https://nomadsculpt.com/"
+                  style="--default-img: url('../source/icon/ico_nomadsculpt_off.png'); --clicked-img: url('../source/icon/ico_nomadsculpt_on.png');">
+                </a>
+                <div class="bubble hidden">
+                  <a href="#" target="_blank"></a>
+                </div>
+              </div>
+              <!-- ClipstudioPaint -->
+              <div class="pixbutton-container">
+                <a class="pixbutton" data-software="ClipstudioPaint" data-url="https://www.clipstudio.net/en/"
+                  style="--default-img: url('source/icon/ico_clipstudiopaint_off.png'); --clicked-img: url('source/icon/ico_clipstudiopaint_on.png');">
+                </a>
+                <div class="bubble hidden">
+                  <a href="#" target="_blank"></a>
+                </div>
+              </div>
+
+
+
+
+            </div>
+
+            <!-- Exp Info -->
+            <div style="background-color: #303030; font-family: inter;">
+              <a> Experience:</a>
+              <div style="font-size: larger;">
+
+                <br>
+                <a>2014-</a>
+                <a class="asrieldremurr"
+                  style="font-family: pixeltxt; font-weight: bolder; font-size: xx-large;">NOW!</a>
+              </div>
+
+            </div>
+          </div>
+
+          <div style="background-color: #1f1f1f">
+            <br><br><br><br><br><br><br><br><br><br>
+          </div>
+        </section>
+
         <!-- Painting -->
         <section id="painting">
 
           <div class="detail-container-category"
             style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030; margin-top: px;">
-            <a style="margin: 20px;"> Digital Painting
+            <a style="margin: 20px;">Digital Painting</a>
 
-              <div style="font-family: inter; background-color: #353535; font-size:small ; font-weight: normal;">
+            <div style="font-family: inter; background-color: #353535; font-size:small ; font-weight: normal;">
 
-                <div style="font-size: larger;">
+              <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+                <div
+                  style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: x-small; margin: 20px; font-weight: normal; ">
+                  <a style="margin: auto;">Description:</a> <br>
+                  "I paint semi-realistic stuff, mostly furry creatures. I often experiment with different techniques
+                  and styles too."
 
-
-
-                  <a class="asrieldremurr"
-                    style="font-family: pixeltxt; font-weight: bolder; font-size: xx-large; margin: x;">
-                  </a>
                 </div>
+                <a class="asrieldremurr"
+                  style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: xx-small;">
 
-
+                </a>
               </div>
+
+
+            </div>
 
           </div>
 
@@ -414,8 +661,31 @@
 
         <!-- Pixelart -->
         <div>
-          <h1 style="font-family: inter; background-color: #353535;">
-            Pixelart</h1>
+          <div class="detail-container-category"
+            style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030; margin-top: px;">
+            <a style="margin: 20px; font-size: large;"> Minecraft Skin +<br> Custom Model
+            </a>
+
+            <div style="font-family: inter; background-color: #353535; font-size:small ; ">
+
+              <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+                <div
+                  style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: x-small; margin: 20px; font-weight: normal; ">
+                  <a style="margin: auto;">Description:</a> <br>
+                  "I like making pixel portraits, icons, and game sprites. Sometimes I end up designing random
+                  characters assets in pixel form for fun."
+
+                </div>
+                <a class="asrieldremurr"
+                  style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: xx-small;">
+
+                </a>
+              </div>
+
+
+            </div>
+
+          </div>
 
           <a class="galery-container" style="display: flexbox; image-rendering: pixelated;">
             <img src="portfolio-files/pix-fik.png " style="width: 333px;">
@@ -488,29 +758,142 @@
           </div>
 
           <!-- WebDev -->
-          <div style="background-color: #303030">
-            <h1 style="font-family: inter; background-color: #353535;">
-              This Website</h1>
-            <div><span style="font-family: inter;">Program Used:</span></div>
-            <div class="pixbutton-container">
-              <a class="pixbutton" data-software="VisualStudio" data-url="https://visualstudio.microsoft.com/"
-                style="--default-img: url('source/icon/ico_visualstudio_off.png'); --clicked-img: url('source/icon/ico_visualstudio_on.png');">
-              </a>
-              <div class="bubble hidden">
-                <a href="#" target="_blank"></a>
+          <section id="WebDev" style="background-color: #222222;">
+
+            <div class="detail-container-category"
+              style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030; margin-top: px;">
+              <a style="margin: auto;">This Website</a>
+
+              <div style="font-family: inter; background-color: #353535; font-size:small ; font-weight: normal;">
+
+                <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+                  <div
+                    style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: small; margin: 20px; font-weight: normal; ">
+                    <a style="margin: auto;">Description:</a> <br>
+                    "Who made this web? Well, me. <br><br>
+                    <a>I made all of these in this website from scratch- the icons, the images, the codes, and many
+                      more! idk what else lol.
+                      <br><br>
+
+                    </a>
+                    Also thanks to <a class="asrieldremurr"
+                      style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: small; text-decoration: none;"
+                      href="https://x.com/dietrieee">
+                      dietriee!
+                    </a>He helped me to start the github domain thing lol!"
+                    <br><br>
+                    <a>Oh yeah, This site also inspired by <a class="asrieldremurr" style="text-decoration: none;"
+                        href="https://www.systemax.jp">Systemax/PaintToolSai Site</a> and
+                      <a class="asrieldremurr" style="text-decoration: none;" href="https://pony.town">Pony.Town</a>.
+                    </a>
+
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+            <div style="; margin-block: 20%;">
+
+              <style>
+                .zoom-image {
+                  width: 333px;
+                  transition: transform 0.3s ease-in-out;
+                }
+
+                .zoom-image:hover {
+                  transform: scale(2);
+                  /* Adjust scale for desired zoom */
+                }
+              </style>
+
+              <img src="portfolio-files/web.png" class="zoom-image">
+
+              <div>
+
+
               </div>
             </div>
-            <!-- Exp Info -->
-            <div style="background-color: #303030; font-family: inter;">
-              <a> Experience:</a>
-              <div style="font-size: larger;">
+            <div class="detail-container" style="background-color: #353535;">
 
-                <br>
-                <a>2024-</a>
-                <a class="asrieldremurr"
-                  style="font-family: pixeltxt; font-weight: bolder; font-size: xx-large;">NOW!</a>
+              <div class="buttons-wrapper">
+                <div><span style="font-family: inter;">Program Used + Language:</span></div>
+                <!-- VisualStudio -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="VisualStudio" data-url="https://code.visualstudio.com/"
+                    style="--default-img: url('source/icon/ico_visualstudio_off.png'); --clicked-img: url('source/icon/ico_visualstudio_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+
+                <div class="asrieldremurr"
+                  style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: large; margin-bottom: px ;"
+                  href="https://x.com/dietrieee">
+                  +
+                </div>
+                <!-- Html5 -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="HTML5" data-url="https://en.wikipedia.org/wiki/HTML5"
+                    style="--default-img: url('source/icon/ico_html5_off.png'); --clicked-img: url('source/icon/ico_html5_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+
+                <!-- CSS3 -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="CSS3" data-url="https://en.wikipedia.org/wiki/CSS3"
+                    style="--default-img: url('source/icon/ico_css3_off.png'); --clicked-img: url('source/icon/ico_css3_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+
+                <!-- JS -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="boso jowo" data-url="https://en.wikipedia.org/wiki/JavaScript"
+                    style="--default-img: url('source/icon/ico_js_off.png'); --clicked-img: url('source/icon/ico_js_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+
+                <!-- THREEJS -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="THREEJS v0.128"
+                    data-url="https://github.com/mrdoob/three.js/releases/tag/r128"
+                    style="--default-img: url('source/icon/ico_threejs_off.png'); --clicked-img: url('source/icon/ico_threejs_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
+
+
               </div>
 
+              <!-- Exp Info -->
+              <div style="background-color: #303030; font-family: inter;">
+                <a> Experience:</a>
+                <br><br><br>
+                <div style="font-size: larger; margin: auto;">
+
+
+                  <div style="margin: auto;">
+                    <a>2024-</a>
+                    <a class="asrieldremurr"
+                      style="font-family: pixeltxt; font-weight: bolder; font-size: xx-large;">NOW!</a>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
 
@@ -518,9 +901,10 @@
             <div id="infoBubble" class="bubble hidden">
               <a id="softwareLink" href="#" target="_blank"></a>
             </div>
+          </section>
 
 
-          </div>
+
 
         </div>
         <br>
@@ -529,15 +913,6 @@
 
         <a href="https://www.youtube.com/@funfreshnew/videos" target="_blank" class="button-y">Youtube</a>
         <a href="https://funfreshnew.bsky.social" target="_blank" class="button-b">Bluesky</a>
-
-
-
-
-
-
-
-
-
 
 
         <!-- Contact -->
@@ -552,13 +927,28 @@
 
         <div style="background-color:#353535;"> <a class="tinyface asrieldremurr"></a></div>
         <div> 2014-2025+ FunFreshNew </div>
+        <!--site version-->
+        <div style="background-color: #1f1f1f;">
+          <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
+            <a class="asrieldremurr">v0.5.0</a>
+          </div>
+        </div>
+      </div>
       </div>
 
 
 
 
+      <script src="../js/3d.js"></script>
     </body>
   </center>
+  <script type="text/javascript">
+    window.onload = function () {
+      setTimeout(function () {
+        document.getElementById("body").style.display = "";
+      }, 4000);
+    }
+  </script>
 
 </html>
 </table>

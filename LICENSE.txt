@@ -1,13 +1,30 @@
-Copyright (c) [2025] [FunFreshNew|Favian]
+FunFreshNew/Favian Non-Commercial Software License (FNSL-1.0)
 
-Permission is hereby granted to any person obtaining a copy of this software and associated documentation files (the "Software"), to use the Software for educational purposes and non-commercial use only, subject to the following conditions:
+Copyright (c) [2025] [FunFreshNew | Favian]
 
-1. **Non-Commercial Use**: The Software, in whole or in part, may not be used for commercial purposes. Any use of the Software to generate revenue or as part of a commercial offering is strictly prohibited.
+Permission is hereby granted to any individual obtaining a copy of this software and associated documentation files (the "Software") to use the Software for personal, educational, and non-commercial purposes only, subject to the following conditions:
+1. Definition of "Software"
 
-2. **No Modification**: Users are not permitted to modify, alter, adapt, or create derivative works of the Software in any way.
+    For the purposes of this License, "Software" includes all website code (HTML, JavaScript, CSS), as well as all associated digital assets such as images, video files, and other related media.
 
-3. **Redistribution Prohibited**: The Software may not be redistributed, in whole or in part, through any means, including but not limited to websites, repositories, or other platforms, without prior written permission from the copyright holder.
+2. Non-Commercial Use Only
 
-4. **Retention of Notices**: All copies or substantial portions of the Software must include this License text and any associated copyright notices.
+    The Software may not be used, in whole or in part, for any commercial purpose.
+    Commercial use includes, but is not limited to, selling, licensing, monetizing, or distributing the Software as part of a product, service, or content that generates revenue.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+3. No Modification or Derivative Works
+
+    The Software may not be modified, altered, or used as a base for derivative works.
+    Reverse engineering, decompiling, or disassembling the Software is strictly prohibited.
+
+4. No Redistribution
+
+    The Software may not be shared, published, sublicensed, or redistributed in any form without prior written permission from the copyright holder.
+
+5. Retention of Notices
+
+    All copies or substantial portions of the Software must retain this license notice and copyright information.
+
+6. Disclaimer & Limitation of Liability
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, ARISING FROM THE USE OR INABILITY TO USE THE SOFTWARE.

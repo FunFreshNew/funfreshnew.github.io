@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="background-color: #1f1f1f;" lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=666, initial-scale=1.0, user-scalable=yes">
+  <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
+
+  <script src="/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
   <title>Form</title>
@@ -15,14 +17,12 @@
   <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
     <center style=" 
                       margin-top: 69px ;
+                      margin-bottom: 69px ;
                       padding: 0;
                       display: flexbox;
                       justify-content: center;
-                      align-items: center;
-                      height: 550vh;">
+                      align-items: center;">
 
-      <center
-        style="margin-top: 69px; margin-bottom: 169%; display: flexbox; justify-content: center; align-items: center; height: 100vh;">
         <div class="container">
           <!-- Description -->
           <div style="background-color: #353535; margin-left: 2;">
@@ -36,25 +36,25 @@
             <div style="text-align: middle; border-bottom-style:solid; border-bottom-width: 2px; font-size:9px;"></div>
             <a href="/commissions-page/commissions-listing/commissions-tos/minecraft-tos.html" _pageexpand_="12"
               class="button-v">
-              ↩</a>
+              ◀</a>
 
-                <div
-                  style="border: white;  width: 230px; background-color: #353535; font-family: inter; align-items: center">
+            <div
+              style="border: white;  width: 230px; background-color: #353535; font-family: inter; align-items: center">
 
-                  <div
-                    style="display: flex; flex-direction: column; text-align: left; background-color: #303030;font-size: small;">
-                    <br>
-                    <div><span class="spanfix">1.</span> Ordering Agreements</div>
-                    <br>
-                    <div><span class="spanfix">2.</span> Reading TOS</div>
-                    <br>
-                    <div class="asrieldremurr" style="font-weight: bold;">◼<span class="spanfix">3.</span> Ordering Form
-                    </div>
-                    <br>
-                    <div><span class="spanfix">4.</span> On Waiting List!</div>
-                    <br>
-                  </div>
+              <div
+                style="display: flex; flex-direction: column; text-align: left; background-color: #303030;font-size: small;">
+                <br>
+                <div><span class="spanfix">1.</span> Ordering Agreements</div>
+                <br>
+                <div><span class="spanfix">2.</span> Reading TOS</div>
+                <br>
+                <div class="asrieldremurr" style="font-weight: bold;">◼<span class="spanfix">3.</span> Ordering Form
                 </div>
+                <br>
+                <div><span class="spanfix">4.</span> On Waiting List!</div>
+                <br>
+              </div>
+            </div>
 
 
           </div>
@@ -121,7 +121,7 @@
 
                   </select>
                 </div>
-                <br><br>
+
 
                 <!-- Textarea -->
                 <label for="textarea-input" style="color: white;">Notes:</label>
@@ -144,7 +144,7 @@
                   <!-- Textarea for Publish Date -->
                   <textarea id="publish-date"
                     style="display: none ; margin-left: 20px ;color: white; width: 250px; height: 63px;"
-                    placeholder="Enter publish date (e.g., DD/MM/YYYY)"></textarea><br><br>
+                    placeholder="Enter publish date (e.g., DD/MM/YYYY)"></textarea>
                 </div>
 
 
@@ -182,8 +182,7 @@
             <p>Contact me:</p>
             <div>
               <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
-              <a class="discord" style="padding-left: 5%;padding-right: 5%; "
-                onclick="copyText(event)">Discord</a>
+              <a class="discord" style="padding-left: 5%;padding-right: 5%; " onclick="copyText(event)">Discord</a>
               <a href="mailto:funfreshnew.work@gmail.com" target="_blank" class="button-mail">E-mail</a>
             </div>
           </div>
@@ -192,12 +191,19 @@
             <a class="tinyface asrieldremurr" style="background-color: #353535; "></a>
           </div>
 
-          <div s>2014-2025+ FunFreshNew</div>
+          <div>2014-2025+ FunFreshNew</div>
         </div>
+
       </center>
   </table>
-
+  <script type="text/javascript">
+    window.onloadstart = function () {
+      setTimeout(function () {
+        document.getElementById("body").style.display = "";
+      }, 4000);
+    }
+  </script>
+</html>
   <script src="/script.js"></script>
 </body>
-
 </html>

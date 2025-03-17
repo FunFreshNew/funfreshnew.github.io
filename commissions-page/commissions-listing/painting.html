@@ -1,21 +1,23 @@
-<html lang="en">
+<!DOCTYPE html>
+<html style="background-color: #1f1f1f;" lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=666, initial-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
   <title>Painting</title>
   <link rel="stylesheet" href="/../style.css" />
   <link rel="icon" href="/source/pi.png" type="image/icon type">
+  <script src="/script.js"></script>
 </head>
 
 <body id="asriel">
   <center style=" 
-    margin: 0;
-    padding: 0;
-    display: flexbox;
-    justify-content: center;
-    align-items: center;
-    height: 69vh;">
+                      margin-top: 69px ;
+                      margin-bottom: 69px ;
+                      padding: 0;
+                      display: flexbox;
+                      justify-content: center;
+                      align-items: center;">
     <div class="container">
       <!-- Description -->
       <div style="background-color: #353535;">
@@ -28,7 +30,7 @@
         </h1>
         <div style="border-bottom-style:solid; border-bottom-width: 2px;font-size:9px ;"></div>
         <a href="/commissions-page/commissions-landing-page.html" _pageexpand_="12" class="button-v">
-          <</a>
+          ◀</a>
       </div>
 
 
@@ -41,6 +43,52 @@
           OPEN!
         </a>
       </div>
+
+      <!-- Commission Category -->
+
+      <div style="display: inline-flex; font-family: inter;">
+        <div style="border: #ffffff; border-width: 2px;background-color: #353535; width: 200px; height: 150px; ">
+          <div style="margin: 10px;">YCH</div>
+
+          <div style="border-bottom-style:solid; border-width: 2px; ; border-color: #242424;"></div>
+
+
+
+          <br><br>
+          <a href="/commissions-page/commissions-listing/commission-agreements/minecraft-agreements.html"
+            style="margin-left: auto;display: block;" class="button-m">Order!</a>
+        </div>
+
+        <div style="border: #ffffff;   border-width: 2px;background-color: #353535; width: 200px; height: 150px; ">
+          <div style="margin: 10px;">Painting</div>
+
+          <div style="border-bottom-style:solid; border-width: 2px; ; border-color: #242424;"></div>
+
+
+
+          <br><br>
+          <a href="/lost.html" style="margin-left: auto; cursor: progress;display: block;" class="button-x">Coming
+            Soon!</a>
+        </div>
+
+        <div style="border: #ffffff;  border-width: 2px;background-color: #353535; width: 200px; height: 150px; ">
+          <div style="margin: 10px;">Sketch</div>
+
+
+          <div style="border-bottom-style:solid; border-width: 2px; ; border-color: #242424;"></div>
+
+
+
+          <br><br>
+          <a href="/lost.html" style="margin-left: auto; cursor: progress;display: block;" class="button-x">Coming
+            Soon!</a>
+        </div>
+
+
+      </div>
+
+      <br><br>
+
 
       <!-- Commission Pricing -->
       <div class="commission-tables-split">
@@ -89,16 +137,21 @@
         </div>
 
 
+
+
       </div>
+
       <br>
-      <a href="/portfolio/portfolio.html" target="_blank" class="button-p">Samples</a>
+      <a href="/portfolio/portfolio.html" target="_self" class="button-p">Samples</a>
 
       <!-- Contact -->
       <div style="margin-bottom: 20px;">
         <p>Contact me:</p>
         <div>
-          <a href="https://x.com/FunFreshNew" target="_blank" class="button-t">Twitter</a>
-          <a class="discord" style="padding-left: 5%;padding-right: 5%; font-weight: bold ;">Discord</a>
+
+          <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
+          <a class="discord" style="padding-left: 5%;padding-right: 5%;" onclick="copyText(event)">Discord</a>
+          <a href="mailto:funfreshnew.work@gmail.com" target="_blank" class="button-mail">E-mail</a>
           <a href="https://x.com/FunFreshNew" target="_blank" class="button-b">Bluesky</a>
         </div>
       </div>
@@ -110,5 +163,12 @@
     </div>
   </center>
 </body>
+<script type="text/javascript">
+  window.onload = function () {
+    setTimeout(function () {
+      document.getElementById("body").style.display = "";
+    }, 4000);
+  }
+</script>
 
 </html>

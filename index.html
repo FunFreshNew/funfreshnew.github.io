@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html style="background-color: #1f1f1f;" lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=777", initial-scale=1.0, user-scalable=yes">
-  
+  <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
+
   <script src="/script.js"></script>
-  
+
   <title>FFN</title>
 
   <link rel="stylesheet" href="/style.css" />
@@ -39,9 +39,22 @@
             to my internet page!" </div>
           <br>
           <br>
-          <a href="lost.html" target="_self"><img src="/source/favian.png" class="jumpy"
-              style="width: 50px; image-rendering: pixelated;image-rendering: crisp-edges;">
-          </a>
+          <div>
+            <br><br><br><br><br><br><br><br>
+            <div id="ground">
+
+              <!-- Multiple Shimejis -->
+              <img src="source/tinipix/tinipix_fyn.png" alt="tinipix" class="tinipix" id="fyn">
+              <img src="source/tinipix/tinipix_liner_left.png" alt="tinipix" class="tinipix" id="liner">
+              <img src="source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
+              <img src="source/tinipix/tinipix_mega.png" alt="tinipix" class="tinipix" id="mega">
+              <img style="visibility: collapse;" src="source/tinipix/tinipix_kikan.png" alt="tinipix" class="tinipix"
+                id="kikan">
+
+            </div>
+            <!-- Particle effect for interaction -->
+            <div class="particle" id="particle">💬</div>
+          </div>
           <img class="tinyfurball" src="/source/kikan-balloon.png"></a>
           <br>
           <br>
@@ -64,11 +77,16 @@
           </a>
         </div>
 
-        <div style=justify-content:space-between; margin-inline:20%;">
-          <a href="/portfolio/portfolio.html" target="_self" class="button-p"> Portfolio
+        <div style=justify-content:space-between; margin-inline:auto;">
 
+
+
+          <a href="/portfolio/portfolio.html" target="_self" class="button-p">
+            Portfolio
           </a>
-          <a href="/commissions-page/commissions-landing-page.html" target="_self" class="button-w">Comissions</a>
+          <a href="/commissions-page/commissions-landing-page.html" target="_self" class="button-commission">
+            Comissions
+          </a>
 
         </div>
 
@@ -79,8 +97,6 @@
             <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
             <a class="discord" style="padding-left: 5%;padding-right: 5%;" onclick="copyText(event)">Discord</a>
             <a href="mailto:funfreshnew.work@gmail.com" target="_blank" class="button-mail">E-mail</a>
-
-
           </div>
         </div>
 
@@ -91,7 +107,22 @@
         </div>
         <div> 2014-2025+ FunFreshNew </div>
     </body>
+    <!--site version-->
+    <div style="background-color: #1f1f1f;">
+      <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
+        <a class="asrieldremurr">v0.5.0</a>
+      </div>
+    </div>
+
+    <script src="js/tinipix.js"></script>
   </center>
+  <script type="text/javascript">
+    window.onload = function () {
+      setTimeout(function () {
+        document.getElementById("body").style.display = "";
+      }, 4000);
+    }
+  </script>
 
 </html>
 </table>

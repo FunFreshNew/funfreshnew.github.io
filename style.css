@@ -1,17 +1,22 @@
 html {
   overflow-y: scroll;
 
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 
 }
 
 
+center {
+  opacity: 0;
+  transition: opacity 1s ease-in;
+}
 
 
 img {
   -webkit-user-drag: none;
   user-drag: none;
-  pointer-events: auto; /* Ensures links work */
+  pointer-events: auto;
+  /* Ensures links work */
   object-fit: contain
 }
 
@@ -22,16 +27,21 @@ body {
   padding: 0;
   color: #ffffff;
   background-color: #1f1f1f;
+
 }
 
 .scroll-link {
-  color: #007bff; /* Make link visible */
-  text-decoration: underline; /* Make it look like a link */
-  cursor: pointer; /* Show pointer on hover */
+  color: #007bff;
+  /* Make link visible */
+  text-decoration: underline;
+  /* Make it look like a link */
+  cursor: pointer;
+  /* Show pointer on hover */
 }
 
 .scroll-link:hover {
-  color: #0056b3; /* Change color on hover */
+  color: #0056b3;
+  /* Change color on hover */
 }
 
 .container {
@@ -41,10 +51,10 @@ body {
   max-width: 666px;
   margin-top: 40px;
   background-color: #84A0C8;
-  overflow:hidden ;
+  overflow: hidden;
   justify-content: center;
   align-items: center;
-  
+
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reggae+One&family=Tsukimi+Rounded&display=swap');
@@ -107,22 +117,17 @@ h2 {
 
 .commission-table table {
   width: 100%;
-  border-collapse: ;
+
 }
 
 
 .contact {
-  font-family: ;
   text-align: middle;
   font-variant: small-caps;
   color: #C74140;
   margin-top: 40px;
   margin-left: 450px;
   padding: 10px;
-  background-color: #;
-
-
-
 }
 
 .table-title {
@@ -133,17 +138,7 @@ h2 {
   background-color: #e8e8e8;
 }
 
-@keyframes tiny-shake {
 
-  0%,
-  to {
-    transform: translate3d(-2px, -2px, 0)
-  }
-
-  50% {
-    transform: translate3d(2px, 2px, 0)
-  }
-}
 
 
 .tinyface {
@@ -153,12 +148,23 @@ h2 {
 
 .tinyface:after {
   content: "Ɛ  •(人)  •3 | ૮-・౪・-ა";
-  white-space:
 }
 
 .tinyface:hover {
   animation: tiny-shake 0.1s infinite;
   will-change: transform
+}
+
+@keyframes tiny-shake {
+
+  0%,
+  to {
+    transform: translate3d(-2px, 0px, 0)
+  }
+
+  50% {
+    transform: translate3d(2px, 0px, 0)
+  }
 }
 
 .tinyface:hover:after {
@@ -194,6 +200,7 @@ h2 {
   animation: hyperbeam 50s linear infinite;
 }
 
+
 @keyframes hyperbeam {
   0% {
     background-position: 0% 50%;
@@ -204,31 +211,252 @@ h2 {
   }
 }
 
+
+
+
+@keyframes fruit-color {
+  0% {
+    color: #4DB748;
+  }
+
+  16% {
+    color: #FFD500;
+  }
+
+  33% {
+    color: #FF6600;
+  }
+
+  50% {
+    color: #ce1c84;
+  }
+
+  66% {
+    color: #9457EB;
+  }
+
+  83% {
+    color: #009EDD;
+  }
+
+  100% {
+    color: #4DB748;
+  }
+}
+
+
+/* Motion Animation */
+@keyframes thiku-thiku-motion {
+  from {
+    transform: translate3d(0px, -10px, 0);
+  }
+
+  to {
+    transform: translate3d(0px, 25px, 0);
+  }
+}
+
+
+
+
+.thiku-thiku-motion div {
+  animation-name: thiku-thiku-motion;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+
+@keyframes wave-motion {
+  from {
+    transform: translate3d(0px, -10px, 0);
+  }
+
+  to {
+    transform: translate3d(0px, 25px, 0);
+  }
+}
+
+.wave-motion div {
+  animation-name: wave-motion;
+  animation-duration: 1.23s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+
+@keyframes tiny-wave-motion {
+  from {
+    transform: translate3d(0px, 0px, 0);
+  }
+
+  to {
+    transform: translate3d(0px, 5px, 0);
+  }
+}
+
+
+.tiny-wave a {
+  animation: fruit-color 5s infinite,
+    tiny-wave-motion 1.23s infinite ease-in-out alternate;
+  display: inline-block;
+}
+
+/* Apply animation-delay dynamically */
+.tiny-wave a:nth-child(1) {
+  animation-delay: -1.9s, 0s;
+}
+
+.tiny-wave a:nth-child(2) {
+  animation-delay: -1.8s, 0.1s;
+}
+
+.tiny-wave a:nth-child(3) {
+  animation-delay: -1.7s, 0.2s;
+}
+
+.tiny-wave a:nth-child(4) {
+  animation-delay: -1.6s, 0.3s;
+}
+
+.tiny-wave a:nth-child(5) {
+  animation-delay: -1.5s, 0.4s;
+}
+
+.tiny-wave a:nth-child(6) {
+  animation-delay: -1.4s, 0.5s;
+}
+
+.tiny-wave a:nth-child(7) {
+  animation-delay: -1.3s, 0.6s;
+}
+
+.tiny-wave a:nth-child(8) {
+  animation-delay: -1.2s, 0.7s;
+}
+
+.tiny-wave a:nth-child(9) {
+  animation-delay: -1.1s, 0.8s;
+}
+
+.tiny-wave a:nth-child(10) {
+  animation-delay: -1.0s, 0.9s;
+}
+
+.tiny-wave a:nth-child(11) {
+  animation-delay: -0.9s, 1.0s;
+}
+
+.tiny-wave a:nth-child(12) {
+  animation-delay: -0.8s, 1.1s;
+}
+
+.tiny-wave a:nth-child(13) {
+  animation-delay: -0.7s, 1.2s;
+}
+
+.tiny-wave a:nth-child(14) {
+  animation-delay: -0.6s, 1.3s;
+}
+
+.tiny-wave a:nth-child(15) {
+  animation-delay: -0.5s, 1.4s;
+}
+
+.tiny-wave a:nth-child(16) {
+  animation-delay: -0.4s, 1.5s;
+}
+
+.tiny-wave a:nth-child(17) {
+  animation-delay: -0.3s, 1.6s;
+}
+
+.tiny-wave a:nth-child(18) {
+  animation-delay: -0.2s, 1.7s;
+}
+
+.tiny-wave a:nth-child(19) {
+  animation-delay: -0.1s, 1.8s;
+}
+
+.tiny-wave a:nth-child(20) {
+  animation-delay: 0s, 1.9s;
+}
+
+
+
 .wobble-container {
   display: inline-block;
   text-align: center;
   font-size: 2rem;
-  line-height: 1.2; /* Adjust spacing between symbols */
+  line-height: 1.2;
+  /* Adjust spacing between symbols */
 }
 
 .spanfix {
-  display: inline-block; 
-  width: 30px; 
+  display: inline-block;
+  width: 30px;
   text-align: right;
 }
 
 .tos-category {
   margin-left: 5%;
-  font-family: ;
-  text-align: left; 
+  text-align: left;
   color: #e8cb91;
-  font-size: larger ;
+  font-size: larger;
   font-weight: bolder;
 }
+
 .tos-list {
   margin-left: 5%;
-  font-family: ;
   font-size: smaller;
+}
+
+.button-me {
+  display: inline-block;
+  text-decoration: none;
+  font-family: Inter, sans-serif;
+  color: #ffffff;
+  background-image: url('source/web_icon/btn-favian.png');
+  /* Change to your image */
+  image-rendering: pixelated;
+  background-size: 100%;
+  /* Normal size */
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-size 0.3s ease-in-out;
+  text-align: center;
+}
+
+.button-me:hover {
+  background-size: 120%;
+  /* Zoom-in effect */
+  image-rendering: pixelated;
+}
+
+.button-commission {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #b0ce80;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-commission:hover {
+  background-color: #ecc544;
 }
 
 .button-w {
@@ -250,6 +478,23 @@ h2 {
 }
 
 
+.button-portfolio {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #e4915a;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-portfolio:hover {
+  background-color: #353535;
+}
 
 .button-p {
   display: inline-block;
@@ -286,6 +531,25 @@ h2 {
 
 .button-back:hover {
   background-color: #a55852;
+}
+
+.button-home {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #4cad59;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-home:hover {
+
+  background-color: #2d8080;
 }
 
 .button-v {
@@ -368,7 +632,7 @@ h2 {
   background: linear-gradient(45deg, #5cda66, #ff7300, #75eaff, #cefd22, #ff5e00, #c484ff, #7a00ff, #ff00c8, #95eea8);
   position: absolute;
   top: -2px;
-  left:-2px;
+  left: -2px;
   background-size: 400%;
   z-index: -1;
   filter: blur(20px);
@@ -377,12 +641,14 @@ h2 {
   animation: hyperbeam 20s linear infinite;
   opacity: 0;
   transition: opacity .3s ease-in-out;
-  
+
 }
+
 .button-m:hover:before {
   opacity: 1;
-  
+
 }
+
 .button-m:after {
   z-index: -1;
   content: '';
@@ -392,7 +658,7 @@ h2 {
   background: #6bc754;
   left: 0;
   top: 0;
-  
+
 }
 
 
@@ -491,6 +757,58 @@ h2 {
 
 }
 
+.comingsoon {
+  padding-left: 5%;
+  padding-right: 5%;
+  position: relative;
+  display: inline-block;
+  text-decoration: dotted;
+  color: #ffffff;
+  font-family: Inter, sans-serif;
+  background-color: #7289da;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  /* Prevents selection before hover */
+
+}
+
+/* Ensure original text fades out while maintaining space */
+.comingsoon:hover {
+  color: transparent;
+  /* Hides the original text */
+}
+
+/* Overlay new text */
+.comingsoon::after {
+  content: 'Not ready yet';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  /* Prevents blocking interaction */
+}
+
+/* Reveal new text and make it selectable on hover */
+.comingsoon:hover::after {
+  opacity: 1;
+  user-select: text;
+  /* Allows text selection */
+  pointer-events: all;
+  /* Makes sure the text is interactive */
+}
+
 .discord {
   padding-left: 5%;
   padding-right: 5%;
@@ -505,13 +823,15 @@ h2 {
   font-weight: bold;
   transition: background-color 0.3s ease, color 0.3s ease;
   cursor: pointer;
-  user-select: none; /* Prevents selection before hover */
-  
+  user-select: none;
+  /* Prevents selection before hover */
+
 }
 
 /* Ensure original text fades out while maintaining space */
 .discord:hover {
-  color: transparent; /* Hides the original text */
+  color: transparent;
+  /* Hides the original text */
 }
 
 /* Overlay new text */
@@ -528,14 +848,17 @@ h2 {
   justify-content: center;
   transition: opacity 0.3s ease;
   opacity: 0;
-  pointer-events: none; /* Prevents blocking interaction */
+  pointer-events: none;
+  /* Prevents blocking interaction */
 }
 
 /* Reveal new text and make it selectable on hover */
 .discord:hover::after {
   opacity: 1;
-  user-select: text; /* Allows text selection */
-  pointer-events: all; /* Makes sure the text is interactive */
+  user-select: text;
+  /* Allows text selection */
+  pointer-events: all;
+  /* Makes sure the text is interactive */
 }
 
 /* Tooltip Styling */
@@ -570,7 +893,7 @@ h2 {
 /* Image styles and animations */
 .tinyfurball {
   position: absolute;
-  width: 50px;
+  width: 70px;
   /* Adjust the size of the image */
   animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite;
   transition: transform 0.5s ease;
@@ -617,13 +940,13 @@ h2 {
 @keyframes random-bounce {
   0% {
     top: 50%;
-    
+
     transform: translateY(-50%);
   }
 
   25% {
     top: 48%;
-    
+
   }
 
   50% {
@@ -650,18 +973,10 @@ h2 {
   background-size: 800% 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: pixelwave 50s linear infinite;
+
 }
 
-@keyframes .pixelwave {
-  0% {
-    background-position: 0% 50%;
-  }
 
-  100% {
-    background-position: 800% 50%;
-  }
-}
 
 .pixeltxt {
   font-family: "pixeltxt";
@@ -766,9 +1081,7 @@ video {
   position: relative;
 }
 
-.star{
-  transition: ;
-}
+
 
 .button-x {
   display: inline-block;
@@ -831,12 +1144,10 @@ video {
   80% {
     transform: translateY(-5px);
   }
+
+
 }
 
-100% {
-  transform: translateY(0);
-  /* Settle back to the starting position */
-}
 
 
 label {
@@ -945,34 +1256,34 @@ input[type="radio"] {
 
 
 .terrain {
-  width: 666px;  /* 🔹 Set fixed width */
-  height: 10px; /* Adjust height as needed */
+  
+  /* 🔹 Set fixed width */
+  height: 0px;
+  /* Adjust height as needed */
   position: absolute;
   bottom: 0;
-    /* 🔹 Center the terrain */
-  
+  /* 🔹 Center the terrain */
+
   background: url("your_terrain_texture.png") repeat-x;
   overflow: visible
 }
 
-.ground {
-  position: fixed ;
-  align-items: center;
-  
-  background-color: brown;
-}
+
 
 .tinipix {
   position: absolute;
   bottom: 100px;
   width: 100px;
-  align-items: 
-  transition: transform 0.05s ease-out;
+  align-items:
+    transition: transform 0.05s ease-out;
   shape-rendering: pixelated;
   cursor: pointer;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
 }
 
 
@@ -984,29 +1295,6 @@ input[type="radio"] {
   opacity: 0;
   transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
-
-
-.zoom {
-  display: -;
-  overflow: hidden;
-  border-radius: 10px; /* Optional: rounded edges */
-  position: ;
-}
-
-.zoom img {
-  display: block;
-  overflow: ;
-  width: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Hover effect */
-.zoom:hover img {
-  transform: scale(1.2); /* Zoom in */
-  overflow: visible;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Adds depth */
-}
-
 
 
 
@@ -1026,7 +1314,8 @@ input[type="radio"] {
 /* PIXBUTTON */
 
 .pixbutton-container {
-  position: relative; /* Keeps bubble positioned under each button */
+  position: relative;
+  /* Keeps bubble positioned under each button */
   display: inline-block;
 }
 
@@ -1041,10 +1330,14 @@ input[type="radio"] {
   image-rendering: pixelated;
   background-image: var(--default-img);
   -webkit-tap-highlight-color: transparent;
-  user-select: none; /* Standard */
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
+  user-select: none;
+  /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
 }
 
 .pixbutton:active {
@@ -1061,12 +1354,13 @@ input[type="radio"] {
   position: absolute;
   font-family: pixeltxt;
   left: 50%;
-  bottom: -25px; /* Adjusts to be just under the button */
+  bottom: -25px;
+  /* Adjusts to be just under the button */
   transform: translateX(-50%);
   background: rgb(63, 63, 63);
-  
+
   padding: 5px 10px;
-  
+
   font-size: 14px;
   white-space: nowrap;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
@@ -1075,9 +1369,12 @@ input[type="radio"] {
 }
 
 .bubble a {
-  color: black; /* Change text color */
-  text-decoration: none; /* Remove underline */
-  font-weight: bold; /* Optional: Make it bold */
+  color: black;
+  /* Change text color */
+  text-decoration: none;
+  /* Remove underline */
+  font-weight: bold;
+  /* Optional: Make it bold */
   background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
   background-size: 800% 100%;
   -webkit-background-clip: text;
@@ -1086,7 +1383,8 @@ input[type="radio"] {
 }
 
 .bubble a:hover {
-  color: gray; /* Optional: Change color on hover */
+  color: gray;
+  /* Optional: Change color on hover */
 }
 
 .bubble.hidden {
@@ -1118,10 +1416,132 @@ input[type="radio"] {
 }
 
 @keyframes splashBounce {
-  0% { transform: translateX(-50%) rotate(-10deg) translateY(0px); }
-  100% { transform: translateX(-50%) rotate(-10deg) translateY(5px); }
+  0% {
+    transform: translateX(-50%) rotate(-10deg) translateY(0px);
+  }
+
+  100% {
+    transform: translateX(-50%) rotate(-10deg) translateY(5px);
+  }
 }
 
+
+.wave-txt {
+  position: relative;
+}
+
+.wave-txt span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+
+  animation: animate 1s linear infinite;
+  animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(-5px);
+  }
+
+  25% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(5px);
+  }
+
+  75% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+/* <span style="--i:1">P</span>
+            <span style="--i:2">o</span>
+            <span style="--i:3">r</span>
+            <span style="--i:4">t</span>
+            <span style="--i:5">f</span>
+            <span style="--i:6">o</span>
+            <span style="--i:7">l</span>
+            <span style="--i:8">i</span>
+            <span style="--i:9">o</span>
+*/
+
+/* 3D model viewer */
+model-viewer {
+  width: 500px;
+  /* Change width */
+  height: 500px;
+  /* Change height */
+  max-width: 100%;
+  /* Make it responsive */
+}
+
+model-viewer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(0, 0, 0, 0) 70%);
+  pointer-events: none;
+  filter: blur(10px);
+}
+
+.canvas-wrapper {
+  width: 333px;
+  height: 333px;
+  position: relative;
+  overflow: hidden;
+  /* Prevents any content from overflowing */
+  display: flex;
+  /* Ensures the canvas is centered inside */
+  align-items: center;
+  justify-content: center;
+}
+
+.ui-button {
+  user-select: none;
+  /* Prevent text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
+  /* Ensure buttons receive events */
+  touch-action: none;
+  /* Prevents touch gestures from affecting scrolling */
+  user-select: none;
+  /* Avoids accidental text selection */
+
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.threedee-container {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.model-info {
+  position: absolute;
+  top: 10px;
+  left: px;
+  transform: translateX(0%);
+  background: rgba(0, 0, 0, 0.089);
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+  border-radius: 0px;
+  pointer-events: none;
+}
 
 
 /* Heavily inspired-->
@@ -1130,5 +1550,5 @@ Sytemax [Paint Tool Sai's website]
 */
 
 /* HOLYSHIT DID YOU MAKE THIS WEBSITE YOURSELF!?-->
-well, not really. 😂 I use chat gpt to write complex code ones.
+well, not really.  ദ്ദി ༎ຶ‿༎ຶ ) I use chat gpt to write complex code ones.
 */
