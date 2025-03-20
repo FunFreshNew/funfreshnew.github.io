@@ -35,9 +35,9 @@ Permission is hereby granted to any individual obtaining a copy of this software
 
 ## About This Project
 
-This project is my sandbox where I experiment with different web design stuff, JavaScript features, and overall fun web interactions for my needs. It’s a work in progress, and you can see the progress too!😎 
+This project is my sandbox where I experiment with different web design stuff, JavaScript features, and overall fun web interactions for my needs. It’s a work in progress, and you can see the progress too!😎
 
-Oh yeah, this website heavily inspired by Systemax.jp or Paint Tool Sai website and Pony.town! Check them out too!
+Oh yeah, this website is heavily inspired by [Systemax.jp](https://systemax.jp) or [Paint Tool Sai](https://www.systemax.jp/en/sai/) website and [Pony.town](https://pony.town)! Check them out too!
 
 ---
 
