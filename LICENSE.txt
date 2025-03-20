@@ -15,7 +15,6 @@ Permission is hereby granted to any individual obtaining a copy of this software
 3. No Modification or Derivative Works
 
     The Software may not be modified, altered, or used as a base for derivative works.
-    Reverse engineering, decompiling, or disassembling the Software is strictly prohibited.
 
 4. No Redistribution
 
