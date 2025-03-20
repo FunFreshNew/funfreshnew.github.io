@@ -1,12 +1,21 @@
-/* Tinipix */
+/* Tinipix Stable MIX*/
 document.addEventListener("DOMContentLoaded", () => {
     class Tinipix {
         static instances = [];
         constructor(element, settings = {}) {
             this.element = element;
+            if (!element) return; // Prevents errors if an element is missing
+            this.element.removeAttribute("id"); // Remove ID to prevent duplicate IDs
             this.velocity = { x: Math.random() > 0.5 ? 2 : -2, y: 0 };
-            this.position = { x: Math.random() * window.innerWidth, y: ground.offsetTop - this.element.offsetHeight };
-            this.gravity = 0.3;
+
+            this.ground = document.querySelector("#ground"); // Ensure we use a controlled ground element
+
+            this.position = {
+                x: this.ground.clientLeft + Math.random() * this.ground.clientWidth,
+                y: this.ground.offsetTop - this.element.offsetHeight
+            };
+
+            this.gravity = 0.25;
             this.isJumping = false;
             this.isStaying = false;
             this.onGround = true;
@@ -19,11 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
             Tinipix.seedDelay = Math.random() * 2000;
             Tinipix.instances.push(this);
 
-
-
             this.settings = {
 
-                avoidCollision: settings.avoidCollision ?? false, // ✅ Move it inside
+                avoidCollision: settings.avoidCollision ?? false,
                 staySpacing: settings.staySpacing ?? 0,
                 jumpStrength: settings.jumpStrength ?? 2,
                 jumpInterval: settings.jumpInterval ?? 1,
@@ -47,19 +54,19 @@ document.addEventListener("DOMContentLoaded", () => {
             this.element.addEventListener("dblclick", (event) => this.runAway(event.clientX));
             this.element.addEventListener("mousedown", (event) => this.prepareDrag(event));
 
+            this.element.style.backfaceVisibility = "visible";
             this.element.style.imageRendering = "pixelated";
-            this.element.style.transformOrigin = "bottom center";
+            
             this.element.style.userSelect = "none";
             this.element.style.pointerEvents = "auto";
             this.element.draggable = false;
 
-            this.setScale(1);
+            this.setScale(0);
         }
-
 
         setScale(direction) {
             if (!this.isDragging) {
-                this.element.style.transform = `scale(${direction * this.settings.pixelScale}, ${this.settings.pixelScale})`;
+                this.element.style.transform = `scale(${direction}, 1)`;
                 if (this.settings.asymmetric) {
                     this.setTexture(direction > 0 ? "right" : "left");
                 }
@@ -90,17 +97,22 @@ document.addEventListener("DOMContentLoaded", () => {
             this.position.y += this.velocity.y;
             this.onGround = false;
 
-            if (this.position.y >= ground.offsetTop - this.element.offsetHeight) {
-                this.position.y = ground.offsetTop - this.element.offsetHeight;
+            // Ensure Tinipix doesn't fall below ground level
+            if (this.position.y >= this.ground.offsetTop - this.element.offsetHeight) {
+                this.position.y = this.ground.offsetTop - this.element.offsetHeight;
                 this.velocity.y = 0;
                 this.onGround = true;
             }
 
-            if (this.position.x <= 0) {
-                this.position.x = 1;
+            // Prevent movement outside the controlled ground area
+            const minX = this.ground.clientLeft;
+            const maxX = this.ground.clientLeft + this.ground.clientWidth - this.element.offsetWidth;
+
+            if (this.position.x <= minX) {
+                this.position.x = minX + 1;
                 this.velocity.x = Math.abs(this.velocity.x);
-            } else if (this.position.x >= window.innerWidth - this.element.offsetWidth) {
-                this.position.x = window.innerWidth - this.element.offsetWidth - 1;
+            } else if (this.position.x >= maxX) {
+                this.position.x = maxX - 1;
                 this.velocity.x = -Math.abs(this.velocity.x);
             }
 
@@ -111,7 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             this.updatePosition();
-
             this.avoidStacking();
 
             requestAnimationFrame(() => this.move());
@@ -178,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Only 70% chance to actually look around
             if (Math.random() < 0.7) {
                 const lookTimes = Math.random() < 0.85 ? 1 : 2;
-                let count = 0;
+                let count = 0.5;
 
                 const flip = () => {
                     if (count < lookTimes) {
@@ -230,6 +241,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 150); // 👈 User must hold the mouse down for 150ms to start dragging
 
             document.addEventListener("mouseup", this.cancelDrag); // Listen for quick releases
+            document.addEventListener(event.type.includes("touch") ? "touchend" : "mouseup", this.cancelDrag);
         }
 
         cancelDrag = () => {
@@ -251,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.addEventListener("mousemove", this.dragMove);
             document.addEventListener("mouseup", this.stopDrag);
             document.addEventListener("mouseleave", this.stopDrag);
+
         }
 
         dragMove = (event) => {
@@ -268,7 +281,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stopDrag = () => {
             this.isDragging = false;
             this.isStaying = false;
-        
+
             // ✅ Ensure it lands properly on the ground
             const groundY = ground.offsetTop - this.element.offsetHeight;
             if (this.position.y >= groundY) {
@@ -278,87 +291,145 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 this.onGround = false;
             }
-        
+
             // ✅ Restore natural walking speed
             this.velocity.x = (Math.random() > 0.5 ? 2 : -2) * (this.settings.walkSpeed * 2); // 👈 Speed boost to normalize walk
-        
+
             this.updatePosition();
-        
+
             document.removeEventListener("mousemove", this.dragMove);
             document.removeEventListener("mouseup", this.stopDrag);
             document.removeEventListener("mouseleave", this.stopDrag);
         };
 
         updatePosition() {
+            const offsetY = 0; // Adjust this value to move them higher
             this.element.style.left = `${this.position.x}px`;
-            this.element.style.top = `${this.position.y}px`;
+            this.element.style.top = `${this.position.y + offsetY}px`;
         }
     }
 
-   
-    // Creating Tinipix instances with walk speed customization
-    const tinipix = [
-        new Tinipix(document.getElementById("favian"), {
+
+    const tinipixSettings = {
+        favian: {
             stayChance: 0.5,
             stayDurationMin: 500,
             stayDurationMax: 3000,
             pixelScale: 1,
             walkSpeed: 0.5,
             stayFlipChance: 0.009,
-            avoidCollision: true, // Enable collision
-
-            asymmetric: true, // Enable asymmetry
+            avoidCollision: false,
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
             textures: {
-                left: "source/tinipix/tinipix_favian_left.png",
-                right: "source/tinipix/tinipix_favian_right.png"
+                left: "../source/tinipix/tinipix_favian_left.png",
+                right: "../source/tinipix/tinipix_favian_right.png"
             }
-        }),
-        new Tinipix(document.getElementById("kikan"), {
-            stayChance: 0.05,
-            stayDurationMin: 1500,
-            stayDurationMax: 50000,
+        },
+        olen: {
+            stayChance: 0.5,
+            stayDurationMin: 150,
+            stayDurationMax: 2000,
             pixelScale: 1,
-            walkSpeed: 0.5,
-            stayFlipChance: 0.05
-        }),
-        new Tinipix(document.getElementById("fyn"), {
-            stayChance: 0.09,
-            stayDurationMin: 1500,
-            stayDurationMax: 50000,
-            pixelScale: 1,
-            walkSpeed: 0.5,
-            stayFlipChance: 0.06
-        }),
-        new Tinipix(document.getElementById("liner"), {
+            walkSpeed: 0.3,
+            stayFlipChance: 0.04,
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
+            textures: {
+                left: "../source/tinipix/tinipix_olen_left.png",
+                right: "../source/tinipix/tinipix_olen_right.png"
+            }
+        },
+        tennuqi: {
             stayChance: 0.8,
             stayDurationMin: 150,
             stayDurationMax: 50000,
             pixelScale: 1,
             walkSpeed: 0.5,
             stayFlipChance: 0.04,
-
-            asymmetric: true, // Enable asymmetry
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
             textures: {
-                left: "source/tinipix/tinipix_liner_left.png",
-                right: "source/tinipix/tinipix_liner_right.png"
+                left: "../source/tinipix/tinipix_tennuqi_left.png",
+                right: "../source/tinipix/tinipix_tennuqi_right.png"
             }
-        }),
-        new Tinipix(document.getElementById("mega"), {
+        },
+        kikan: {
+            stayChance: 0.05,
+            stayDurationMin: 1500,
+            stayDurationMax: 2000,
+            pixelScale: 1,
+            walkSpeed: 0.5,
+            stayFlipChance: 0.05,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50
+        },
+        duck: {
+            stayChance: 0.05,
+            stayDurationMin: 1500,
+            stayDurationMax: 2000,
+            pixelScale: 1,
+            walkSpeed: 0.25,
+            stayFlipChance: 0.05,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50
+        },
+        fyn: {
+            stayChance: 0.09,
+            stayDurationMin: 1500,
+            stayDurationMax: 50000,
+            pixelScale: 1,
+            walkSpeed: 0.5,
+            stayFlipChance: 0.06,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50
+        },
+        liner: {
+            stayChance: 0.8,
+            stayDurationMin: 150,
+            stayDurationMax: 50000,
+            pixelScale: 1,
+            walkSpeed: 0.5,
+            stayFlipChance: 0.04,
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
+            textures: {
+                left: "../source/tinipix/tinipix_liner_left.png",
+                right: "../source/tinipix/tinipix_liner_right.png"
+            }
+        },
+        mega: {
             stayChance: 0.05,
             stayDurationMin: 20000,
             stayDurationMax: 50000,
             pixelScale: 1,
             walkSpeed: 0.5,
             stayFlipChance: 0.03,
-
-            asymmetric: true, // Enable asymmetry
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
             textures: {
-                left: "source/tinipix/tinipix_mega_left.png",
-                right: "source/tinipix/tinipix_mega_right.png"
+                left: "../source/tinipix/tinipix_mega_left.png",
+                right: "../source/tinipix/tinipix_mega_right.png"
             }
-        })
-    ];
-    
+        }
+    };
+
+
+    document.querySelectorAll(".tinipix").forEach((img) => {
+        if (img.style.visibility !== "collapse") {
+            const id = img.id; // Get the element ID
+            const settings = tinipixSettings[id] || {}; // Get custom settings or fallback to default
+            new Tinipix(img, settings);
+        }
+    });
+
+
+
     function decideToStay(tinipix) {
         let stayChance = tinipix.settings.stayChance || 0.3;
 

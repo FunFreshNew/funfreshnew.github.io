@@ -20,6 +20,11 @@ img {
   object-fit: contain
 }
 
+img:not([src]),
+img[src=""] {
+  display: none;
+}
+
 
 body {
   font-family: 'Courier New', Courier, monospace;
@@ -52,10 +57,57 @@ body {
   margin-top: 40px;
   background-color: #84A0C8;
   overflow: hidden;
-  justify-content: center;
-  align-items: center;
 
 }
+
+.terrain {
+
+  /* 🔹 Set fixed width */
+  height: 0px;
+  /* Adjust height as needed */
+  position: absolute;
+  bottom: 0;
+  /* 🔹 Center the terrain */
+
+  background: url("terrain_texture.png") repeat-x;
+  overflow: hidden
+}
+
+#ground {
+  z-index: 999;
+  position: unset;
+  margin-top: 0px ;
+  left: 0;
+  background-color:;
+  
+}
+
+.tinipix {
+  z-index: 999 ;
+  position: absolute;
+  background-color: #00000000;
+  width: 100px;
+  align-items:
+    transition: transform 0.05s ease-out;
+  shape-rendering: pixelated;
+  cursor: pointer;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE/Edge */
+}
+
+
+
+.particle {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0;
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Reggae+One&family=Tsukimi+Rounded&display=swap');
 
@@ -600,7 +652,6 @@ h2 {
   transition: background-color 0.3s ease, color 0.3s ease;
   text-align: center;
   cursor: pointer;
-  position: relative;
   z-index: 0;
   background: #dd5a5a;
 }
@@ -814,7 +865,7 @@ h2 {
   padding-right: 5%;
   position: relative;
   display: inline-block;
-  text-decoration: dotted;
+  text-decoration: ;
   color: #ffffff;
   font-family: Inter, sans-serif;
   background-color: #7289da;
@@ -894,11 +945,13 @@ h2 {
 .tinyfurball {
   position: absolute;
   width: 70px;
+  z-index: 9999;
   /* Adjust the size of the image */
   animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite;
   transition: transform 0.5s ease;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
+  cursor: none;
 }
 
 .tinyfurball:hover {
@@ -1255,46 +1308,6 @@ input[type="radio"] {
 
 
 
-.terrain {
-
-  /* 🔹 Set fixed width */
-  height: 0px;
-  /* Adjust height as needed */
-  position: absolute;
-  bottom: 0;
-  /* 🔹 Center the terrain */
-
-  background: url("your_terrain_texture.png") repeat-x;
-  overflow: visible
-}
-
-
-
-.tinipix {
-  position: absolute;
-  bottom: 100px;
-  width: 100px;
-  align-items:
-    transition: transform 0.05s ease-out;
-  shape-rendering: pixelated;
-  cursor: pointer;
-  -webkit-user-select: none;
-  /* Safari */
-  -moz-user-select: none;
-  /* Firefox */
-  -ms-user-select: none;
-  /* IE/Edge */
-}
-
-
-
-
-.particle {
-  position: absolute;
-  font-size: 24px;
-  opacity: 0;
-  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-}
 
 
 

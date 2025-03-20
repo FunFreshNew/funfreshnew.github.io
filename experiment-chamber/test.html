@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinipix Test</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #f0f0f0;
+        }
+        #ground {
+            position: absolute;
+            bottom: 0;
+            width: 50%;
+            height: 50px;
+            background-color: #444;
+        }
+        .tinipix {
+            position: absolute;
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ground"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            class Tinipix {
+                static instances = [];
+                constructor(element) {
+                    this.element = element;
+                    this.velocity = { x: Math.random() > 0.5 ? 2 : -2, y: 0 };
+                    this.position = { x: Math.random() * window.innerWidth, y: ground.offsetTop - this.element.offsetHeight };
+                    this.gravity = 0.3;
+                    this.onGround = true;
+                    Tinipix.instances.push(this);
+                    this.move();
+                }
+
+                move() {
+                    if (this.onGround) {
+                        this.position.x += this.velocity.x;
+                    }
+
+                    if (this.position.x <= 0) {
+                        this.position.x = 1;
+                        this.velocity.x = Math.abs(this.velocity.x);
+                    } else if (this.position.x >= window.innerWidth - this.element.offsetWidth) {
+                        this.position.x = window.innerWidth - this.element.offsetWidth - 1;
+                        this.velocity.x = -Math.abs(this.velocity.x);
+                    }
+
+                    this.updatePosition();
+                    requestAnimationFrame(() => this.move());
+                }
+
+                updatePosition() {
+                    this.element.style.left = `${this.position.x}px`;
+                    this.element.style.top = `${this.position.y}px`;
+                }
+            }
+
+            function createTinipix() {
+                const img = document.createElement("img");
+                img.src = "https://via.placeholder.com/32"; // Replace with pixel art
+                img.className = "tinipix";
+                document.body.appendChild(img);
+                new Tinipix(img);
+            }
+
+            for (let i = 0; i < 5; i++) {
+                createTinipix();
+            }
+        });
+    </script>
+</body>
+</html>
