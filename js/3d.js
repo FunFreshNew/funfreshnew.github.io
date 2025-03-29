@@ -1,3 +1,4 @@
+// FunFreshNew © //
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".model-container").forEach(container => {
         const modelPath = container.dataset.model.trim();
@@ -49,7 +50,7 @@ function createScene(container, modelPath, width, height, shadowRes, cameraPosit
     const camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
     camera.position.set(...cameraPosition);
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    const renderer = new THREE.WebGLRenderer({ antialias: false, alpha: true });
     renderer.setSize(width, height);
     renderer.outputEncoding = THREE.sRGBEncoding;
     renderer.shadowMap.enabled = true;
@@ -234,7 +235,7 @@ function createScene(container, modelPath, width, height, shadowRes, cameraPosit
     } animateLightOrbit();
 
     const ground = new THREE.Mesh(
-        new THREE.PlaneGeometry(10, 10),
+        new THREE.PlaneGeometry(100, 100),
         new THREE.ShadowMaterial({ opacity: 0.3 })
     );
     ground.rotation.x = -Math.PI / 2;
@@ -263,7 +264,7 @@ function createScene(container, modelPath, width, height, shadowRes, cameraPosit
         button.style.width = "40px";
         button.style.height = "40px";
         button.style.borderRadius = "0px";
-        button.style.background = "rgba(43, 43, 43, 0.4)"; // Default color
+        button.style.background = "rgba(104, 104, 104, 0.4)"; // Default color
         button.style.display = "flex";
         button.style.justifyContent = "center";
         button.style.alignItems = "center";
@@ -286,7 +287,7 @@ function createScene(container, modelPath, width, height, shadowRes, cameraPosit
             img.src = isExpanded ? "/source/web_ui/main_root_on.png" : "/source/web_ui/main_root_off.png";
 
             // Change background color when toggled
-            button.style.background = isExpanded ? "rgba(100, 100, 100, 0.7)" : "rgba(43, 43, 43, 0.4)";
+            button.style.background = isExpanded ? "rgba(24, 24, 24, 0.7)" : "rgba(104, 104, 104, 0.4)";
 
             subButtons.forEach((btn, index) => {
                 btn.style.transition = "none"; // Cancel animation
@@ -488,13 +489,13 @@ function createScene(container, modelPath, width, height, shadowRes, cameraPosit
     // Create Buttons
     const rootButton = createRootButton();
     const rotateLightButton = createToggleButton(
-        "/source/web_ui/sun_rotate_off.png",
-        "/source/web_ui/sun_rotate_on.png",
+        "../source/web_ui/sun_rotate_off.png",
+        "../source/web_ui/sun_rotate_on.png",
         toggleAutoRotateLight
     );
     const spinModelButton = createToggleButton(
-        "/source/web_ui/fig_rotate_off.png",
-        "/source/web_ui/fig_rotate_on.png",
+        "../source/web_ui/fig_rotate_off.png",
+        "../source/web_ui/fig_rotate_on.png",
         toggleModelSpin
     );
 
@@ -568,3 +569,5 @@ function createScene(container, modelPath, width, height, shadowRes, cameraPosit
 
 
 }
+
+// FunFreshNew © //

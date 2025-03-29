@@ -26,6 +26,7 @@ img[src=""] {
 }
 
 
+
 body {
   font-family: 'Courier New', Courier, monospace;
   margin: 0;
@@ -54,49 +55,34 @@ body {
   position: relative;
   height: auto;
   max-width: 666px;
-  margin-top: 40px;
+  margin-top: 0px;
   background-color: #84A0C8;
   overflow: hidden;
 
 }
 
-.terrain {
-
-  /* 🔹 Set fixed width */
-  height: 0px;
-  /* Adjust height as needed */
-  position: absolute;
-  bottom: 0;
-  /* 🔹 Center the terrain */
-
-  background: url("terrain_texture.png") repeat-x;
-  overflow: hidden
-}
-
 #ground {
   z-index: 999;
-  position: unset;
-  margin-top: 0px ;
+  position: relative;
+  /* Ensures stable positioning */
+  margin-top: 0px;
   left: 0;
-  background-color:;
-  
+  background-color: #0056b3;
 }
 
 .tinipix {
-  z-index: 999 ;
+  z-index: 999;
   position: absolute;
-  background-color: #00000000;
+  background-color: transparent;
   width: 100px;
-  align-items:
-    transition: transform 0.05s ease-out;
+  height: 100px;
+  /* Ensures consistent size */
+  transition: transform 0.05s ease-out;
   shape-rendering: pixelated;
   cursor: pointer;
   -webkit-user-select: none;
-  /* Safari */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* IE/Edge */
 }
 
 
@@ -126,6 +112,17 @@ h1 {
 
 h2 {
   font-weight: bold;
+}
+
+.swong {
+  opacity: 0.25;
+  /* 25% opacity */
+  transition: opacity 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.swong:hover {
+  opacity: 1;
+  /* 100% opacity on hover */
 }
 
 .commission-tables-split {
@@ -190,6 +187,10 @@ h2 {
   background-color: #e8e8e8;
 }
 
+.mark-y {
+  color: #e8cb91;
+  font-weight: bolder;
+}
 
 
 
@@ -296,6 +297,181 @@ h2 {
   }
 }
 
+.zero {
+  animation: zero 3s infinite !important;
+  transition: 2s;
+  color: #1f1f1f;
+}
+
+@keyframes zero {
+  0% { 
+    color: #4d4d4d;
+    transform: translate(0px ,0.5px, 0px);
+  }
+  50% {
+    color: #fc6247;
+    transform: translate(0px ,0.5px, 0px);
+  }
+  100% { 
+    color: #4d4d4d;
+    transform: translate(0px ,0.5px, 0px);
+  }
+}
+
+@keyframes one {
+  0% {
+    color: #22721e;
+  }
+
+
+  50% {
+    color: #4DB748;
+  }
+
+
+
+  100% {
+    color: #22721e;
+  }
+}
+
+.two {
+  animation animation-duration: 6s;
+}
+
+@keyframes two {
+  0% {
+    color: #4969d1;
+  }
+
+  25% {
+    color: #4969d1;
+  }
+
+  50% {
+    color: #349afa;
+  }
+
+  75% {
+    color: #4c23aa;
+  }
+
+  100% {
+    color: #4969d1;
+  }
+}
+
+.three {
+  background: rgb(144, 107, 195);
+  background: radial-gradient(circle, rgba(144, 107, 195, 1) 0%, rgba(51, 143, 252, 1) 100%);
+  transform: ;
+}
+
+@keyframes three {
+  0% {
+    color: #ce28b2;
+    transform: translateZ(0%);
+  }
+
+  16% {
+    color: #5a103b;
+  }
+
+  33% {
+    color: #7c0c5a;
+  }
+
+  50% {
+    color: #cf569d;
+    transform: translateZ(50%);
+  }
+
+  66% {
+    color: #cd57eb;
+  }
+
+  83% {
+    color: #f55ae8;
+  }
+
+  100% {
+    color: #e93498;
+    transform: translateZ(100%);
+  }
+}
+
+@keyframes five {
+  0% {
+    color: #303030; /* Gold */
+    text-shadow: 
+      0px 0px 1px #f0ac00, 
+      0px 0px 2px #e93db5, 
+      0px 0px 4px #FFD700;
+  }
+
+  25% {
+    color: #d4af37; /* Lighter gold */
+    text-shadow: 
+      0px 0px 2px #f0ac00, 
+      0px 0px 4px #ffea83, 
+      0px 0px 6px #FFD700;
+  }
+
+  50% {
+    color: #d4af37; /* Deeper gold */
+    text-shadow: 
+      0px 0px 14px #ca45ff, 
+      0px 0px 16px #e93db5, 
+      0px 0px 18px #ff7961;
+  }
+
+  75% {
+    color: #ffcc00; /* Lighter gold */
+    text-shadow: 
+      0px 0px 2px #f0ac00, 
+      0px 0px 4px #e93db5, 
+      0px 0px 6px #FFD700;
+  }
+
+  100% {
+    color: #1f1f1f; /* Gold (back to start) */
+    text-shadow: 
+      0px 0px 1px #f0ac00, 
+      0px 0px 2px #e93db5, 
+      0px 0px 4px #FFD700;
+  }
+}
+
+
+/* Motion Animation */
+@keyframes charge-motion {
+  0% {
+    transform: translate3d(0px, 0px, 0);
+  }
+
+  80% {
+    transform: translate3d(0px, -5px, 0);
+  }
+
+  100% {
+    transform: translate3d(0px, -5px, 0)
+  }
+}
+
+
+.charge div {
+  animation-name: charge-motion;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(1, 0, 0, 1);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+
+}
+
+.charge-char {
+  animation: fruit-color 9s infinite;
+  animation-delay: var(--delay);
+}
 
 /* Motion Animation */
 @keyframes thiku-thiku-motion {
@@ -319,7 +495,10 @@ h2 {
   animation-direction: alternate;
 }
 
-
+.thiku-char {
+  animation: fruit-color 9s infinite;
+  animation-delay: var(--delay);
+}
 
 @keyframes wave-motion {
   from {
@@ -472,7 +651,8 @@ h2 {
   text-decoration: none;
   font-family: Inter, sans-serif;
   color: #ffffff;
-  background-image: url('source/web_icon/btn-favian.png');
+  background-color: #267c58;
+
   /* Change to your image */
   image-rendering: pixelated;
   background-size: 100%;
@@ -487,7 +667,68 @@ h2 {
   text-align: center;
 }
 
+.button-me:before {
+  content: '';
+  background-color: linear-gradient(45deg, #5cda66, #ff7300, #75eaff, #cefd22, #ff5e00, #c484ff, #7a00ff, #ff00c8, #95eea8);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(20px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: hyperbeam 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+
+}
+
 .button-me:hover {
+  background-size: 120%;
+  /* Zoom-in effect */
+  image-rendering: pixelated;
+}
+
+.button-me-bak {
+  display: inline-block;
+  text-decoration: none;
+  font-family: Inter, sans-serif;
+  color: #ad9393;
+  background-image: url('source/web_icon/btn-favian.png');
+
+  /* Change to your image */
+  image-rendering: pixelated;
+  background-size: 100%;
+  /* Normal size */
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-size 0.3s ease-in-out;
+  text-align: center;
+}
+
+.button-me-bak:before {
+  content: '';
+  background: linear-gradient(45deg, #5cda66, #ff7300, #75eaff, #cefd22, #ff5e00, #c484ff, #7a00ff, #ff00c8, #95eea8);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(20px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: hyperbeam 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+
+}
+
+.button-me-bak:hover {
   background-size: 120%;
   /* Zoom-in effect */
   image-rendering: pixelated;
@@ -865,7 +1106,6 @@ h2 {
   padding-right: 5%;
   position: relative;
   display: inline-block;
-  text-decoration: ;
   color: #ffffff;
   font-family: Inter, sans-serif;
   background-color: #7289da;
@@ -1555,6 +1795,11 @@ canvas {
   border-radius: 0px;
   pointer-events: none;
 }
+
+/* Minecraft Splash Text */
+
+
+
 
 
 /* Heavily inspired-->

@@ -1,10 +1,10 @@
-# Welcome to My Website Attempt! 🌟
+# Welcome to My Website! 
 
 Heho! 👋
 
 Welcome to my **Personal Web attempt**. Feel free to take a look around and explore the features I’ve been working on. Whether you're here for inspiration, a project, or just because you're curious, but higly probable to commission me lol. Well, I hope you enjoy your visit!
 
-## But hold on... WHO ARE YOU GUYS KEEP CLONING MY REPO!? 😱💀💀🗿🗿
+## But hold on... WHO ARE YOU GUYS KEEP CLONING MY REPO!? 😱😱💀💀🗿🗿
 
 Seriously, who keeps cloning my repository? If you're using this code, **please respect my license**. I’m glad you like it, but let’s make sure we follow the guidelines and don’t just steal the work!
 I mean I get it, this is public repo- but come on 💀 

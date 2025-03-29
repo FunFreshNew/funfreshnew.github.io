@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html style="background-color: #1f1f1f;" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
+
+  <script src="/script.js"></script>
+
+  <title>FFN</title>
+  <!-- Icons Buttons preload -->
+  <link rel="preload" href="../source/icon/ico_ableton_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_ableton_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_aseprite_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_aseprite_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blender_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blender_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blockbench_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_blockbench_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_clipstudiopaint_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_clipstudiopaint_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_css3_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_css3_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_gimp_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_gimp_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_html5_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_html5_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_inkscape_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_inkscape_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_js_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_js_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_krita_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_krita_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_mcskin3d_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_mcskin3d_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_nomadsculpt_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_nomadsculpt_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_painttoolsai_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_painttoolsai_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_procreate_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_procreate_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_threejs_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_threejs_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_visualstudio_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_visualstudio_on.png" as="image">
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/source/icon.png" type="image/icon type">
+  <!---->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/build/three.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/shaders/LuminosityHighPassShader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/EffectComposer.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/RenderPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/UnrealBloomPass.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/RenderPixelatedPass.js"></script>
+</head>
+<table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
+  <center style=" 
+                      margin-top: 69px ;
+                      margin-bottom: 69px ;
+                      padding: 0;
+                      display: flexbox;
+                      justify-content: center;
+                      align-items: center;">
+
+
+
+
+
+
+
+
+    <body id="asriel">
+      <div class="container">
+        <!-- Description -->
+        <div style="background-color: #353535;">
+          <br>
+
+
+
+          <h1
+            style="text-align: left; text-align: center; font-family: pixel; margin-top: -10px; margin-bottom:10px; font-weight: normal;">
+
+            <div class="tiny-wave" style="text-align: center; display: inline-flex; ">
+
+              <a>A</a>
+              <a>B</a>
+              <a>O</a>
+              <a>U</a>
+              <a>T</a>
+
+              <a>M</a>
+              <a>E</a>
+            </div>
+          </h1>
+
+          <div style="text-align: middle ;border-bottom-style:solid; border-bottom-width: 2px;font-size:9px ;"> "Who?
+            Me? Gongaga" </div>
+          <div style="display:inline-flex;">
+            <button onclick="history.back()" href class="button-back">
+              ◀ </button>
+            <a href="/index.html" class="button-home">▲</a>
+          </div>
+          <div>
+            <div id="ground"
+              style="height: 0px ;width: 721.5px; transform: translateX(-4%); position: relative;margin-bottom: 123px;">
+
+              <img src="source/tinipix/tinipix_fyn.png" alt="tinipix" class="tinipix" id="fyn">
+              <img src="source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
+
+            </div>
+          </div>
+
+          <div style="border-bottom-style:solid; border-bottom-width: 2px;font-size:9px ;"></div>
+        </div>
+
+        <div class="threedee-container">
+          <div
+            style=" font-size:medium ; font-family: inter; position: relative; z-index: 12; height: 666px;user-select: none; pointer-events: none;">
+
+            <div
+              style="text-align: left; margin-left: 20px; margin-top: 20px; user-select: none; pointer-events: none, visibleFill;">
+              <p><a class="mark-y">Name:</a><br>Favian / FFN / FunFreshNew / Fyn</p>
+              <p><a class="mark-y">Degree/Education:</a><br> Bachelor of Education [2025]<br></p>
+              <p><a class="mark-y">Skills:</a><br>Art Generalist<br>[flexible and technical artist]</p>
+              <p><a class="mark-y">Current Occupation:</a><br> Freelancer, student, etc.</p>
+              <p><a class="mark-y">Languages Spoken:</a><br> English B2</p>
+
+              <p><a class="mark-y">Personality Type:</a><br> INTP-T</p>
+
+
+
+
+
+
+            </div>
+
+          </div>
+          <a class=" model-container" style="position: absolute; z-index:1; opacity: 100%;;" id="model1"
+            data-model="../portfolio/portfolio-files/Favian Blocky v1.1.glb" data-camera="3.23, 1.67,-2.27"
+            data-camera-target="-0,1.32,0" data-width="666" data-height="666" data-shadow-res="4096" data-info="Favian"
+            data-ambient-intensity="0.4" data-ambient-color="#FFFFFF" data-light-intensity="2.0"
+            data-light-color="#736042" data-light-angle="16" data-light-radius="50" data-light-height="8"
+            data-bgcolor="#303030">
+          </a>
+
+
+
+        </div>
+        <div style="background-color: #202020">
+          <div style="height: 123px;">
+
+
+
+
+
+          </div>
+        </div>
+        <div style=" background-color: #303030;">
+
+          <h1
+            style="text-align: left; text-align: center; font-family: pixel; margin-bottom:20px; font-weight: normal;">
+
+            <div class="tiny-wave" style="text-align: center; display: inline-flex; ">
+
+              <a>-</a>
+              <a>[</a>
+              <a>S</a>
+              <a>K</a>
+              <a>I</a>
+              <a>L</a>
+              <a>L</a>
+              <a>&nbsp;</a>
+              <a>T</a>
+              <a>R</a>
+              <a>E</a>
+              <a>E</a>
+              <a>]</a>
+              <a>-</a>
+
+            </div>
+          </h1>
+          <a style="font-family: inter; font-size: x-small;">These skills acquired through self taught, and start
+            actively learning around 2017-NOW.
+            <br>
+            The skill levels presented here are self-assessed and reflect growth from foundational knowledge to professional-level expertise.
+          </a>
+
+          <!--------------------------Categories-------------------------->
+          <div>
+            <div>
+              <!--------------------------2D-------------------------->
+              <div>
+                <div class="detail-container-category"
+                  style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030;border-block: 2px solid #FFFFFF; ">
+                  <a style="margin: auto; font-size: large;">2D Art Medium</a>
+
+                  <div style="font-family: inter; background-color: #353535; font-size:small ; ">
+
+                    <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+                      <div
+                        style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: x-small; margin: 20px; font-weight: normal; ">
+                        <a style="margin: auto;">Description:</a> <br>
+                        "I make Minecraft skins and textures. Sometimes I mess around with custom player models for
+                        modded
+                        Minecraft or OptiFine, too. I also use these models for 3D renders in Blender, where I rig and
+                        animate
+                        them as needed."
+
+                      </div>
+                      <a class="asrieldremurr"
+                        style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: xx-small;">
+
+                      </a>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <!--------------------------Tree-------------------------->
+                <div style="font-family: inter;">
+
+                  <div style="font-size: x-large">
+                    <br>
+                    <div class="detail-container">
+                      <!--------------------------Pixel art-------------------------->
+                      <div>
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; border-top: 2px solid #555; background-color: #353535;">
+                          <a style="font-weight: bolder;padding-left: 10px;" class="mark-y">
+                            PIXELART <a style="font-size: x-small;">2014-NOW</a>
+
+                          </a>
+                        </div>
+
+                        <!--Sprites-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #272727;padding-left: 5px;">
+                          <li style="font-size: large;">Sprites</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Tileset -->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;">Tileset</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Backgrounds-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;"> Backgrounds </li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--UI Elements-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;"> UI Elements </li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Animation-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;"> Animation </li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+                      </div>
+                      <!--------------------------Digital Painting-------------------------->
+                      <div>
+                        <div>
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; border-top: 2px solid #555; background-color: #353535;">
+                            <a style="font-weight: bolder;padding-left: 10px;" class="mark-y">
+                              DIGITAL PAINTING<a style="font-size: x-small;">2014-NOW</a>
+
+                            </a>
+                          </div>
+
+                          <!--Character Art-->
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                            <li style="font-size: large; padding-left: px;">Character Art</li>
+
+                            <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);">
+                              [
+                              <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1.25s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.50s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.75s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -2s infinite;">■</div>
+                              </div>
+                              ]
+                            </a>
+
+                          </div>
+
+
+                          <!--Background Art-->
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                            <li style="font-size: large; padding-left: px;">Background Art</li>
+
+                            <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);">
+                              [
+                              <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1.25s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.50s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.75s infinite;">■</div>
+                              </div>
+                              <div class="zero">
+                                <div class="zero">■</div>
+                              </div>
+                              ]
+                            </a>
+
+                          </div>
+                          <!--Concept Art-->
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                            <li style="font-size: large; padding-left: px;">Concept Art</li>
+
+                            <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);">
+                              [
+                              <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1.25s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.50s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.75s infinite;">■</div>
+                              </div>
+                              <div class="zero">
+                                <div class="zero">■</div>
+                              </div>
+                              ]
+                            </a>
+
+                          </div>
+
+                        </div>
+                      </div>
+                      <!--------------------------2D Animation-------------------------->
+                      <div>
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; border-top: 2px solid #555; background-color: #353535;">
+                          <a style="font-weight: bolder;padding-left: 10px;" class="mark-y">
+                            2D Animation <a style="font-size: x-small;">2016-NOW</a>
+
+                          </a>
+                        </div>
+
+                        <!--Storyboard-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #272727;padding-left: 5px;">
+                          <li style="font-size: large;">Storyboard</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Key Animation-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;">Key Animation</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Backgrounds-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;">In-Betweener</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--UI Elements-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;"> Cleanup</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            <div class="zero">
+                              <div class="zero">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div style="background-color: #202020">
+                <div style="height: 150px;">
+
+
+
+                </div>
+
+              </div>
+              <!--------------------------3D-------------------------->
+              <div>
+                <div class="detail-container-category"
+                  style="font-family: inter; font-size: x-large; font-weight: bold; background-color: #303030;border-block: 2px solid #FFFFFF; ">
+                  <a style="margin: auto; font-size: large;">3D Art Medium</a>
+
+                  <div style="font-family: inter; background-color: #353535; font-size:small ; ">
+
+                    <div style="font-size: larger; margin-top: 9px; margin-bottom: 9px;">
+                      <div
+                        style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: x-small; margin: 20px; font-weight: normal; ">
+                        <a style="margin: auto;">Description:</a> <br>
+                        "I make Minecraft skins and textures. Sometimes I mess around with custom player models for
+                        modded
+                        Minecraft or OptiFine, too. I also use these models for 3D renders in Blender, where I rig and
+                        animate
+                        them as needed."
+
+                      </div>
+                      <a class="asrieldremurr"
+                        style=" text-transform: uppercase ;font-family: pixeltxt; font-weight: bolder; font-size: xx-small;">
+
+                      </a>
+                    </div>
+
+
+                  </div>
+
+                </div>
+
+                <!--------------------------Tree-------------------------->
+                <div style="font-family: inter;">
+
+                  <div style="font-size: x-large">
+                    <br>
+                    <div class="detail-container">
+                      <!--------------------------Lowpoly-------------------------->
+                      <div>
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; border-top: 2px solid #555; background-color: #353535;">
+                          <a style="font-weight: bolder;padding-left: 10px;" class="mark-y">
+                            Lowpoly<a style="font-size: x-small;">2014-NOW</a>
+
+                          </a>
+                        </div>
+
+                        <!--Character Models-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #272727;padding-left: 5px;">
+                          <li style="font-size: large;">Character Models</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Props/Objects-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;"> Props/Objects</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--Rigging-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;"> Rigging </li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+                        <!--UI Elements-->
+                        <div
+                          style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                          <li style="font-size: large; padding-left:px;">Texture Painting</li>
+
+                          <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);"> [
+                            <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                              <div style="animation: one 5s -1.25s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.50s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -1.75s infinite;">■</div>
+                            </div>
+                            <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                              <div style="animation: one 5s -2s infinite;">■</div>
+                            </div>
+                            ]
+                          </a>
+
+                        </div>
+
+
+
+                      </div>
+                      <!--------------------------Normal Modeling-------------------------->
+                      <div>
+                        <div>
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 5px 0; border-top: 2px solid #555; background-color: #353535;">
+                            <a style="font-weight: bolder;padding-left: 10px;" class="mark-y">
+                              Normal Modeling<a style="font-size: x-small;">2014-NOW</a>
+
+                            </a>
+                          </div>
+
+                          <!--Concept Art-->
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                            <li style="font-size: large; padding-left: px;">Stylized Sculpting</li>
+
+                            <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);">
+                              [
+                              <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1.25s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.50s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.75s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.7s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -2s infinite;">■</div>
+                              </div>
+                              ]
+                            </a>
+
+                          </div>
+
+                          <!--Hard Surface Sculpting-->
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                            <li style="font-size: large; padding-left: px;">Hard Surface</li>
+
+                            <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);">
+                              [
+                              <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1.25s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.50s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -0.9s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.75s infinite;">■</div>
+                              </div>
+                              <div class="zero">
+                                <div class="zero">■</div>
+                              </div>
+                              ]
+                            </a>
+
+                          </div>
+
+
+                          <!--Organic Sculpting-->
+                          <div
+                            style="display: flex; align-items: center; justify-content: space-between; width: 100%;padding: 5px 0; background-color: #303030;padding-left: 5px;">
+                            <li style="font-size: large; padding-left: px;">Organic Sculpting </li>
+
+                            <a class="charge" style="display: inline-flex;padding-right: 5%; color: rgb(230, 226, 0);">
+                              [
+                              <div style="animation-delay: -1.5s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.2s; animation-duration: 1.5s;">
+                                <div style="animation: one 5s -1.25s infinite;">■</div>
+                              </div>
+                              <div style="animation-delay: -1.1s; animation-duration: 1.5s">
+                                <div style="animation: one 5s -1.50s infinite;">■</div>
+                              </div>
+                              <div class="zero">
+                                <div class="zero">■</div>
+                              </div>
+                              <div class="zero">
+                                <div class="zero">■</div>
+                              </div>
+                              ]
+                            </a>
+
+                          </div>
+
+
+                        </div>
+                      </div>
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
+
+        </div>
+
+
+        
+
+
+
+
+
+
+
+
+
+        <!-- Contact -->
+        <div style="margin-bottom: 20px;">
+          <p>Contact me:</p>
+          <div>
+            <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
+            <a class="discord" onclick="copyText(event)">Discord</a>
+            <a href="mailto:funfreshnew.work@gmail.com" target="_blank" class="button-mail">E-mail</a>
+          </div>
+        </div>
+
+        <div style="background-color:#353535;">
+          <a class="tinyface asrieldremurr">
+          </a>
+
+        </div>
+        <div> 2014-2025+ FunFreshNew </div>
+    </body>
+
+
+    <!--site version-->
+    <div style="background-color: #1f1f1f;">
+      <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
+        <a class="asrieldremurr">v0.5.2</a>
+      </div>
+    </div>
+
+    <script src="js/tinipix.js"></script>
+    <script src="js/3d.js"></script>
+</table>
+</center>
+<script type="text/javascript">
+  window.onload = function () {
+    setTimeout(function () {
+      document.getElementById("body").style.display = "";
+    }, 4000);
+  }
+</script>
+
+</html>

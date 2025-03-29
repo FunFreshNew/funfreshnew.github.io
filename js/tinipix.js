@@ -1,20 +1,28 @@
+// FunFreshNew © //
 /* Tinipix Stable MIX*/
+
 document.addEventListener("DOMContentLoaded", () => {
     class Tinipix {
         static instances = [];
+        static fpsScale = 1;
+        static fpsDetected = false;
+        static fpsPopup = null;
+        static fpsDetectionEnabled = true; // Toggle for FPS detection
+    
         constructor(element, settings = {}) {
             this.element = element;
-            if (!element) return; // Prevents errors if an element is missing
-            this.element.removeAttribute("id"); // Remove ID to prevent duplicate IDs
+            if (!element) return;
+            this.element.removeAttribute("id");
+    
             this.velocity = { x: Math.random() > 0.5 ? 2 : -2, y: 0 };
-
-            this.ground = document.querySelector("#ground"); // Ensure we use a controlled ground element
-
+    
+            this.ground = document.querySelector("#ground");
+    
             this.position = {
                 x: this.ground.clientLeft + Math.random() * this.ground.clientWidth,
                 y: this.ground.offsetTop - this.element.offsetHeight
             };
-
+    
             this.gravity = 0.25;
             this.isJumping = false;
             this.isStaying = false;
@@ -27,9 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
             this.lastRunEndTime = 0;
             Tinipix.seedDelay = Math.random() * 2000;
             Tinipix.instances.push(this);
-
+    
             this.settings = {
-
                 avoidCollision: settings.avoidCollision ?? false,
                 staySpacing: settings.staySpacing ?? 0,
                 jumpStrength: settings.jumpStrength ?? 2,
@@ -45,25 +52,85 @@ document.addEventListener("DOMContentLoaded", () => {
                 asymmetric: settings.asymmetric ?? false,
                 textures: settings.textures ?? { left: element.src, right: element.src }
             };
-
+    
+            Tinipix.instances.push(this);
             this.init();
         }
+    
+        updatePosition() {
+            const offsetY = -this.ground.getBoundingClientRect().top - window.scrollY + 69; //Nice
+            this.element.style.left = `${this.position.x}px`;
+            this.element.style.top = `${this.position.y + offsetY}px`;
+        }
 
+        move() {
+            if (this.isDragging) {
+                requestAnimationFrame(() => this.move());
+                return;
+            }
+    
+            let now = performance.now();
+            let dt = (now - (this.lastUpdateTime || now)) / 16.67; // Normalize to 60 FPS
+            this.lastUpdateTime = now;
+    
+            if (!this.isStaying && this.onGround && !this.isJumping) {
+                this.startHop();
+            }
+    
+            if (!this.isStaying) {
+                this.position.x += (this.velocity.x * this.settings.walkSpeed) * Tinipix.fpsScale;
+            }
+    
+            this.velocity.y += this.gravity * Tinipix.fpsScale;
+            this.position.y += this.velocity.y * Tinipix.fpsScale;
+    
+            this.onGround = false;
+    
+            if (this.position.y >= this.ground.offsetTop - this.element.offsetHeight) {
+                this.position.y = this.ground.offsetTop - this.element.offsetHeight;
+                this.velocity.y = 0;
+                this.onGround = true;
+            }
+    
+            const minX = this.ground.clientLeft;
+            const maxX = this.ground.clientLeft + this.ground.clientWidth - this.element.offsetWidth;
+    
+            if (this.position.x <= minX) {
+                this.position.x = minX + 1;
+                this.velocity.x = Math.abs(this.velocity.x);
+            } else if (this.position.x >= maxX) {
+                this.position.x = maxX - 1;
+                this.velocity.x = -Math.abs(this.velocity.x);
+            }
+    
+            this.setScale(this.velocity.x > 0 ? 1 : -1);
+    
+            if (this.onGround && Math.random() < this.settings.stayChance && !this.isStaying) {
+                this.startStay();
+            }
+    
+            this.updatePosition();
+            this.avoidStacking();
+    
+            requestAnimationFrame(() => this.move());
+        }
+
+    
         init() {
             this.move();
             this.element.addEventListener("dblclick", (event) => this.runAway(event.clientX));
             this.element.addEventListener("mousedown", (event) => this.prepareDrag(event));
-
+    
             this.element.style.backfaceVisibility = "visible";
             this.element.style.imageRendering = "pixelated";
-            
+    
             this.element.style.userSelect = "none";
             this.element.style.pointerEvents = "auto";
             this.element.draggable = false;
-
+    
             this.setScale(0);
         }
-
+    
         setScale(direction) {
             if (!this.isDragging) {
                 this.element.style.transform = `scale(${direction}, 1)`;
@@ -72,63 +139,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
-
+    
         setTexture(direction) {
             if (this.settings.asymmetric) {
                 this.element.src = this.settings.textures[direction];
             }
         }
-
-        move() {
-            if (this.isDragging) {
-                requestAnimationFrame(() => this.move());
-                return;
-            }
-
-            if (!this.isStaying && this.onGround && !this.isJumping) {
-                this.startHop();
-            }
-
-            if (!this.isStaying) {
-                this.position.x += this.velocity.x * this.settings.walkSpeed;
-            }
-
-            this.velocity.y += this.gravity;
-            this.position.y += this.velocity.y;
-            this.onGround = false;
-
-            // Ensure Tinipix doesn't fall below ground level
-            if (this.position.y >= this.ground.offsetTop - this.element.offsetHeight) {
-                this.position.y = this.ground.offsetTop - this.element.offsetHeight;
-                this.velocity.y = 0;
-                this.onGround = true;
-            }
-
-            // Prevent movement outside the controlled ground area
-            const minX = this.ground.clientLeft;
-            const maxX = this.ground.clientLeft + this.ground.clientWidth - this.element.offsetWidth;
-
-            if (this.position.x <= minX) {
-                this.position.x = minX + 1;
-                this.velocity.x = Math.abs(this.velocity.x);
-            } else if (this.position.x >= maxX) {
-                this.position.x = maxX - 1;
-                this.velocity.x = -Math.abs(this.velocity.x);
-            }
-
-            this.setScale(this.velocity.x > 0 ? 1 : -1);
-
-            if (this.onGround && Math.random() < this.settings.stayChance && !this.isStaying) {
-                this.startStay();
-            }
-
-            this.updatePosition();
-            this.avoidStacking();
-
-            requestAnimationFrame(() => this.move());
-        }
-
-
+    
+        
 
 
         avoidStacking() {
@@ -204,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 };
 
-                setTimeout(flip, Math.random() * 2000);
+                setTimeout(flip, Math.random());
             }
         }
 
@@ -302,14 +320,79 @@ document.addEventListener("DOMContentLoaded", () => {
             document.removeEventListener("mouseleave", this.stopDrag);
         };
 
-        updatePosition() {
-            const offsetY = 0; // Adjust this value to move them higher
-            this.element.style.left = `${this.position.x}px`;
-            this.element.style.top = `${this.position.y + offsetY}px`;
+        
+
+        static detectFPS() {
+            if (!Tinipix.fpsDetectionEnabled || Tinipix.fpsDetected) return;
+    
+            let lastTime = performance.now();
+            let frameCount = 0;
+    
+            const measureFPS = () => {
+                frameCount++;
+                let now = performance.now();
+                let elapsed = now - lastTime;
+    
+                if (elapsed >= 1500) { // Measure over 0.5s
+                    let detectedFPS = Math.round((frameCount / elapsed) * 1000);
+                    Tinipix.assignFPSTemplate(detectedFPS);
+                    Tinipix.showFPSPopup(detectedFPS);
+                    Tinipix.fpsDetected = true;
+                    return;
+                }
+                requestAnimationFrame(measureFPS);
+            };
+    
+            requestAnimationFrame(measureFPS);
+        }
+    
+        static assignFPSTemplate(fps) {
+            let scaleMap = {
+                60: 1.5,  // Increase values (slower)
+                75: 1.2,  // Slight increase
+                90: 1.0,  // Baseline
+                120: 0.75, // Reduce values
+                144: 0.625,
+                165: 0.545,
+                240: 0.375  // Fastest movement reduction
+            };
+    
+            let closestFPS = Object.keys(scaleMap).reduce((prev, curr) => 
+                Math.abs(curr - fps) < Math.abs(prev - fps) ? curr : prev
+            );
+    
+            Tinipix.fpsScale = scaleMap[closestFPS];
+            console.log(`Detected FPS: ${fps}, Applying scale: ${Tinipix.fpsScale}`);
+        }
+    
+        static showFPSPopup(fps) {
+            if (Tinipix.fpsPopup) return; // Prevent duplicate popups
+    
+            let popup = document.createElement("div");
+            popup.innerText = `Detected Refresh Rate: ${fps} Hz`;
+            popup.style.position = "fixed";
+            popup.style.top = "10px";
+            popup.style.left = "50%";
+            popup.style.transform = "translateX(-50%)";
+            popup.style.backgroundColor = "black";
+            popup.style.color = "white";
+            popup.style.padding = "10px";
+            popup.style.borderRadius = "5px";
+            popup.style.zIndex = "9999";
+            document.body.appendChild(popup);
+    
+            setTimeout(() => {
+                popup.remove();
+                Tinipix.fpsPopup = null;
+            }, 3000);
+            
+            Tinipix.fpsPopup = popup;
+        }
+    
+        static disableFPSDetection() {
+            Tinipix.fpsDetectionEnabled = false;
         }
     }
-
-
     const tinipixSettings = {
         favian: {
             stayChance: 0.5,
@@ -317,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
             stayDurationMax: 3000,
             pixelScale: 1,
             walkSpeed: 0.5,
-            stayFlipChance: 0.009,
+            stayFlipChance: 0.02,
             avoidCollision: false,
             asymmetric: true,
             walkDistanceMin: 10,
@@ -345,9 +428,9 @@ document.addEventListener("DOMContentLoaded", () => {
         tennuqi: {
             stayChance: 0.8,
             stayDurationMin: 150,
-            stayDurationMax: 50000,
+            stayDurationMax: 9000,
             pixelScale: 1,
-            walkSpeed: 0.5,
+            walkSpeed: 0.4,
             stayFlipChance: 0.04,
             asymmetric: true,
             walkDistanceMin: 10,
@@ -380,7 +463,7 @@ document.addEventListener("DOMContentLoaded", () => {
         fyn: {
             stayChance: 0.09,
             stayDurationMin: 1500,
-            stayDurationMax: 50000,
+            stayDurationMax: 5000,
             pixelScale: 1,
             walkSpeed: 0.5,
             stayFlipChance: 0.06,
@@ -390,7 +473,7 @@ document.addEventListener("DOMContentLoaded", () => {
         liner: {
             stayChance: 0.8,
             stayDurationMin: 150,
-            stayDurationMax: 50000,
+            stayDurationMax: 9000,
             pixelScale: 1,
             walkSpeed: 0.5,
             stayFlipChance: 0.04,
@@ -403,11 +486,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         },
         mega: {
-            stayChance: 0.05,
-            stayDurationMin: 20000,
-            stayDurationMax: 50000,
+            stayChance: 0.06,
+            stayDurationMin: 200,
+            stayDurationMax: 9000,
             pixelScale: 1,
-            walkSpeed: 0.5,
+            walkSpeed: 0.4,
             stayFlipChance: 0.03,
             asymmetric: true,
             walkDistanceMin: 10,
@@ -416,14 +499,33 @@ document.addEventListener("DOMContentLoaded", () => {
                 left: "../source/tinipix/tinipix_mega_left.png",
                 right: "../source/tinipix/tinipix_mega_right.png"
             }
+        },
+        debug: {
+            stayChance: 0.06,
+            stayDurationMin: 200,
+            stayDurationMax: 9000,
+            pixelScale: 1,
+            walkSpeed: 0.4,
+            stayFlipChance: 0.03,
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
+            textures: {
+                left: "../source/tinipix/tinipix_debug_left.png",
+                right: "../source/tinipix/tinipix_debug_right.png"
+            }
         }
     };
 
-
     document.querySelectorAll(".tinipix").forEach((img) => {
         if (img.style.visibility !== "collapse") {
-            const id = img.id; // Get the element ID
-            const settings = tinipixSettings[id] || {}; // Get custom settings or fallback to default
+            const id = img.id; // Get unique ID
+            const settings = tinipixSettings[id] || {}; // Load custom settings
+
+            // Find the specific ground for this Tinipix
+            const ground = document.getElementById(`${id}:ground`);
+
+           
             new Tinipix(img, settings);
         }
     });
@@ -483,113 +585,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return null; // No free spot found
     }
 
-    function checkInteractions() {
-        const stayingTinipix = tinipix.filter(t => t.isStaying);
-        if (stayingTinipix.length < 2) {
-            requestAnimationFrame(checkInteractions);
-            return;
-        }
-
-        let closestPair = null;
-        let bestDistance = Infinity;
-
-        // Remove old debug boxes
-        document.querySelectorAll(".debug-box").forEach(box => box.remove());
-
-        for (let i = 0; i < stayingTinipix.length - 1; i++) {
-            for (let j = i + 1; j < stayingTinipix.length; j++) {
-                const t1 = stayingTinipix[i];
-                const t2 = stayingTinipix[j];
-
-                // Determine "front" position
-                const t1FacingRight = t1.velocity.x >= 0; // Right is front
-                const t2FacingLeft = t2.velocity.x <= 0;  // Left is front
-                const t1FrontX = t1FacingRight ? t1.position.x + t1.element.offsetWidth : t1.position.x;
-                const t2FrontX = t2FacingLeft ? t2.position.x : t2.position.x + t2.element.offsetWidth;
-
-                const distance = Math.abs(t1FrontX - t2FrontX);
-                const facingEachOther = t1FrontX < t2FrontX && t1FacingRight && t2FacingLeft;
-
-                // Draw Debug Hitboxes
-                drawDebugBox(t1FrontX, t1.position.y, INTERACTION_MAX_DISTANCE);
-                drawDebugBox(t2FrontX, t2.position.y, INTERACTION_MAX_DISTANCE);
-
-                // Debugging Logs
-                console.log(`Tinipix ${i} & ${j} - Distance: ${distance}, Facing: ${facingEachOther}`);
-
-                if (distance >= INTERACTION_MIN_DISTANCE && distance <= INTERACTION_MAX_DISTANCE && facingEachOther) {
-                    if (distance < bestDistance) {
-                        closestPair = [t1, t2];
-                        bestDistance = distance;
-                    }
-                }
-            }
-        }
-
-        if (closestPair) {
-            const [t1, t2] = closestPair;
-            console.log("Interaction Triggered!", t1, t2);
-            showParticle((t1FrontX + t2FrontX) / 2, t1.position.y + t1.element.offsetHeight);
-        }
-
-        requestAnimationFrame(checkInteractions);
-    }
-
-
-    function checkInteractions() {
-        const stayingTinipix = tinipix.filter(t => t.isStaying);
-        if (stayingTinipix.length < 2) {
-            requestAnimationFrame(checkInteractions);
-            return;
-        }
-
-        let closestPair = null;
-        let bestDistance = Infinity;
-
-        document.querySelectorAll(".debug-box").forEach(box => box.remove());
-
-        for (let i = 0; i < stayingTinipix.length - 1; i++) {
-            for (let j = i + 1; j < stayingTinipix.length; j++) {
-                const t1 = stayingTinipix[i];
-                const t2 = stayingTinipix[j];
-
-                // Get "front" position
-                const t1FacingRight = t1.velocity.x >= 0; // Right is front
-                const t2FacingLeft = t2.velocity.x <= 0;  // Left is front
-                const t1FrontX = t1FacingRight ? t1.position.x + t1.element.offsetWidth : t1.position.x;
-                const t2FrontX = t2FacingLeft ? t2.position.x : t2.position.x + t2.element.offsetWidth;
-
-                const distance = Math.abs(t1FrontX - t2FrontX);
-                const facingEachOther = t1FrontX < t2FrontX && t1FacingRight && t2FacingLeft;
-
-                drawDebugBox(t1FrontX, t1.position.y, INTERACTION_MAX_DISTANCE);
-                drawDebugBox(t2FrontX, t2.position.y, INTERACTION_MAX_DISTANCE);
-
-                console.log(`Tinipix ${i} & ${j} - Distance: ${distance}, Facing: ${facingEachOther}`);
-
-                if (distance >= INTERACTION_MIN_DISTANCE && distance <= INTERACTION_MAX_DISTANCE && facingEachOther) {
-                    if (distance < bestDistance) {
-                        closestPair = [t1, t2];
-                        bestDistance = distance;
-                    }
-                }
-            }
-        }
-
-        if (closestPair) {
-            const [t1, t2] = closestPair;
-
-            // 🛠 FIXED: Center particle effect correctly
-            const interactionX = (t1.position.x + t1.element.offsetWidth + t2.position.x) / 2;
-            const interactionY = Math.min(t1.position.y, t2.position.y) - 20; // Appear slightly above them
-
-            console.log("Interaction Triggered!", t1, t2);
-            showParticle(interactionX, interactionY);
-        }
-
-        requestAnimationFrame(checkInteractions);
-    }
-
     function decideToStay(tinipix) {
         let stayChance = tinipix.settings.stayChance || 0.3;
 
@@ -633,6 +628,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-
-    checkInteractions();
+ // ✅ Start FPS detection when the page loads
+window.onload = () => Tinipix.detectFPS();
 });
+
+// FunFreshNew © //
