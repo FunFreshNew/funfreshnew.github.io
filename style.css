@@ -646,6 +646,56 @@ h2 {
   font-size: smaller;
 }
 
+.button-ffn {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  background: #267c58;
+}
+
+
+.button-ffn:before {
+  content: '';
+  background: linear-gradient(45deg, #267c58, #ff7300, #75eaff, #0dc277, #ff5e00, #c484ff, #7a00ff, #ff00c8, #267c58);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(20px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: hyperbeam 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+}
+
+.button-ffn:hover:before {
+  opacity: 1;
+}
+
+.button-ffn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #267c58;
+  left: 0;
+  top: 0;
+}
+
+
 .button-me {
   display: inline-block;
   text-decoration: none;
@@ -667,7 +717,7 @@ h2 {
   text-align: center;
 }
 
-.button-me:before {
+.button-x:before {
   content: '';
   background-color: linear-gradient(45deg, #5cda66, #ff7300, #75eaff, #cefd22, #ff5e00, #c484ff, #7a00ff, #ff00c8, #95eea8);
   position: absolute;
@@ -684,13 +734,13 @@ h2 {
 
 }
 
-.button-me:hover {
+.button-x:hover {
   background-size: 120%;
   /* Zoom-in effect */
   image-rendering: pixelated;
 }
 
-.button-me-bak {
+.button-x-bak {
   display: inline-block;
   text-decoration: none;
   font-family: Inter, sans-serif;
@@ -711,7 +761,7 @@ h2 {
   text-align: center;
 }
 
-.button-me-bak:before {
+.button-me-x:before {
   content: '';
   background: linear-gradient(45deg, #5cda66, #ff7300, #75eaff, #cefd22, #ff5e00, #c484ff, #7a00ff, #ff00c8, #95eea8);
   position: absolute;
