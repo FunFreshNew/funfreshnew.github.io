@@ -2,7 +2,7 @@ window.transitionToPage = function(href) {
     document.querySelector('center').style.opacity = 0
     setTimeout(function() { 
         window.location.href = href
-    }, 500)
+    }, 2000)
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
