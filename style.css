@@ -660,7 +660,6 @@ h2 {
   cursor: pointer;
   position: relative;
   z-index: 0;
-  background: #267c58;
 }
 
 
@@ -682,6 +681,7 @@ h2 {
 
 .button-ffn:hover:before {
   opacity: 1;
+  
 }
 
 .button-ffn:after {
@@ -690,7 +690,7 @@ h2 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #267c58;
+  background: #116e47;
   left: 0;
   top: 0;
 }

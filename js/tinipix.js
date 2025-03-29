@@ -256,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             this.dragTimeout = setTimeout(() => {
                 this.startDrag(event);
-            }, 150); // 👈 User must hold the mouse down for 150ms to start dragging
+            }, 150); // 150ms to start dragging
 
             document.addEventListener("mouseup", this.cancelDrag); // Listen for quick releases
             document.addEventListener(event.type.includes("touch") ? "touchend" : "mouseup", this.cancelDrag);
@@ -333,8 +333,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 let now = performance.now();
                 let elapsed = now - lastTime;
     
-                if (elapsed >= 1500) { // Measure over 0.5s
-                    let detectedFPS = Math.round((frameCount / elapsed) * 1000);
+                if (elapsed >= 2000) { // Measure
+                    let detectedFPS = Math.round((frameCount / elapsed) * 2000);
                     Tinipix.assignFPSTemplate(detectedFPS);
                     Tinipix.showFPSPopup(detectedFPS);
                     Tinipix.fpsDetected = true;
@@ -376,6 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
             popup.style.transform = "translateX(-50%)";
             popup.style.backgroundColor = "black";
             popup.style.color = "white";
+            popup.style.fontFamily = "pixeltxt"
             popup.style.padding = "10px";
             popup.style.borderRadius = "5px";
             popup.style.zIndex = "9999";
