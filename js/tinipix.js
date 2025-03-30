@@ -333,8 +333,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 let now = performance.now();
                 let elapsed = now - lastTime;
     
-                if (elapsed >= 2000) { // Measure
-                    let detectedFPS = Math.round((frameCount / elapsed) * 2000);
+                if (elapsed >= 1200) { // Measure
+                    let detectedFPS = Math.round((frameCount / elapsed) * 1300);
                     Tinipix.assignFPSTemplate(detectedFPS);
                     Tinipix.showFPSPopup(detectedFPS);
                     Tinipix.fpsDetected = true;
@@ -486,6 +486,26 @@ document.addEventListener("DOMContentLoaded", () => {
                 right: "../source/tinipix/tinipix_liner_right.png"
             }
         },
+        f_kikan: {
+            stayChance: 0.09,
+            stayDurationMin: 1000,
+            stayDurationMax: 5000,
+            pixelScale: 1,
+            walkSpeed: 0.5,
+            stayFlipChance: 0.06,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50
+        },
+        f_milk: {
+            stayChance: 0.09,
+            stayDurationMin: 1500,
+            stayDurationMax: 5000,
+            pixelScale: 1,
+            walkSpeed: 0.5,
+            stayFlipChance: 0.06,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50
+        },
         mega: {
             stayChance: 0.06,
             stayDurationMin: 200,
@@ -515,7 +535,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 left: "../source/tinipix/tinipix_debug_left.png",
                 right: "../source/tinipix/tinipix_debug_right.png"
             }
-        }
+        },
     };
 
     document.querySelectorAll(".tinipix").forEach((img) => {

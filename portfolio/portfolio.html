@@ -77,6 +77,8 @@
   <link rel="preload" href="../source/icon/ico_threejs_on.png" as="image">
   <link rel="preload" href="../source/icon/ico_visualstudio_off.png" as="image">
   <link rel="preload" href="../source/icon/ico_visualstudio_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_roughanimator_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_roughanimator_on.png" as="image">
   <link rel="stylesheet" href="../style.css">
 </head>
 <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
@@ -235,6 +237,15 @@
                     <a href="#" target="_blank"></a>
                   </div>
                 </div>
+                <!-- Rough Animator -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="Rough Animator" data-url="https://www.roughanimator.com/"
+                    style="--default-img: url('source/icon/ico_roughanimator_off.png'); --clicked-img: url('source/icon/ico_roughanimator_on.png');">
+                  </a>
+                  <div class="bubble hidden" style="overflow:visible ;">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
                 <!-- Gimp -->
                 <div class="pixbutton-container">
                   <a class="pixbutton" data-software="Gimp" data-url="https://www.gimp.org/"
@@ -301,7 +312,7 @@
                   style="color: #cccccc; text-decoration: none;">Artisan - Cascade of Tears</a>
               </div>
 
-              <div class="tiny-wave" style="display: flex; font-weight: bolder;">
+              <div class="tiny-wave" style="display: flex; font-weight: bolder; padding-bottom: 10px;">
                 <a>L</a>
                 <a>E</a>
                 <a>T</a>
@@ -316,7 +327,7 @@
                 <a>G</a>
                 <a>!</a>
 
-
+                
               </div>
             </div>
 
@@ -607,11 +618,14 @@
 
 
             </div>
-            <div id="ground" style=" height: 0px ;width: 721.5px; transform: translateX(-4%); position">
+            <div id="ground" style=" height: 0px ;width: 721.5px; transform: translateX(-4%);">
 
-              <img src="/source/tinipix/tinipix_kikan.png" alt="tinipix" class="tinipix" id="kikan">
-              <img src="/source/tinipix/tinipix_duck.png" alt="tinipix" class="tinipix" id="duck">
               <img src="source/tinipix/tinipix_liner_left.png" alt="tinipix" class="tinipix" id="liner">
+              <img src="/source/tinipix/tinipix_kikan.png" alt="tinipix" class="tinipix" id="kikan">
+              <img src="/source/tinipix/tinipix_f-kikan.png" alt="tinipix" class="tinipix" id="f_kikan">
+              <img src="/source/tinipix/tinipix_f-milk.png" alt="tinipix" class="tinipix" id="f_milk">
+              <img src="/source/tinipix/tinipix_duck.png" alt="tinipix" class="tinipix" id="duck">
+             
 
             </div>
           </div>
@@ -1009,7 +1023,7 @@
         <!--site version-->
         <div style="background-color: #1f1f1f;">
           <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
-            <a class="asrieldremurr">v0.5.2</a>
+            <a class="asrieldremurr">v0.5.3</a>
           </div>
         </div>
       </div>
