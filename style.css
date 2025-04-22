@@ -179,7 +179,7 @@ h2 {
 .commission-table {
   flex: 1;
   border: 2px solid #ffffff;
-  background-color: #84A0C8;
+  
 
 }
 
@@ -1879,26 +1879,26 @@ input[type="radio"] {
 
 .splash-text {
   position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%) rotate(-10deg);
+  transform: rotate(-10deg);
   font-family: Arial, sans-serif;
   font-size: 24px;
   font-weight: bold;
-  font-style: italic;
+  
   color: yellow;
-  text-shadow: 2px 2px 0px black;
-  animation: splashBounce 2s infinite ease-in-out alternate;
+  
+  animation: splashBounce 3s infinite ease-in-out alternate;
   white-space: nowrap;
 }
 
 @keyframes splashBounce {
   0% {
-    transform: translateX(-50%) rotate(-10deg) translateY(0px);
+    transform:  rotate(2deg) translateY(0px)  scale(1);
   }
 
+50% { scale: 1.1;}
+
   100% {
-    transform: translateX(-50%) rotate(-10deg) translateY(5px);
+    transform:  rotate(-2deg) translateY(5px) scale(1);
   }
 }
 
