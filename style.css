@@ -14,7 +14,7 @@ center {
 
 img {
   -webkit-user-drag: none;
-  user-drag: none;
+  -user-drag: none;
   pointer-events: auto;
   /* Ensures links work */
   object-fit: contain
@@ -61,8 +61,29 @@ body {
 
 }
 
+#tenkiCanvas {
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+}
+
+.tenki-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  image-rendering: pixelated;
+}
+
+
+.tenki {
+  pointer-events: none;
+  user-select: none;
+  will-change: transform, opacity;
+}
+
 #ground {
-  z-index: 999;
+  z-index: 666;
   position: relative;
   /* Ensures stable positioning */
   margin-top: 0px;
@@ -71,7 +92,7 @@ body {
 }
 
 .tinipix {
-  z-index: 999;
+  z-index: 666;
   position: absolute;
   background-color: transparent;
   width: 100px;
@@ -80,7 +101,7 @@ body {
   transition: transform 0.05s ease-out;
   shape-rendering: pixelated;
   cursor: pointer;
-  -webkit-user-select: none;
+  user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
 }
@@ -244,14 +265,84 @@ h2 {
   }
 }
 
+.chckbx-cst {
+  accent-color: #4cb9bb;
+
+}
+
+.chckbx-cst:checked {
+  animation: fruit-accent-color 6s infinite, accent-glow 6s infinite;
+}
+
+@keyframes fruit-accent-color {
+  0% {
+    accent-color: #4DB748;
+  }
+
+  16% {
+    accent-color: #FFD500;
+  }
+
+  33% {
+    accent-color: #FF6600;
+  }
+
+  50% {
+    accent-color: #ce1c84;
+  }
+
+  66% {
+    accent-color: #9457EB;
+  }
+
+  83% {
+    accent-color: #009EDD;
+  }
+
+  100% {
+    accent-color: #4DB748;
+  }
+}
+
+@keyframes accent-glow {
+  0% {
+    box-shadow: 0 0 25px #4DB748;
+  }
+
+  16% {
+    box-shadow: 0 0 25px #FFD500;
+  }
+
+  33% {
+    box-shadow: 0 0 25px #FF6600;
+  }
+
+  50% {
+    box-shadow: 0 0 25px #ce1c84;
+  }
+
+  66% {
+    box-shadow: 0 0 25px #9457EB;
+  }
+
+  83% {
+    box-shadow: 0 0 25px #009EDD;
+  }
+
+  100% {
+    box-shadow: 0 0 25px #4DB748;
+  }
+}
+
 .asrieldremurr {
 
   background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
   background-size: 800% 100%;
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: hyperbeam 50s linear infinite;
 }
+
 
 
 @keyframes hyperbeam {
@@ -304,17 +395,19 @@ h2 {
 }
 
 @keyframes zero {
-  0% { 
+  0% {
     color: #4d4d4d;
-    transform: translate(0px ,0.5px, 0px);
+    transform: translate(0px, 0.5px, 0px);
   }
+
   50% {
     color: #fc6247;
-    transform: translate(0px ,0.5px, 0px);
+    transform: translate(0px, 0.5px, 0px);
   }
-  100% { 
+
+  100% {
     color: #4d4d4d;
-    transform: translate(0px ,0.5px, 0px);
+    transform: translate(0px, 0.5px, 0px);
   }
 }
 
@@ -364,7 +457,7 @@ h2 {
 .three {
   background: rgb(144, 107, 195);
   background: radial-gradient(circle, rgba(144, 107, 195, 1) 0%, rgba(51, 143, 252, 1) 100%);
-  
+
 }
 
 @keyframes three {
@@ -402,42 +495,47 @@ h2 {
 
 @keyframes five {
   0% {
-    color: #303030; /* Gold */
-    text-shadow: 
-      0px 0px 1px #f0ac00, 
-      0px 0px 2px #e93db5, 
+    color: #303030;
+    /* Gold */
+    text-shadow:
+      0px 0px 1px #f0ac00,
+      0px 0px 2px #e93db5,
       0px 0px 4px #FFD700;
   }
 
   25% {
-    color: #d4af37; /* Lighter gold */
-    text-shadow: 
-      0px 0px 2px #f0ac00, 
-      0px 0px 4px #ffea83, 
+    color: #d4af37;
+    /* Lighter gold */
+    text-shadow:
+      0px 0px 2px #f0ac00,
+      0px 0px 4px #ffea83,
       0px 0px 6px #FFD700;
   }
 
   50% {
-    color: #d4af37; /* Deeper gold */
-    text-shadow: 
-      0px 0px 14px #ca45ff, 
-      0px 0px 16px #e93db5, 
+    color: #d4af37;
+    /* Deeper gold */
+    text-shadow:
+      0px 0px 14px #ca45ff,
+      0px 0px 16px #e93db5,
       0px 0px 18px #ff7961;
   }
 
   75% {
-    color: #ffcc00; /* Lighter gold */
-    text-shadow: 
-      0px 0px 2px #f0ac00, 
-      0px 0px 4px #e93db5, 
+    color: #ffcc00;
+    /* Lighter gold */
+    text-shadow:
+      0px 0px 2px #f0ac00,
+      0px 0px 4px #e93db5,
       0px 0px 6px #FFD700;
   }
 
   100% {
-    color: #1f1f1f; /* Gold (back to start) */
-    text-shadow: 
-      0px 0px 1px #f0ac00, 
-      0px 0px 2px #e93db5, 
+    color: #1f1f1f;
+    /* Gold (back to start) */
+    text-shadow:
+      0px 0px 1px #f0ac00,
+      0px 0px 2px #e93db5,
       0px 0px 4px #FFD700;
   }
 }
@@ -646,6 +744,11 @@ h2 {
   font-size: smaller;
 }
 
+.com-gappy {
+  display: flex;
+  align-items: center;
+}
+
 .button-ffn {
   display: inline-block;
   text-decoration: none;
@@ -681,7 +784,7 @@ h2 {
 
 .button-ffn:hover:before {
   opacity: 1;
-  
+
 }
 
 .button-ffn:after {
@@ -802,6 +905,24 @@ h2 {
   background-color: #414141;
 }
 
+.button-queue {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #5987dd;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-queue:hover {
+  background-color: #414141;
+}
+
 .button-w {
   display: inline-block;
   text-decoration: none;
@@ -839,7 +960,7 @@ h2 {
   background-color: #353535;
 }
 
-.button-p {
+.btn-p {
   display: inline-block;
   text-decoration: none;
   font-family: inter;
@@ -853,7 +974,7 @@ h2 {
   text-align: center;
 }
 
-.button-p:hover {
+.btn-p:hover {
   background-color: #353535;
 }
 
@@ -1019,7 +1140,7 @@ h2 {
   position: relative;
   z-index: 0;
   background: #6bc754;
-  
+
 }
 
 .button-order:before {
@@ -1047,13 +1168,13 @@ h2 {
 
 .button-order:after {
   z-index: -1;
-  
+
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
   background: #6bc754;
-  
+
   left: 0;
   top: 0;
 }
@@ -1288,7 +1409,7 @@ h2 {
 .tinyfurball {
   position: absolute;
   width: 70px;
-  z-index: 9999;
+  z-index: 777;
   /* Adjust the size of the image */
   animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite;
   transition: transform 0.5s ease;
@@ -1733,7 +1854,7 @@ input[type="radio"] {
   /* Optional: Make it bold */
   background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
   background-size: 800% 100%;
-  -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: hyperbeam 50s linear infinite;
 }
@@ -1875,11 +1996,7 @@ model-viewer::before {
 
 }
 
-canvas {
-  max-width: 100%;
-  max-height: 100%;
-  display: block;
-}
+
 
 .threedee-container {
   display: grid;

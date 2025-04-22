@@ -58,6 +58,20 @@
   <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/UnrealBloomPass.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/postprocessing/RenderPixelatedPass.js"></script>
 </head>
+
+<div>
+  <div style="z-index: -1;">
+    <!-- Spawn sources -->
+    <div id="leafSpawner" style="width: 90%; height: 0.1px;z-index: 1;"></div>
+    <canvas id="tenkiCanvas" class="tenki" style="z-index: 999;"></canvas>
+  </div>
+
+
+  <button id="zawarudo" class="tenki-button" style="visibility: hidden;">ZAWARUDO (Pause/Unpause)</button>
+
+  <img id="disableTenki" src="/source/tenki/tenki-on.png" alt="Toggle Tenki Particles" class="tenki-button" />
+</div>
+
 <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
   <center style=" 
                       margin-top: 69px ;
@@ -71,6 +85,7 @@
 
 
 
+    
 
 
 
@@ -128,7 +143,7 @@
               <p><a class="mark-y">Degree/Education:</a><br> BEd [2025]<br></p>
               <p><a class="mark-y">Skills:</a><br>Art Generalist<br>[flexible and technical artist]</p>
               <p><a class="mark-y">Current Occupation:</a><br> Freelancer, student, etc.</p>
-              <p><a class="mark-y">Languages Spoken:</a><br> English B2</p>
+              <p><a class="mark-y">Languages Spoken:</a><br> English [B2]</p>
 
               <p><a class="mark-y">Personality Type:</a><br> INTP-T</p>
 
@@ -141,7 +156,7 @@
 
           </div>
           <a class=" model-container" style="position: absolute; z-index:1; opacity: 100%;;" id="model1"
-            data-model="../portfolio/portfolio-files/Favian Blocky v1.1.glb" data-camera="3.23, 1.67,-2.27"
+            data-model="../portfolio/portfolio-files/Favian Blocky v1.2.glb" data-camera="3.23, 1.67,-2.27"
             data-camera-target="-0,1.32,0" data-width="666" data-height="666" data-shadow-res="4096" data-info="Favian"
             data-ambient-intensity="0.4" data-ambient-color="#FFFFFF" data-light-intensity="2.0"
             data-light-color="#736042" data-light-angle="16" data-light-radius="50" data-light-height="8"
@@ -187,7 +202,7 @@
           <a style="font-family: inter; font-size: x-small;">These skills acquired through self taught, and start
             actively learning around 2017-NOW.
             <br>
-            The skill levels presented here are self-assessed and reflect growth from foundational knowledge.
+            The skill levels presented here are self-assessed and self reflect from foundational knowledge I've learned so far.
           </a>
 
           <!--------------------------Categories-------------------------->
@@ -987,12 +1002,12 @@
     <!--site version-->
     <div style="background-color: #1f1f1f;">
       <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
-        <a class="asrieldremurr">v0.5.3</a>
+        <a class="asrieldremurr">v0.5.4</a>
       </div>
     </div>
-
+    <script src="js/tenki.js"></script>
     <script src="js/tinipix.js"></script>
-    <script src="js/3d.js"></script>
+    <script src="js/threedee.js"></script>
 </table>
 </center>
 <script type="text/javascript">

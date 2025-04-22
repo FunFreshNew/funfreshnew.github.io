@@ -22,7 +22,13 @@
 
   <title>FFN</title>
 
+  <link rel="preload" href="../source/tenki/tenki-off.png" as="image">
+  <link rel="preload" href="../source/tenki/tenki-on.png" as="image">
 
+  <link rel="preload" href="/portfolio/portfolio-files/bird.mp4" as="video">
+  <link rel="preload" href="/portfolio/portfolio-files/spear.mp4" as="video">
+  <link rel="preload" href="/portfolio/portfolio-files/fox.mp4" as="video">
+  <link rel="preload" href="/portfolio/portfolio-files/furry.mp4" as="video">
 
   <link rel="icon" href="/source/icon.png" type="image/icon type">
   <link rel="preload" href="/source/tinipix/tinipix_debug_left.png" as="image">
@@ -81,6 +87,20 @@
   <link rel="preload" href="../source/icon/ico_roughanimator_on.png" as="image">
   <link rel="stylesheet" href="../style.css">
 </head>
+
+<div>
+  <div style="z-index: -1;">
+    <!-- Spawn sources -->
+    <div id="leafSpawner" style="width: 90%; height: 0.1px;z-index: 1;"></div>
+    <canvas id="tenkiCanvas" class="tenki" style="z-index: 999;"></canvas>
+  </div>
+
+
+  <button id="zawarudo" class="tenki-button" style="visibility: hidden;">ZAWARUDO (Pause/Unpause)</button>
+
+  <img id="disableTenki" src="/source/tenki/tenki-on.png" alt="Toggle Tenki Particles" class="tenki-button" />
+</div>
+
 <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
   <center style=" 
                       margin-top: 69px ;
@@ -88,7 +108,7 @@
                       padding: 0;
                       display: flexbox;
                       justify-content: center;
-                      align-items: center;">
+                      align-items: center; z-index: 2;">
 
     <body id="asriel">
       <div class="container">
@@ -327,7 +347,7 @@
                 <a>G</a>
                 <a>!</a>
 
-                
+
               </div>
             </div>
 
@@ -625,7 +645,7 @@
               <img src="/source/tinipix/tinipix_f-kikan.png" alt="tinipix" class="tinipix" id="f_kikan">
               <img src="/source/tinipix/tinipix_f-milk.png" alt="tinipix" class="tinipix" id="f_milk">
               <img src="/source/tinipix/tinipix_duck.png" alt="tinipix" class="tinipix" id="duck">
-             
+
 
             </div>
           </div>
@@ -859,7 +879,6 @@
                   <div
                     style=" text-align: justify ;font-family: inter; font-weight: bolder; font-size: small; margin: 20px; font-weight: normal; ">
                     <a style="margin: auto;">Description:</a> <br>
-                    "Who made this web? Well, me. <br><br>
                     <a>I made all of these in this website from scratch- the icons, the images, the codes, and many
                       more! idk what else lol.
                       <br><br>
@@ -1023,16 +1042,16 @@
         <!--site version-->
         <div style="background-color: #1f1f1f;">
           <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
-            <a class="asrieldremurr">v0.5.3</a>
+            <a class="asrieldremurr">v0.5.4</a>
           </div>
         </div>
       </div>
       </div>
 
 
-
+      <script src="../js/tenki.js"></script>
       <script src="../js/tinipix.js"></script>
-      <script src="../js/3d.js"></script>
+      <script src="../js/threedee.js"></script>
     </body>
 </table>
 </center>

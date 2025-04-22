@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
-
+  
   <script src="/script.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
@@ -34,8 +34,7 @@
             <a class="asrieldremurr" style="font-family: pixel; font-weight: normal;">FORMS</a>
           </h1>
           <div style="text-align: middle; border-bottom-style:solid; border-bottom-width: 2px; font-size:9px;"></div>
-          <a href="/commissions-page/listing/commissions-tos/minecraft-tos.html" _pageexpand_="12"
-            class="button-v">
+          <a href="/commissions-page/listing/commissions-tos/custom-model-tos.html" _pageexpand_="12" class="button-v">
             ◀</a>
 
           <div style="border: white;  width: 230px; background-color: #353535; font-family: inter; align-items: center">
@@ -80,43 +79,67 @@
                 style="color: white;" required><br><br>
 
               <!-- Checkboxes (Steve and Alex) -->
-              <label style="color: white;">Select Character Model <a class="asrieldremurr">[Required]</a>:</label>
-              <div style="display: flex; justify-content: space-around;">
-                <div style="text-align: center;">
-                  <img src="/source/steve.png" style="image-rendering: pixelated; image-rendering: crisp-edges;"
-                    alt="Steve" width="250">
-                  <br>
-                  <label>
-                    <input type="checkbox" id="checkbox-steve" name="character"
-                      style="width: 25px; height: 25px; accent-color: #4cb9bb;" value="Steve" required>
-                  </label>
+              <div>
+                <label style="color: white;">Select Character Model <a class="asrieldremurr">[Required]</a>:</label>
+                <div style="display: flex; justify-content: space-around;">
+                  <div style="text-align: center;">
+                    <img src="/source/form_ui/steve-custom.png"
+                      style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="Steve" width="250">
+                    <br>
+                    <label>
+                      <input type="checkbox" id="checkbox-steve-custom" name="character"
+                        style="width: 25px; height: 25px; accent-color: #4cb9bb;" value="steve-custom" required>
+                    </label>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="/source/form_ui/alex-custom.png"
+                      style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="alex-custom" width="250">
+                    <br>
+                    <label>
+                      <input type="checkbox" id="checkbox-alex-custom" name="character"
+                        style="width: 25px; height: 25px; accent-color: #8bb27a;" value="alex-custom" required>
+                    </label>
+                  </div>
                 </div>
-                <div style="text-align: center;">
-                  <img src="/source/alex.png" style="image-rendering: pixelated; image-rendering: crisp-edges;"
-                    alt="Alex" width="250">
-                  <br>
-                  <label>
-                    <input type="checkbox" id="checkbox-alex" name="character"
-                      style="width: 25px; height: 25px; accent-color: #8bb27a;" value="Alex" required>
-                  </label>
+
+
+
+                <div style="display: flex; justify-content: space-around;">
+                  <div style="text-align: center;">
+                    <img src="/source/form_ui/absolute-custom.png"
+                      style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="absolute-custom" width="250">
+                    <br>
+                    <label>
+                      <input type="checkbox" id="checkbox-absolute-custom" name="character"
+                      class="chckbx-cst"
+                      style="width: 25px; height: 25px; accent-color: #4cb9bb; " value="absolute-custom" required>
+                    </label>
+                    <style>
+                      
+                    </style>
+                  </div>
+                  
                 </div>
-              </div><br><br>
+
+              </div>
+              <br><br>
 
 
               <div style="display: flex;">
                 <!-- Number Input -->
-                <label for="number-input" style="color: white;">Total Skin:</label>
+                <label for="number-input" style="color: white;">Total Model:</label>
                 <input type="number" id="number-input" name="number-input" placeholder="0" min="1"
                   style="color: white; width: 100px; margin-left: 20px" required><br><br>
 
                 <!-- Dropdown Selection -->
-                <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Commission Type:</label>
+                <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Mod Type<br><a class="asrieldremurr">[Required]</a>:</label>
                 <select style="color: white; margin-left: 20px;" id="dropdown-input" name="dropdown-input" required>
                   <option value="" disabled selected>Select a type</option>
-                  <option value="Minecraft Skin">Minecraft Skin</option>
-
-                  <option value="Minecraft Skin + Custom Model">Minecraft Skin + Custom Model</option>
-                  <option value="Custom Model">Custom Model</option>
+                  <option value="Custom Player Model">Custom Player Model</option>
+                  <option value="Figura">Figura</option>
+                  <option value="OptiFine">OptiFine</option>
+                  <option value="Model Only">Only Model</option>
+                  <option value="All">All</option>
 
                 </select>
               </div>
@@ -159,6 +182,7 @@
                   Please send it to my email<br>
                   <p><a href="mailto:funfreshnew.work@gmail.com" class="asrieldremurr">[funfreshnew.work@gmail.com]</a><a> don't forget to mark it as important email!</a>
                   </p>
+                  </p>
                   or <br><br> Discord [funfreshnew]
                   <br> <br>
 
@@ -195,7 +219,7 @@
 
     </center>
   </table>
-  <script src="/js/skin-mc.js"></script>
+  <script src="/js/custom-mc.js"></script>
   <script type="text/javascript">
     window.onloadstart = function () {
       setTimeout(function () {

@@ -8,6 +8,10 @@
   <script src="/script.js"></script>
 
   <title>FFN</title>
+
+  <link rel="preload" href="../source/tenki/tenki-off.png" as="image">
+  <link rel="preload" href="../source/tenki/tenki-on.png" as="image">
+
   <link rel="preload" href="/source/tinipix/tinipix_debug_left.png" as="image">
   <link rel="preload" href="/source/tinipix/tinipix_debug_right.png" as="image">
   <link rel="preload" href="/source/tinipix/tinipix_duck.png" as="image">
@@ -28,6 +32,21 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/source/icon.png" type="image/icon type">
 </head>
+
+<div>
+  <div style="z-index: -100;">
+    <!-- Spawn sources -->
+    <div id="leafSpawner" style="width: 90%; height: 0.1px;z-index: 1;"></div>
+    
+    <canvas id="tenkiCanvas" class="tenki" style="z-index: 999;"></canvas>
+  </div>
+
+
+  <button id="zawarudo" class="tenki-button" style="visibility: hidden;">ZAWARUDO (Pause/Unpause)</button>
+
+  <img id="disableTenki" src="/source/tenki/tenki-on.png" alt="Toggle Tenki Particles" class="tenki-button" />
+</div>
+
 <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
   <center style=" 
                       margin-top: 69px ;
@@ -84,17 +103,12 @@
             <div id="ground"
               style="height: 0px ;width: 721.5px; transform: translateX(-4%); position: relative;margin-bottom: 123px;">
 
-              <!-- Multiple Shimejis -->
+              <!-- Tinipix -->
               <img src="source/tinipix/tinipix_fyn.png" alt="tinipix" class="tinipix" id="fyn">
               <img src="source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
               <img src="source/tinipix/tinipix_liner_left.png" alt="tinipix" class="tinipix" id="liner">
               <img src="source/tinipix/tinipix_mega.png" alt="tinipix" class="tinipix" id="mega">
               <img src="source/tinipix/tinipix_tennuqi_left.png" alt="tinipix" class="tinipix" id="tennuqi">
-
-
-
-              <!-- Particle effect for interaction -->
-              <div class="particle" id="particle">💬</div>
             </div>
           </div>
 
@@ -129,7 +143,7 @@
 
 
 
-          <a href="/portfolio/portfolio.html" target="_self" class="button-p">
+          <a href="/portfolio/portfolio.html" target="_self" class="btn-p">
             Portfolio
           </a>
           <a href="/commissions-page/commissions-landing-page.html" target="_self" class="button-comm">
@@ -160,12 +174,14 @@
     <!--site version-->
     <div style="background-color: #1f1f1f;">
       <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
-        <a class="asrieldremurr">v0.5.3</a>
+        <a class="asrieldremurr">v0.5.4</a>
       </div>
     </div>
-
+    <script src="js/tenki.js"></script>
     <script src="js/tinipix.js"></script>
+    
 </table>
+<a href="../about-me.html" class="button-ffn" style="margin-inline: 43%; margin-bottom: 50px; display:block;">About me?</a>
 </center>
 <script type="text/javascript">
   window.onload = function () {
