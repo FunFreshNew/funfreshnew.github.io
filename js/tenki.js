@@ -292,7 +292,7 @@ function countParticlesByType(typeId) {
 }
 
 // --- Spawner Loop ---
-// Set a spawn rate (in milliseconds)
+// Set a spawn rate (milliseconds)
 const spawnRate = 100; // Adjust this value to control how often particles spawn (lower = faster)
 
 function spawnParticlesRandomly() {
@@ -315,11 +315,11 @@ function spawnParticlesRandomly() {
         spawnParticlesFromElement(randomSpawner.id, randomSpawner.type);
 
         // Use individual spawnRate for this type
-        const rate = particleTypes[randomSpawner.type].spawnRate || 100;
+        const rate = particleTypes[randomSpawner.type].spawnRate || 50;
         setTimeout(spawnParticlesRandomly, rate);
     } else {
         // fallback to a default delay if no element/type matched
-        setTimeout(spawnParticlesRandomly, 200);
+        setTimeout(spawnParticlesRandomly, 100);
     }
 }
 
@@ -358,7 +358,7 @@ leafImagePaths.forEach((name, i) => {
 // ❄️ Snow Images
 const snowImagePaths = [
     "snow1.png", "snow2.png", "snow3.png", "snow4.png",
-    "snow5.png", "snow9.png" // snow9 is your legendary one
+    "snow5.png", "snow9.png"
 ];
 snowImagePaths.forEach((name, i) => {
     const img = new Image();
@@ -387,6 +387,9 @@ const particleTypes = {
             { src: "/source/tenki/dry_leaf4.png", weight: 100 },
             { src: "/source/tenki/dry_leaf5.png", weight: 100 },
             { src: "/source/tenki/dry_leaf6.png", weight: 100 },
+            { src: "/source/tenki/sakura1.png", weight: 100 },
+            { src: "/source/tenki/sakura2.png", weight: 100 },
+            { src: "/source/tenki/sakura3.png", weight: 100 },
             { src: "/source/tenki/leaf9.png", weight: 10 }
         ],
         gravity: 0.002,
@@ -401,7 +404,7 @@ const particleTypes = {
         rotate: true,
         rotationSpeedRange: Math.PI / 50,
         density: 4,
-        spawnRate: 100
+        spawnRate: 200
     },
     rain: {
         image: "/source/tenki/droplet1.png",
@@ -417,17 +420,17 @@ const particleTypes = {
     },
     snow: {
         images: [
-            "/source/tenki/snow1.png",
-            "/source/tenki/snow2.png",
-            "/source/tenki/snow3.png",
-            "/source/tenki/snow4.png",
-            "/source/tenki/snow5.png"
-
+            { src: "/source/tenki/snow1.png", weight: 500 },
+            { src: "/source/tenki/snow2.png", weight: 500 },
+            { src: "/source/tenki/snow3.png", weight: 100 },
+            { src: "/source/tenki/snow4.png", weight: 100 },
+            { src: "/source/tenki/snow5.png", weight: 100 },
+            { src: "/source/tenki/snow9.png", weight: 2.5 }
 
         ],
-        gravity: 0.003,
-        wind: 3,
-        size: 2,
+        gravity: 0.001,
+        wind: 1,
+        size: 1.5,
         repelCursor: true,
         repelPower: 0.1,
         cursorSize: 50,
@@ -436,8 +439,8 @@ const particleTypes = {
         lifespan: 100000,
         rotate: true,
         rotationSpeedRange: Math.PI / 50,
-        density: 5,
-        spawnRate: 180 // 🟢 medium
+        density: 15,
+        spawnRate: 1 // 
     }
 };
 

@@ -426,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 right: "../source/tinipix/tinipix_olen_right.png"
             }
         },
-        tennuqi: {
+        mimuqi: {
             stayChance: 0.8,
             stayDurationMin: 150,
             stayDurationMax: 9000,
@@ -437,8 +437,23 @@ document.addEventListener("DOMContentLoaded", () => {
             walkDistanceMin: 10,
             walkDistanceMax: 50,
             textures: {
-                left: "../source/tinipix/tinipix_tennuqi_left.png",
-                right: "../source/tinipix/tinipix_tennuqi_right.png"
+                left: "../source/tinipix/tinipix_mimuqi_left.png",
+                right: "../source/tinipix/tinipix_mimuqi_right.png"
+            }
+        },
+        tona: {
+            stayChance: 0.9,
+            stayDurationMin: 500,
+            stayDurationMax: 9000,
+            pixelScale: 1,
+            walkSpeed: 0.25,
+            stayFlipChance: 0.04,
+            asymmetric: true,
+            walkDistanceMin: 10,
+            walkDistanceMax: 50,
+            textures: {
+                left: "../source/tinipix/tinipix_tona_left.png",
+                right: "../source/tinipix/tinipix_tona_right.png"
             }
         },
         kikan: {
@@ -448,8 +463,13 @@ document.addEventListener("DOMContentLoaded", () => {
             pixelScale: 1,
             walkSpeed: 0.5,
             stayFlipChance: 0.05,
+            asymmetric: true,
             walkDistanceMin: 10,
-            walkDistanceMax: 50
+            walkDistanceMax: 50,
+            textures: {
+                left: "../source/tinipix/tinipix_kikan_left.png",
+                right: "../source/tinipix/tinipix_kikan_right.png"
+            }
         },
         duck: {
             stayChance: 0.05,
@@ -520,6 +540,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 left: "../source/tinipix/tinipix_mega_left.png",
                 right: "../source/tinipix/tinipix_mega_right.png"
             }
+        },
+        him: {
+            stayChance: 10011100000000011000000,
+            stayDurationMin: 10011100000000011000000,
+            stayDurationMax: 10011100000000011000000,
+            pixelScale: 1,
+            walkSpeed: -0.1,
+            stayFlipChance: 999999999999999999999999,
+            avoidCollision: true,
+            asymmetric: true,
+            walkDistanceMin: 0.1,
+            walkDistanceMax: 0.1,
+            textures: {
+                left: "../source/tinipix/tinipix_him_left.png",
+                right: "../source/tinipix/tinipix_him_right.png"
+            }
+        },
+        ffn: {
+            stayChance: 10011100000000011000000,
+            stayDurationMin: 10011100000000011000000,
+            stayDurationMax: 10011100000000011000000,
+            pixelScale: 1,
+            walkSpeed: -0.1,
+            stayFlipChance: 999999999999999999999999,
+            avoidCollision: true,
+            asymmetric: true,
+            walkDistanceMin: 0.1,
+            walkDistanceMax: 0.1,
+            textures: {
+                left: "../source/tinipix/tinipix_ffn_left.png",
+                right: "../source/tinipix/tinipix_ffn_right.png"
+            }
+        },
+        egg: {
+            stayChance: 10011100000000011000000,
+            stayDurationMin: 10011100000000011000000,
+            stayDurationMax: 10011100000000011000000,
+            pixelScale: 1,
+            walkSpeed: -0.1,
+            stayFlipChance: 999999999999999999999999,
+            avoidCollision: true,
+            asymmetric: false,
+            walkDistanceMin: 0.1,
+            walkDistanceMax: 0.1,
         },
         what_the: {
             stayChance: 0.2,

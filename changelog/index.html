@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html style="background-color: #1f1f1f;" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
+
+    <script src="../script.js"></script>
+
+    <title>FFN</title>
+
+    <link rel="preload" href="../source/tenki/tenki-off.png" as="image">
+    <link rel="preload" href="../source/tenki/tenki-on.png" as="image">
+
+    <link rel="preload" href="../source/tinipix/tinipix_debug_left.png" as="image">
+    <link rel="preload" href="../source/tinipix/tinipix_debug_right.png" as="image">
+    <link rel="preload" href="../source/tinipix/tinipix_duck.png" as="image">
+    <link rel="preload" href="../source/tinipix/tinipix_favian_left.png" as="image">
+    <link rel="preload" href="../source/tinipix/tinipix_favian_right.png" as="image">
+    <link rel="preload" href="../source/tinipix/tinipix_fyn.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_kikan.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_liner_left.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_liner_right.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_mega.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_mega_left.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_mega_right.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_olen_left.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_olen_right.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_mimuqi_left.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_mimuqi_right.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_tona_left.png" as="image">
+    <link rel="preload" href="/source/tinipix/tinipix_tona_right.png" as="image">
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="icon" href="/source/icon.png" type="image/icon type">
+</head>
+
+<div>
+    <div style="z-index: -100;">
+        <!-- Spawn sources -->
+        <div id="leafSpawner" style="width: 90%; height: 0.1px;z-index: 1;"></div>
+
+        <canvas id="tenkiCanvas" class="tenki" style="z-index: 999; position: fixed;"></canvas>
+    </div>
+
+
+    <button id="zawarudo" class="tenki-button" style="visibility: hidden;">ZAWARUDO (Pause/Unpause)</button>
+
+    <img id="disableTenki" src="/source/tenki/tenki-on.png" alt="Toggle Tenki Particles" class="tenki-button" />
+</div>
+
+<table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
+    <center style=" 
+                      margin-top: 69px ;
+                      margin-bottom: 69px ;
+                      padding: 0;
+                      display: flexbox;
+                      justify-content: center;
+                      align-items: center; z-index: 2;">
+
+
+
+
+
+
+
+
+        <body id="asriel">
+            <div class="container">
+                <!-- Description -->
+                <div style="background-color: #353535;">
+                    <br>
+
+
+
+                    <h1
+                        style="text-align: left; text-align: center; font-family: pixel; margin-top: -10px; margin-bottom:10px; font-weight: normal;">
+                        Changelog ページ
+                        <br>
+                        <div class="tiny-wave" style="text-align: center; display: inline-flex; ">
+
+                            <a>よ</a>
+                            <a>う</a>
+                            <a>こ</a>
+                            <a>そ</a>
+                            <a>↑</a>
+                            <a>！</a>
+
+
+                        </div>
+                    </h1>
+
+                    <div
+                        style="text-align: middle ;border-bottom-style:solid; border-bottom-width: 2px;font-size:9px ;">
+                        "Welcome
+                        to the Changelog page!" </div>
+
+                </div>
+                <div style="display:inline-flex;">
+                    <button onclick="history.back()" href class="button-back">
+                        ◀ </button>
+                    <a href="/index.html" class="button-home">▲</a>
+                </div>
+
+                <div style="border-bottom-style:solid; border-bottom-width: 2px;font-size:9px ;">
+                    <div id="ground"
+                        style="height: 0px ;width: 721.5px; transform: translateX(-4%); position: relative;margin-bottom: 123px;  border-bottom-width: 2px;">
+
+                        <!-- Tinipix -->
+                        <img src="../source/tinipix/tinipix_fyn.png" alt="tinipix" class="tinipix" id="fyn">
+                        <img src="../source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
+                        <img src="../source/tinipix/tinipix_liner_left.png" alt="tinipix" class="tinipix" id="liner">
+
+
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+
+
+
+                <div style="background-color: #272727;">
+                    <br>
+                    <div class="CL-timeline-current">
+
+
+                        <!-- CL Sparator dawg  -->
+
+
+                        <div class="CL-entry">
+                            <div class="CL-header">
+                                <span class="date">6-03-2025</span>
+
+                                <a class="CL-marker" style="animation-delay: -6.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -6s;">
+                                    v0.6.0
+                                </a>
+                            </div>
+                            <ul class="notes">
+                                <li>Added Changelog!</li>
+
+
+                                <span class="CL-title" style="font-size:1000%; cursor: pointer;"
+                                    onclick="window.open('https://store.steampowered.com/app/38740/EDGE/', '_blank')">■
+                                    v</span>
+                                <li>Toggle Button Re-design.</li>
+                                <img src="/changelog/changelog files/v0.6.0.gif"
+                                    style="--hover-margin: 333px; image-rendering: pixelated; width: 80px;">
+                                <li>Reworked Commission Page!</li>
+                                <li>Tona has joined the party!</li>
+                                <li>New Design : Ole'n, Kikan, Mega, Mimuqi, Favian, Fyn, and Liner!</li>
+                                <li>Added 1 square to Duck.</li>
+                                <li>Falling Leaves toggle button re-design.</li>
+                                <li>うあーさくら！</li>
+                                <li></li>
+
+
+                                <div id="ground" style="transform: translateX(-38%);  position: relative;">
+
+                                    <!-- Tinipix -->
+
+
+                                    <img src="../source/tinipix/tinipix_mega.png" alt="tinipix" class="tinipix"
+                                        id="mega">
+                                    <img src="../source/tinipix/tinipix_mimuqi_left.png" alt="tinipix" class="tinipix"
+                                        id="mimuqi">
+                                    <img src="../source/tinipix/tinipix_kikan.png" alt="tinipix" class="tinipix"
+                                        id="kikan">
+                                    <img src="" alt="tinipix" class="tinipix" id="olen">
+                                    <img src="../source/tinipix/tinipix_tona.png" alt="tinipix" class="tinipix"
+                                        id="tona">
+                                    <img src="../source/tinipix/tinipix_duck.png" alt="tinipix" class="tinipix"
+                                        id="duck">
+
+                                </div>
+                            </ul>
+                            <!-- 
+                            <div class="CL-sub-entry">
+                                <a>2025-05-24</a>
+                                - <a>v1.0.1 – Hotfix</a>
+                                <img src="snapshot-v1.0.1.png">
+                                <ul class="notes">
+                                    <li>Fixed transparency bug on mobile</li>
+                                    <li>Improved loading speed</li>
+                                </ul>
+                            </div> 
+                            -->
+                        </div>
+
+
+                        <!-- CL Sparator dawg  -->
+
+
+                    </div>
+
+                    <!-- OLD TIMELINE -->
+
+                    <div class="CL-timeline">
+                        <!-- CL Sparator dawg  -->
+
+
+                        <div class="CL-entry">
+                            <div class="CL-header">
+                                <span class="date">17-03-2025</span>
+
+                                <a class="CL-marker" style="animation-delay: -5.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -5s;">
+                                    v0.5.0
+                                </a>
+                                <br>
+                            </div>
+                            <ul class="notes">
+                                <li>Uhhh, more critters? and they move around too!?</li>
+                                <img src="/changelog/changelog files/v0.5.0.png" class="zoom-image-CL">
+                            </ul>
+                            <div class="CL-sub-entry">
+
+                                <a>v0.5.4</a> - <a style="font-size: x-small;">24-04-2025</a>
+                                <ul class="notes">
+                                    <li>Something falling.</li>
+
+                                    <img src="../source/tenki/leaf9.gif" class="zoom-image-CL "
+                                        style="image-rendering: pixelated;">
+                                    <li>Added Toggle Button.</li>
+                                    <br>
+                                    <img src="/changelog/changelog files/v0.5.5.gif"
+                                        style="--hover-margin: 333px; image-rendering: pixelated; width: 50px;">
+
+                                </ul>
+
+                                <div class="CL-sub-entry">
+
+                                    <a>v0.5.5</a> - <a style="font-size: x-small;">24-04-2025</a>
+                                    <ul class="notes">
+
+                                        <li>Toggle Button Re-design.</li>
+                                        <br>
+                                        <img src="/changelog/changelog files/v0.5.4.gif"
+                                            style="--hover-margin: 333px; image-rendering: pixelated; width: 50px;">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- CL Sparator dawg  -->
+
+
+                        <div class="CL-entry">
+                            <div class="CL-header">
+                                <span class="date">08-03-2025</span>
+
+                                <a class="CL-marker" style="animation-delay: -4.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -4s;">
+                                    v0.4.0
+                                </a>
+                                <br>
+                            </div>
+                            <ul class="notes">
+                                <li>Portfolio Page Overhaul.</li>
+                                <img src="/changelog/changelog files/v0.4.0.png" class="zoom-image-CL"
+                                    style="--hover-margin: 666px;">
+                            </ul>
+
+                        </div>
+
+
+                        <!-- CL Sparator dawg  -->
+
+
+                        <div class="CL-entry">
+                            <div class="CL-header">
+                                <span class="date">26-12-2024</span>
+
+                                <a class="CL-marker" style="animation-delay: -3.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -3s;">
+                                    v0.3.0
+                                </a>
+                                <br>
+                            </div>
+                            <ul class="notes">
+                                <li>Added Portfolio Page.</li>
+                                <img src="/changelog/changelog files/v0.3.0.png" class="zoom-image-CL"
+                                    style="--hover-margin: 666px;">
+                            </ul>
+                            <div class="CL-sub-entry">
+
+                                <a>v0.3.6</a> - <a style="font-size: x-small;">13-01-2025</a>
+                                <ul class="notes">
+                                    <li>Commission Page Overhaul.</li>
+                                    <img src="/changelog/changelog files/v0.3.6.png" class="zoom-image-CL">
+                                    <li>Added Commission Process.</li>
+
+                                    <li>Added Commission Forms.</li>
+                                    <img src="/changelog/changelog files/v0.3.6-form.png" class="zoom-image-CL"
+                                        style="--hover-margin: 755px;">
+
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <!-- CL Sparator dawg  -->
+
+
+                        <div class="CL-entry">
+                            <div class="CL-header">
+                                <span class="date">26-12-2024</span>
+
+                                <a class="CL-marker" style="animation-delay: -3.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -3s;">
+                                    v0.2.0
+                                </a>
+                                <br>
+                            </div>
+                            <ul class="notes">
+                                <li>Added Critters.</li>
+                                <li>Layout Overhaul.</li>
+                                <img src="/changelog/changelog files/v0.2.0.png" class="zoom-image-CL">
+                            </ul>
+                        </div>
+
+
+                        <!-- CL Sparator dawg  -->
+
+
+                        <div class="CL-entry">
+                            <div class="CL-header">
+                                <span class="date">6-12-2024</span>
+
+                                <a class="CL-marker" style="animation-delay: -2.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -2s;">
+                                    v0.1.0
+                                </a>
+                                <br>
+                            </div>
+                            <ul class="notes">
+                                <li>Visual Fixes.</li>
+                                <img src="/changelog/changelog files/v0.1.0.png" class="zoom-image-CL">
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- BIG BANG -->
+                    <div class="CL-timeline-start">
+                        <!-- CL Sparator here  -->
+                        <div class="CL-entry">
+                            <div class="CL-header" style="z-index: 50;">
+                                <span class="date">30-10-2024</span>
+
+                                <a class="CL-marker" style="animation-delay: -1.2s;">■</a>
+                                <a class="CL-title" style="animation-delay: -1s;">
+                                    v0.0.0 – Initial Release
+                                </a>
+                            </div>
+                            <ul class="notes">
+                                <li>Hello world!</li>
+                                <img src="/changelog/changelog files/v0.0.0.png" class="zoom-image-CL">
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div id="ground"
+                    style="height: 0px;width: 721.5px; transform: translate(-4%, 0px); margin-top: 0px; margin-bottom: 0px; position: relative;">
+
+                    <img src="../source/tinipix/tinipix_duck.png" alt="tinipix" class="tinipix" id="ffn">
+
+                </div>
+
+
+                <!-- Contact -->
+                <div style="margin-bottom: 20px;">
+                    <p>Contact me:</p>
+                    <div>
+                        <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
+                        <a class="discord" onclick="copyText(event)">Discord</a>
+                        <a href="mailto:funfreshnew.work@gmail.com" target="_blank" class="button-mail">E-mail</a>
+                    </div>
+                </div>
+
+                <div style="background-color:#353535;">
+                    <a class="jiggies asrieldremurr">
+                    </a>
+
+                </div>
+                <div>© 2014-2025+ FunFreshNew</div>
+        </body>
+
+
+        <!--site version-->
+        <div style="background-color: #1f1f1f;">
+            <div style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
+                <a href="../changelog/" class="asrieldremurr">v0.6.0</a>
+            </div>
+        </div>
+        <script src="../js/tenki.js"></script>
+        <script src="../js/tinipix.js"></script>
+
+
+        <a href="../about-me.html" class="button-ffn"
+            style="margin-inline: 43%; margin-bottom: 50px; display:block;position: absolute;">About me?</a>
+</table>
+
+</center>
+<script src="/script.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        setTimeout(function () {
+            document.getElementById("body").style.display = "";
+        }, 4000);
+    }
+</script>

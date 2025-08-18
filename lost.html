@@ -10,6 +10,21 @@
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/source/icon.png" type="image/icon type">
 </head>
+
+<div>
+  <div style="z-index: -100;">
+    <!-- Spawn sources -->
+    <div id="snowSpawner" style="width: 90%; height: 0.1px;z-index: 1;"></div>
+
+    <canvas id="tenkiCanvas" class="tenki" style="z-index: 999;"></canvas>
+  </div>
+
+
+  <button id="zawarudo" class="tenki-button" style="visibility: hidden;">ZAWARUDO (Pause/Unpause)</button>
+
+  <img id="disableTenki" src="/source/tenki/tenki-on.png" alt="Toggle Tenki Particles" class="tenki-button" />
+</div>
+
 <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
   <center style=" 
                       margin-top: 69px ;
@@ -44,7 +59,7 @@
         </div>
         <div>
           <div id="ground"
-            style="height: 0px ;width: 200%; transform: translateX(); position: fixed;margin-bottom: 123px;">
+            style="height: 0px ;width: 200%; transform: translateX(-40%); position: fixed;margin-bottom: 123px;">
 
             <!-- Tinipix -->
             <img src="source/tinipix/DOG!.png" alt="tinipix" class="tinipix" id="what_the">
@@ -55,8 +70,9 @@
         <div style="margin-bottom: 20px;">
         </div>
         <script src="js/tinipix.js"></script>
-        <div style="background-color:#353535;"> <a class="tinyface asrieldremurr"></a></div>
-        <div style="background-color: w;"> BC-3545+ gnarp gnarp </div>
+        <script src="js/tenki.js"></script>
+        <div style="background-color:#353535;"> <a class="jiggies asrieldremurr"></a></div>
+        <div style="background-color: w;"> BC-3545+ toby fox </div>
     </body>
   </center>
 

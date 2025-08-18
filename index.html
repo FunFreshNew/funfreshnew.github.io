@@ -26,8 +26,10 @@
   <link rel="preload" href="/source/tinipix/tinipix_mega_right.png" as="image">
   <link rel="preload" href="/source/tinipix/tinipix_olen_left.png" as="image">
   <link rel="preload" href="/source/tinipix/tinipix_olen_right.png" as="image">
-  <link rel="preload" href="/source/tinipix/tinipix_tennuqi_left.png" as="image">
-  <link rel="preload" href="/source/tinipix/tinipix_tennuqi_right.png" as="image">
+  <link rel="preload" href="/source/tinipix/tinipix_mimuqi_left.png" as="image">
+  <link rel="preload" href="/source/tinipix/tinipix_mimuqi_right.png" as="image">
+  <link rel="preload" href="/source/tinipix/tinipix_tona_left.png" as="image">
+  <link rel="preload" href="/source/tinipix/tinipix_tona_right.png" as="image">
 
   <link rel="stylesheet" href="/style.css" />
   <link rel="icon" href="/source/icon.png" type="image/icon type">
@@ -37,7 +39,7 @@
   <div style="z-index: -100;">
     <!-- Spawn sources -->
     <div id="leafSpawner" style="width: 90%; height: 0.1px;z-index: 1;"></div>
-    
+
     <canvas id="tenkiCanvas" class="tenki" style="z-index: 999;"></canvas>
   </div>
 
@@ -73,7 +75,7 @@
 
           <h1
             style="text-align: left; text-align: center; font-family: pixel; margin-top: -10px; margin-bottom:10px; font-weight: normal;">
-            僕のインターネットページへ
+            私のインターネットページ
             <br>
             <div class="tiny-wave" style="text-align: center; display: inline-flex; ">
 
@@ -83,6 +85,7 @@
               <a>そ</a>
               <a>↑</a>
               <a>！</a>
+
 
 
             </div>
@@ -105,10 +108,11 @@
 
               <!-- Tinipix -->
               <img src="source/tinipix/tinipix_fyn.png" alt="tinipix" class="tinipix" id="fyn">
-              <img src="source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
               <img src="source/tinipix/tinipix_liner_left.png" alt="tinipix" class="tinipix" id="liner">
+              <img src="source/tinipix/tinipix_favian_left.png" alt="tinipix" class="tinipix" id="favian">
               <img src="source/tinipix/tinipix_mega.png" alt="tinipix" class="tinipix" id="mega">
-              <img src="source/tinipix/tinipix_tennuqi_left.png" alt="tinipix" class="tinipix" id="tennuqi">
+              <img src="source/tinipix/tinipix_mimuqi_left.png" alt="tinipix" class="tinipix" id="mimuqi">
+
             </div>
           </div>
 
@@ -119,41 +123,47 @@
 
 
 
-
         <div style="margin-top:50px"></div>
 
         <!-- Availability -->
         <div style="margin-bottom: 9%; align-content: center;">
           <a>Commissions Status</a>
-          <a class="availibity-notice"
+          <a class="availibity-notice-open"
             style="border-radius: 100%; padding: 23px 10px ; font-weight: li ; font-family: pixeltxt; font-size: 18px;">
-
             OPEN!
+
           </a>
         </div>
 
         <div id="ground"
           style="height: 0px;width: 721.5px; transform: translate(-4%, 0px); margin-top: 0px; margin-bottom: 0px; position: relative;">
-
-          <img src="" alt="tinipix" class="tinipix" id="olen">
+          <img src="source/tinipix/tinipix_olen_left.png" alt="tinipix" class="tinipix" id="olen">
           <img src="source/tinipix/tinipix_duck.png" alt="tinipix" class="tinipix" id="duck">
+          <img src="source/tinipix/tinipix_tona_left.png" alt="tinipix" class="tinipix" id="tona">
 
         </div>
         <div style=justify-content:space-between; margin-inline:auto;>
-
-
-
-          <a href="/portfolio/portfolio.html" target="_self" class="btn-p">
+          <a href="/portfolio/" target="_self" class="btn-p">
             Portfolio
           </a>
-          <a href="/commissions-page/commissions-landing-page.html" target="_self" class="button-comm">
+          <a href="/commissions-page/" class="button-global" style="background-color: rgb(236, 210, 64);">
             Comissions
           </a>
+          <a href="../about-me.html" class="button-ffn-c" ">About me?</a>
+
+          <a href=" changelog/" class="button-global" style="background-color: rgb(110, 189, 253);">Changelog</a>
+
+        </div>
+
+        <div style="justify-content:space-between; margin-inline:auto; margin-top:8px ;">
+
+
+
 
         </div>
 
         <!-- Contact -->
-        <div style="margin-bottom: 20px;">
+        <div style=" margin-bottom: 20px;">
           <p>Contact me:</p>
           <div>
             <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
@@ -163,25 +173,26 @@
         </div>
 
         <div style="background-color:#353535;">
-          <a class="tinyface asrieldremurr">
+          <a class="jiggies asrieldremurr">
           </a>
 
         </div>
-        <div> 2014-2025+ FunFreshNew </div>
+        <div> © 2014-2025+ FunFreshNew </div>
     </body>
 
 
     <!--site version-->
     <div style="background-color: #1f1f1f;">
-      <div cas style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
-        <a class="asrieldremurr">v0.5.4</a>
+      <div style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
+        <a href="changelog/" class="asrieldremurr">v0.6.0</a>
       </div>
     </div>
     <script src="js/tenki.js"></script>
     <script src="js/tinipix.js"></script>
-    
+
+
 </table>
-<a href="../about-me.html" class="button-ffn" style="margin-inline: 43%; margin-bottom: 50px; display:block;">About me?</a>
+
 </center>
 <script type="text/javascript">
   window.onload = function () {

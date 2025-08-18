@@ -61,16 +61,29 @@ body {
 
 }
 
+.container-clean {
+  width: 666px;
+  position: relative;
+  height: auto;
+  max-width: 666px;
+  margin-top: 0px;
+  overflow: hidden;
+
+}
+
 #tenkiCanvas {
   position: absolute;
+  position: var(--tenkiCanvas-position, absolute);
   width: 100%;
   pointer-events: none;
 }
 
 .tenki-button {
   position: fixed;
-  width: 50px;
-  height: 50px;
+  top: 110px;
+  right: 0px;
+  width: 90px;
+  height: 90px;
   cursor: pointer;
   image-rendering: pixelated;
 }
@@ -88,16 +101,20 @@ body {
   /* Ensures stable positioning */
   margin-top: 0px;
   left: 0;
-  background-color: #0056b3;
 }
+
+/*
+Tinipix styles 
+width: 6.25em;
+height: 6.25em; 
+  */
 
 .tinipix {
   z-index: 666;
   position: absolute;
   background-color: transparent;
-  width: 100px;
-  height: 100px;
-  /* Ensures consistent size */
+  width: 10vmax;
+  height: 10vmax;
   transition: transform 0.05s ease-out;
   shape-rendering: pixelated;
   cursor: pointer;
@@ -152,22 +169,49 @@ h2 {
   gap: 20px;
 }
 
-.availibity-notice {
-
+.availibity-notice-open {
   color: #ffffff;
-  ;
   padding-block: 15px;
-  animation: vibe 5s infinite;
-
+  padding-inline: 40px;
+  animation: open 5s infinite;
+  display: inline-block;
+  border-radius: 999px;
+  background-color: #C74140;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
 }
 
-@keyframes vibe {
+@keyframes open {
+  0% {
+    background-color: #3b8a53;
+  }
+
+  50% {
+    background-color: #246d3a;
+  }
+
+  100% {
+    background-color: #3b8a53;
+  }
+}
+
+.availibity-notice-close {
+  color: #ffffff;
+  padding-block: 15px;
+  padding-inline: 40px;
+  animation: nope 5s infinite;
+  display: inline-block;
+  border-radius: 999px;
+  background-color: #C74140;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+@keyframes nope {
   0% {
     background-color: #C74140;
   }
 
   50% {
-    background-color: #3b8a53;
+    background-color: #5e3030;
   }
 
   100% {
@@ -175,11 +219,10 @@ h2 {
   }
 }
 
-
 .commission-table {
   flex: 1;
   border: 2px solid #ffffff;
-  
+
 
 }
 
@@ -215,16 +258,16 @@ h2 {
 
 
 
-.tinyface {
+.jiggies {
   display: inline-block;
   padding: 20px
 }
 
-.tinyface:after {
-  content: "Ɛ  •(人)  •3 | ૮-・౪・-ა";
+.jiggies:after {
+  content: "Ɛ  •(人)  •3 | ૮-・౪・-ა | ၃ ᷅o ﻌo ᷅၄ ";
 }
 
-.tinyface:hover {
+.jiggies:hover {
   animation: tiny-shake 0.1s infinite;
   will-change: transform
 }
@@ -241,8 +284,8 @@ h2 {
   }
 }
 
-.tinyface:hover:after {
-  content: "Ɛ'-(人)  -3 | ૮- >౪< -ა"
+.jiggies:hover:after {
+  content: "Ɛ'-(人)  -3 | ૮- >౪< -ა | ၃ ᷅ᵕ ﻌᵕ ᷅၄ "
 }
 
 @keyframes loading-animation {
@@ -799,6 +842,7 @@ h2 {
 }
 
 
+
 .button-me {
   display: inline-block;
   text-decoration: none;
@@ -892,7 +936,7 @@ h2 {
   text-decoration: none;
   font-family: inter;
   color: #ffffff;
-  background-color: #b0ce80;
+  background-color: #45c4c9;
   padding: 10px 20px;
   font-size: 13px;
   font-weight: bold;
@@ -902,6 +946,42 @@ h2 {
 }
 
 .button-comm:hover {
+  background-color: #414141;
+}
+
+.button-global {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: var(--button-global-bg, #45c4c9);
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-global:hover {
+  background-color: var(--button-global-hover-bg, #414141) !important;
+}
+
+.button-ffn-c {
+  display: inline-block;
+  text-decoration: none;
+  font-family: inter;
+  color: #ffffff;
+  background-color: #a0c95f;
+  padding: 10px 20px;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.button-ffn-c:hover {
   background-color: #414141;
 }
 
@@ -1031,7 +1111,7 @@ h2 {
 }
 
 .button-v:hover {
-  background-color: #353535;
+  background-color: #252525;
 }
 
 .button-s {
@@ -1376,7 +1456,7 @@ h2 {
   /* Makes sure the text is interactive */
 }
 
-/* Tooltip Styling */
+
 .tooltip {
   position: absolute;
   top: 50%;
@@ -1408,7 +1488,7 @@ h2 {
 /* Image styles and animations */
 .tinyfurball {
   position: absolute;
-  width: 70px;
+  width: 85px;
   z-index: 777;
   /* Adjust the size of the image */
   animation: horizontal-move 20s linear infinite, random-bounce 10s ease-in-out infinite alternate, spin 10s linear infinite;
@@ -1724,6 +1804,7 @@ input[type="radio"] {
 
 
 .checkbox-label,
+
 .radio-label {
   display: flex;
   align-items: center;
@@ -1732,15 +1813,204 @@ input[type="radio"] {
   color: #b1b1b1;
 }
 
+/* Changelog */
+
+.CL-timeline-current {
+  font-family: inter;
+  font-weight: light;
+  border-left: 6px solid #ffffff;
+  padding-left: 20px;
+  margin-left: 100px;
+  padding-bottom: 50px;
+  position: relative;
+  text-align: left;
+}
+
+.CL-timeline {
+  font-family: inter;
+  font-weight: light;
+  border-left: 6px solid #ffffff;
+  padding-left: 20px;
+  margin-left: 100px;
+  position: relative;
+  text-align: left;
+}
+
+.CL-timeline-start {
+  font-family: inter;
+  font-weight: light;
+  top: -9px;
+  border-left: 6px solid #ffffff00;
+  padding-left: 20px;
+  margin-left: 100px;
+  padding-bottom: 200px;
+  position: relative;
+  text-align: left;
+  z-index: 2;
+}
+
+.CL-entry .date {
+  position: absolute;
+  left: -122px;
+  top: 2px;
+  font-size: 13.5px;
+  color: #888;
+  white-space: nowrap;
+}
+
+.CL-sub-entry {
+  margin-left: 20px;
+  border-left: 2px solid #ffffff;
+  padding-left: 20px;
+}
+
+.CL-title {
+  font-weight: 900;
+  animation: fruit-color 2s infinite
+}
+
+.CL-marker {
+  font-size: 50px;
+  position: absolute;
+  left: -44.6px;
+  top: -19px;
+  z-index: 50;
+  animation: fruit-color 2s infinite;
+}
+
+.CL-entry {
+  position: relative;
+}
+
+.zoom-image {
+  width: 333px;
+  transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.3s ease-in-out;
+  position: relative;
+  z-index: 10000;
+  image-rendering: pixelated;
+}
+
+.zoom-image:hover {
+  transform: scale(2);
+  z-index: 10000;
+}
+
+.zoom-image-CL {
+  width: 222px;
+  align-items: center;
+  margin-top: 14px;
+  z-index: -5;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
+  --hover-margin: 250px;
+}
+
+.zoom-image-CL:hover {
+  transform: scale(2) translateX(25%) translateY(25%);
+  z-index: 5000;
+  margin-bottom: var(--hover-margin);
+
+}
+
+
+@keyframes seizure {
+  0% {
+    transform: translate(0);
+  }
+
+  5% {
+    transform: translate(-10px, -10px);
+  }
+
+  10% {
+    transform: translate(10px, -10px);
+  }
+
+  15% {
+    transform: translate(-10px, 10px);
+  }
+
+  20% {
+    transform: translate(10px, 10px);
+  }
+
+  25% {
+    transform: translate(-10px, -10px);
+  }
+
+  30% {
+    transform: translate(10px, -10px);
+  }
+
+  35% {
+    transform: translate(-10px, 10px);
+  }
+
+  40% {
+    transform: translate(10px, 10px);
+  }
+
+  45% {
+    transform: translate(-10px, -10px);
+  }
+
+  50% {
+    transform: translate(10px, -10px);
+  }
+
+  55% {
+    transform: translate(-10px, 10px);
+  }
+
+  60% {
+    transform: translate(10px, 10px);
+  }
+
+  65% {
+    transform: translate(-10px, -10px);
+  }
+
+  70% {
+    transform: translate(10px, -10px);
+  }
+
+  75% {
+    transform: translate(-10px, 10px);
+  }
+
+  80% {
+    transform: translate(10px, 10px);
+  }
+
+  85% {
+    transform: translate(-10px, -10px);
+  }
+
+  90% {
+    transform: translate(10px, -10px);
+  }
+
+  95% {
+    transform: translate(-10px, 10px);
+  }
+
+  100% {
+    transform: translate(0);
+  }
+}
+
+.seizure {
+  display: inline-block;
+  animation: seizure 0.05s infinite;
+  animation: fruit-color 0.05s infinite;
+}
+
 .notice {
   display: none;
-  /* Hidden by default */
   position: fixed;
   bottom: 20px;
   right: 20px;
   padding: 10px 20px;
   background-color: #4CAF50;
-  /* Green background */
   color: white;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
@@ -1792,7 +2062,6 @@ input[type="radio"] {
 
 .pixbutton-container {
   position: relative;
-  /* Keeps bubble positioned under each button */
   display: inline-block;
 }
 
@@ -1808,13 +2077,9 @@ input[type="radio"] {
   background-image: var(--default-img);
   -webkit-tap-highlight-color: transparent;
   user-select: none;
-  /* Standard */
   -webkit-user-select: none;
-  /* Safari */
   -moz-user-select: none;
-  /* Firefox */
   -ms-user-select: none;
-  /* IE/Edge */
 }
 
 .pixbutton:active {
@@ -1883,22 +2148,24 @@ input[type="radio"] {
   font-family: Arial, sans-serif;
   font-size: 24px;
   font-weight: bold;
-  
-  color: yellow;
-  
+
+  color: rgb(255, 174, 0);
+
   animation: splashBounce 3s infinite ease-in-out alternate;
   white-space: nowrap;
 }
 
 @keyframes splashBounce {
   0% {
-    transform:  rotate(2deg) translateY(0px)  scale(1);
+    transform: rotate(2deg) translateY(0px) scale(1);
   }
 
-50% { scale: 1.1;}
+  50% {
+    scale: 1.1;
+  }
 
   100% {
-    transform:  rotate(-2deg) translateY(5px) scale(1);
+    transform: rotate(-2deg) translateY(5px) scale(1);
   }
 }
 
@@ -2018,6 +2285,42 @@ model-viewer::before {
 
 /* Minecraft Splash Text */
 
+.popup {
+  display: none;
+  /* Hide the popup by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.popup:target {
+  display: flex;
+  /* Show the popup when targeted */
+}
+
+.popup-content {
+  background: rgb(0, 0, 0);
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  width: 300px;
+  text-align: center;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #333;
+}
 
 
 
@@ -2025,8 +2328,10 @@ model-viewer::before {
 /* Heavily inspired-->
 pony.town team
 Sytemax [Paint Tool Sai's website] 
+EDGE
 */
 
-/* HOLYSHIT DID YOU MAKE THIS WEBSITE YOURSELF!?-->
-well, not really.  ദ്ദി ༎ຶ‿༎ຶ ) I use chat gpt to write complex code ones.
+/* HOLY*beep* DID YOU MAKE THIS WEBSITE YOURSELF!?-->
+well, not really.  ദ്ദി T‿T ) I use copilot and gpt to write complex/long and repetitive code ones.
+And yes, these ai slop sometimes halucinate nonesense so all I can do is to research and fix it by myself.
 */

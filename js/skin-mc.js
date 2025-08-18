@@ -9,9 +9,10 @@ async function downloadFormAsZip() {
         const emailInput = document.getElementById('email-input');
         const numberInput = document.getElementById('number-input');
         const socialMediaInput = document.getElementById('social-media-input');
+        const ignInput = document.getElementById('ign-input');
 
         if (nameInput.value.trim() === '') {
-            alert('Name is required!');
+            alert('A nameless vessle... I mean, Name is required!');
             nameInput.focus();
             return;
         }
@@ -28,17 +29,26 @@ async function downloadFormAsZip() {
             return;
         }
 
+        if (ignInput.value.trim() === '') {
+            alert('IGN is required!');
+            ignInput.focus();
+            return;
+        }
+
         if (numberInput.value.trim() === '') {
             alert('Number is required!');
             numberInput.focus();
             return;
         }
 
+         
+
         // Collect form data in the specified order
         const formData = {
             name: nameInput.value || 'N/A',
             email: document.getElementById('email-input').value || 'N/A',
             socialMedia: socialMediaInput.value || 'N/A',
+            ign: ignInput.value || 'N/A',
             selectedCharacters: [],
             totalSkin: numberInput.value || 'N/A',
             commissionType: document.getElementById('dropdown-input').value || 'N/A',
@@ -82,6 +92,7 @@ async function downloadFormAsZip() {
         formText += `Name: ${formData.name} \n\n`;
         formText += `Email: ${formData.email} \n\n`;
         formText += `Social Media Handle: ${formData.socialMedia} \n\n`;
+        formText += `In Game Name: ${formData.ign} \n\n`;
         formText += `--------------------------\n\n`;
         formText += `Selected Character: ${Array.isArray(formData.selectedCharacters) ? formData.selectedCharacters.join(', ') : formData.selectedCharacters} \n\n`;
         formText += `Total Skin: ${formData.totalSkin} \n\n`;
