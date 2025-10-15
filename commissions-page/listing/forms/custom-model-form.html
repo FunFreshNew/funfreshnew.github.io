@@ -29,12 +29,12 @@
           <br>
           <h1
             style="text-align: center; font-family: pixel; margin-top: -20px; margin-bottom:10px; font-weight: normal;">
-            Pixel Commission
+            [Custom Model]
             <br>
             <a class="asrieldremurr" style="font-family: pixel; font-weight: normal;">FORMS</a>
           </h1>
           <div style="text-align: middle; border-bottom-style:solid; border-bottom-width: 2px; font-size:9px;"></div>
-          <a href="/commissions-page/listing/commissions-tos/minecraft.html" _pageexpand_="12" class="button-v">
+          <a href="/commissions-page/listing/commissions-price-list/custom-model.html" _pageexpand_="12" class="button-v">
             ◀</a>
 
           <div style="border: white;  width: 230px; background-color: #353535; font-family: inter; align-items: center">
@@ -42,11 +42,11 @@
             <div
               style="display: flex; flex-direction: column; text-align: left; background-color: #303030;font-size: small;">
               <br>
-              <div><span class="spanfix">1.</span> Pricing</div>
+              <div><span class="spanfix">1.</span> Overview</div>
               <br>
-              <div><span class="spanfix">2.</span> Ordering Agreements</div>
+              <div><span class="spanfix">2.</span> TOS & Agreements</div>
               <br>
-              <div><span class="spanfix">3.</span> Reading TOS</div>
+              <div><span class="spanfix">3.</span> Price List</div>
               <br>
               <div class="asrieldremurr" style="font-weight: bold;">◼<span class="spanfix">4.</span> Ordering Form
               </div>
@@ -59,7 +59,7 @@
 
         </div>
 
-       
+
 
         <!-- Content -->
         <div style="background-color: #353535; font-family: inter;">
@@ -79,59 +79,98 @@
               <label for="social-media-input" style="color: white;">Social Media Handle:</label>
               <input type="text" id="social-media-input" name="social-media-input" placeholder="Enter your handle"
                 style="color: white;" required><br><br>
-
               <!-- In Game Name -->
               <label for="social-media-input" style="color: white;">In Game Name:</label>
               <input type="text" id="ign-input" name="ign-input" placeholder="Enter your Minecraft Name"
                 style="color: white;" required><br><br>
 
+
               <!-- Checkboxes (Steve and Alex) -->
-              <label style="color: white;">Select Character Model <a class="asrieldremurr">[Required]</a>:</label>
-              <div style="display: flex; justify-content: space-around;">
-                <div style="text-align: center;">
-                  <img src="/source/steve.png" style="image-rendering: pixelated; image-rendering: crisp-edges;"
-                    alt="Steve" width="250">
-                  <br>
-                  <label>
-                    <input type="checkbox" id="checkbox-steve" name="character"
-                      style="width: 25px; height: 25px; accent-color: #4cb9bb;" value="Steve" required>
-                  </label>
+              <div>
+                <label style="color: white;">Select Character Model <a class="asrieldremurr">[Required]</a>:</label>
+                <div style="display: flex; justify-content: space-around;">
+                  <div style="text-align: center;">
+                    <img src="/source/form_ui/steve-custom.png"
+                      style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="Steve" width="250">
+                    <br>
+                    <label>
+                      <input type="checkbox" id="checkbox-steve-custom" name="character"
+                        style="width: 25px; height: 25px; accent-color: #4cb9bb;" value="steve-custom" required>
+                    </label>
+                  </div>
+                  <div style="text-align: center;">
+                    <img src="/source/form_ui/alex-custom.png"
+                      style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="alex-custom" width="250">
+                    <br>
+                    <label>
+                      <input type="checkbox" id="checkbox-alex-custom" name="character"
+                        style="width: 25px; height: 25px; accent-color: #8bb27a;" value="alex-custom" required>
+                    </label>
+                  </div>
                 </div>
-                <div style="text-align: center;">
-                  <img src="/source/alex.png" style="image-rendering: pixelated; image-rendering: crisp-edges;"
-                    alt="Alex" width="250">
-                  <br>
-                  <label>
-                    <input type="checkbox" id="checkbox-alex" name="character"
-                      style="width: 25px; height: 25px; accent-color: #8bb27a;" value="Alex" required>
-                  </label>
+
+
+
+                <div style="display: flex; justify-content: space-around;">
+                  <div style="text-align: center;">
+                    <img src="/source/form_ui/absolute-custom.png"
+                      style="image-rendering: pixelated; image-rendering: crisp-edges;" alt="absolute-custom"
+                      width="250">
+                    <br>
+                    <label>
+                      <input type="checkbox" id="checkbox-absolute-custom" name="character" class="chckbx-cst"
+                        style="width: 25px; height: 25px; accent-color: #4cb9bb; " value="absolute-custom" required>
+                    </label>
+                    <style>
+
+                    </style>
+                  </div>
+
                 </div>
-              </div><br><br>
+
+              </div>
+              <br><br>
 
 
               <div style="display: flex;">
                 <!-- Number Input -->
-                <label for="number-input" style="color: white;">Total Skin:</label>
+                <label for="number-input" style="color: white;">Total Model:</label>
                 <input type="number" id="number-input" name="number-input" placeholder="0" min="1"
-                  style="color: white; width: 100px; margin-left: 20px" required><br><br>
+                  style="color: white; width: 60px; margin-left: 20px" required><br><br>
 
                 <!-- Dropdown Selection -->
-                <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Commission Type:</label>
+                <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Mod Type<br><a
+                    class="asrieldremurr">[Required]</a>:</label>
                 <select style="color: white; margin-left: 20px;" id="dropdown-input" name="dropdown-input" required>
                   <option value="" disabled selected>Select a type</option>
-                  <option value="Minecraft Skin">Minecraft Skin</option>
-
-                  <option value="Minecraft Skin + Custom Model">Minecraft Skin + Custom Model</option>
-                  <option value="Custom Model">Custom Model</option>
+                  <option value="Custom Player Model">Custom Player Model</option>
+                  <option value="Figura">Figura</option>
+                  <option value="OptiFine">OptiFine</option>
+                  <option value="Model Only">Only Model</option>
+                  <option value="All">All</option>
 
                 </select>
               </div>
 
 
+
               <!-- Textarea -->
-              <label for="textarea-input" style="color: white;">Notes:</label>
+              <label for="textarea-input" style="color: white;">Notes:<br>
+                <a>General notes + Pose Notes + Animation Notes</a></label>
+
+
               <textarea style="color: white; width: 350px; height: 350px;" id="textarea-input" name="textarea-input"
                 placeholder="Initiate Typing Protocol . . . " required></textarea><br><br>
+
+              <!-- Animation and Pose Notes 
+              <label for="anim-input" style="color: white;">Animation Notes:</label>
+              <textarea style="color: white; width: 350px; height: 350px;" id="anim-input" name="anim-input"
+                placeholder="Initiate Typing Protocol . . . " required></textarea><br><br>
+
+                <label for="anim-input" style="color: white;">Pose Notes:</label>
+              <textarea style="color: white; width: 350px; height: 350px;" id="anim-input" name="anim-input"
+                placeholder="Initiate Typing Protocol . . . " required></textarea><br><br> -->
+
 
 
 
@@ -166,6 +205,7 @@
                   <p><a href="mailto:funfreshnew.work@gmail.com"
                       class="asrieldremurr">[funfreshnew.work@gmail.com]</a><a> don't forget to mark it as important
                       email!</a>
+                  </p>
                   </p>
                   or <br><br> Discord [funfreshnew]
                   <br> <br>
@@ -202,14 +242,18 @@
         <!--site version-->
         <div style="background-color: #1f1f1f;">
           <div style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
-            <a href="../changelog/" class="asrieldremurr">v0.6.0</a>
+            <a href="../changelog/" class="asrieldremurr date-version"></a>
           </div>
         </div>
       </div>
 
+
     </center>
+
   </table>
-  <script src="/js/skin-mc.js"></script>
+
+
+  <script src="/js/custom-mc.js"></script>
   <script type="text/javascript">
     window.onloadstart = function () {
       setTimeout(function () {
@@ -221,5 +265,6 @@
 </html>
 <script src="/script.js"></script>
 </body>
+
 
 </html>

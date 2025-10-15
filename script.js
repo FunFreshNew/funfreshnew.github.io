@@ -1,11 +1,11 @@
-window.transitionToPage = function(href) {
+window.transitionToPage = function (href) {
     document.querySelector('center').style.opacity = 0
-    setTimeout(function() { 
+    setTimeout(function () {
         window.location.href = href
     }, 2000)
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+document.addEventListener('DOMContentLoaded', function (event) {
     document.querySelector('center').style.opacity = 1
 })
 
@@ -150,5 +150,6 @@ function goBackOrHome() {
         window.location.href = '/index.html'; // Adjust the path if needed
     }
 }
+
 
 

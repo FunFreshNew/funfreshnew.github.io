@@ -1,5 +1,20 @@
 async function downloadFormAsZip() {
     try {
+
+        // Collect form data in the specified order
+        const formData = {
+            name: nameInput.value || 'N/A',
+            email: document.getElementById('email-input').value || 'N/A',
+            socialMedia: socialMediaInput.value || 'N/A',
+            characterName: ocinput.value || 'N/A',
+            selectedCharacters: [],
+            totalSkin: numberInput.value || 'N/A',
+            commissionType: document.getElementById('dropdown-input').value || 'N/A',
+            notes: document.getElementById('textarea-input').value || 'N/A',
+            rushOrder: document.getElementById('rushOrder-input').value || 'N/A',
+            publishDate: 'N/A'
+        };
+        
         const form = document.getElementById('dataForm');
         const notice = document.getElementById('notice');
         const zip = new JSZip();
@@ -9,7 +24,7 @@ async function downloadFormAsZip() {
         const emailInput = document.getElementById('email-input');
         const numberInput = document.getElementById('number-input');
         const socialMediaInput = document.getElementById('social-media-input');
-        const ignInput = document.getElementById('ign-input');
+        const ocinput = document.getElementById('oc-input');
 
         if (nameInput.value.trim() === '') {
             alert('A nameless vessle... I mean, Name is required!');
@@ -29,9 +44,9 @@ async function downloadFormAsZip() {
             return;
         }
 
-        if (ignInput.value.trim() === '') {
-            alert('IGN is required!');
-            ignInput.focus();
+        if (ocinput.value.trim() === '') {
+            alert('Character name is required!');
+            ocinput.focus();
             return;
         }
 
@@ -41,34 +56,18 @@ async function downloadFormAsZip() {
             return;
         }
 
-        
 
-        // Collect form data in the specified order
-        const formData = {
-            name: nameInput.value || 'N/A',
-            email: document.getElementById('email-input').value || 'N/A',
-            socialMedia: socialMediaInput.value || 'N/A',
-            ign: ignInput.value || 'N/A',
-            selectedCharacters: [],
-            totalModel: numberInput.value || 'N/A',
-            commissionType: document.getElementById('dropdown-input').value || 'N/A',
-            notes: document.getElementById('textarea-input').value || 'N/A',
-            rushOrder: document.getElementById('rushOrder-input').value || 'N/A',
-            publishDate: 'N/A'
-        };
+        // Handle the selected characters 
+        const lowCheckbox = document.getElementById('creative-low');
+        const midCheckbox = document.getElementById('creative-mid');
+        const highCheckbox = document.getElementById('creative-high');
+       // const meCheckbox = document.getElementById('checkbox-me');
 
-        // Handle the selected characters (Steve, Alex)
-        const oneCheckbox = document.getElementById('checkbox-steve-custom');
-        const twoCheckbox = document.getElementById('checkbox-alex-custom');
-        const threeCheckbox = document.getElementById('checkbox-absolute-custom');
-        //const fourCheckbox = document.getElementById('checkbox-up-to-you-custom');
-
-        if (oneCheckbox.checked) formData.selectedCharacters.push('steve-custom');
-        if (twoCheckbox.checked) formData.selectedCharacters.push('alex-custom');
-        if (threeCheckbox.checked) formData.selectedCharacters.push('absolute-custom');
-        //if (fourCheckbox.checked) formData.selectedCharacters.push('up-to-you-custom');
+        if (lowCheckbox.checked) formData.selectedCharacters.push('Low');
+        if (midCheckbox.checked) formData.selectedCharacters.push('Mid');
+        if (highCheckbox.checked) formData.selectedCharacters.push('High');
         if (formData.selectedCharacters.length === 0) {
-            formData.selectedCharacters = 'None selected';
+            formData.selectedCharacters = 'Up to me';
         }
 
         // Handle the publish date if the checkbox is checked
@@ -95,10 +94,10 @@ async function downloadFormAsZip() {
         formText += `Name: ${formData.name} \n\n`;
         formText += `Email: ${formData.email} \n\n`;
         formText += `Social Media Handle: ${formData.socialMedia} \n\n`;
-        formText += `In Game Name: ${formData.ign} \n\n`;
+        formText += `Character name: ${formData.characterName} \n\n`;
         formText += `--------------------------\n\n`;
         formText += `Selected Character: ${Array.isArray(formData.selectedCharacters) ? formData.selectedCharacters.join(', ') : formData.selectedCharacters} \n\n`;
-        formText += `Total Model: ${formData.totalModel} \n\n`;
+        formText += `Total Skin: ${formData.totalSkin} \n\n`;
         formText += `Commission Type: ${formData.commissionType} \n\n`;
         formText += `--------------------------\n\n`;
         formText += `Notes: ${formData.notes} \n\n`;

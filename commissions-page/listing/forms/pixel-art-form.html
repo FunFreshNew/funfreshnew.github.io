@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html style="background-color: #1f1f1f;" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=888" , initial-scale="1.0" , user-scalable="yes">
+
+  <script src="/script.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <title>Form</title>
+  <link rel="stylesheet" href="/style.css" />
+  <link rel="icon" href="/source/icon.png" type="image/icon type">
+</head>
+
+<body>
+  <table width="800" cellpadding="0" border="0" cellspacing="0" bgcolor="#ffffff" class="frame">
+    <center style=" 
+                      margin-top: 69px ;
+                      margin-bottom: 69px ;
+                      padding: 0;
+                      display: flexbox;
+                      justify-content: center;
+                      align-items: center;">
+
+      <div class="container">
+        <!-- Description -->
+        <div style="background-color: #353535; margin-left: 2;">
+          <br>
+          <h1
+            style="text-align: center; font-family: pixel; margin-top: -20px; margin-bottom:10px; font-weight: normal;">
+            Pixel Commission
+            <br>
+            <a class="asrieldremurr" style="font-family: pixel; font-weight: normal;">FORMS</a>
+          </h1>
+          <div style="text-align: middle; border-bottom-style:solid; border-bottom-width: 2px; font-size:9px;"></div>
+          <a href="/commissions-page/listing/commissions-price-list/pixel-art.html" _pageexpand_="12" class="button-v">
+            ◀</a>
+
+          <div style="border: white;  width: 230px; background-color: #353535; font-family: inter; align-items: center">
+
+            <div
+              style="display: flex; flex-direction: column; text-align: left; background-color: #303030;font-size: small;">
+              <br>
+              <div><span class="spanfix">1.</span> Overview</div>
+              <br>
+              <div><span class="spanfix">2.</span> TOS & Agreements</div>
+              <br>
+              <div><span class="spanfix">3.</span> Price List</div>
+              <br>
+              <div class="asrieldremurr" style="font-weight: bold;">◼<span class="spanfix">4.</span> Ordering Form
+              </div>
+              <br>
+              <div><span class="spanfix">5.</span> On Waiting List!</div>
+              <br>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <!-- Content -->
+        <div style="background-color: #353535; font-family: inter;">
+          <div style="text-align: left; margin-inline: 5%; background-color: #353535;">
+            <form id="dataForm">
+              <!-- Text Input -->
+              <label for="text-input" style="color: white;">Name:</label>
+              <input type="text" id="text-input" name="text-input" placeholder="NAME YOUR VESSEL."
+                style="color: rgb(255, 0, 0);" required><br><br>
+
+              <!-- Email Input (Optional) -->
+              <label for="email-input" style="color: white;">Email:</label>
+              <input type="email" id="email-input" name="email-input" placeholder="Enter your email"
+                style="color: white;" required><br><br>
+
+              <!-- Social Media Handle -->
+              <label for="social-media-input" style="color: white;">Social Media Handle:</label>
+              <input type="text" id="social-media-input" name="social-media-input" placeholder="Enter your handle"
+                style="color: white;" required><br><br>
+
+              <!-- In Game Name -->
+              <label for="social-media-input" style="color: white;">In Game Name:</label>
+              <input type="text" id="ign-input" name="ign-input" placeholder="Enter your Minecraft Name"
+                style="color: white;" required><br><br>
+
+              <!-- Checkboxes (Steve and Alex) -->
+              <label style="color: white;">Select Character Model <a class="asrieldremurr">[Required]</a>:</label>
+              <div style="display: flex; justify-content: space-around;">
+                <div style="text-align: center;">
+                  <img src="/source/steve.png" style="image-rendering: pixelated; image-rendering: crisp-edges;"
+                    alt="Steve" width="250">
+                  <br>
+                  <label>
+                    <input type="checkbox" id="checkbox-steve" name="character"
+                      style="width: 25px; height: 25px; accent-color: #4cb9bb;" value="Steve" required>
+                  </label>
+                </div>
+                <div style="text-align: center;">
+                  <img src="/source/alex.png" style="image-rendering: pixelated; image-rendering: crisp-edges;"
+                    alt="Alex" width="250">
+                  <br>
+                  <label>
+                    <input type="checkbox" id="checkbox-alex" name="character"
+                      style="width: 25px; height: 25px; accent-color: #8bb27a;" value="Alex" required>
+                  </label>
+                </div>
+              </div><br><br>
+
+
+              <div style="display: flex;">
+                <!-- Number Input -->
+                <label for="number-input" style="color: white;">Total Skin:</label>
+                <input type="number" id="number-input" name="number-input" placeholder="0" min="1"
+                  style="color: white; width: 100px; margin-left: 20px" required><br><br>
+
+                <!-- Dropdown Selection -->
+                <label style="color: white;  margin-left: 50px ;" for="dropdown-input">Commission Type:</label>
+                <select style="color: white; margin-left: 20px;" id="dropdown-input" name="dropdown-input" required>
+                  <option value="" disabled selected>Select a type</option>
+                  <option value="Minecraft Skin">Minecraft Skin</option>
+
+                  <option value="Minecraft Skin + Custom Model">Minecraft Skin + Custom Model</option>
+                  <option value="Custom Model">Custom Model</option>
+
+                </select>
+              </div>
+
+
+              <!-- Textarea -->
+              <label for="textarea-input" style="color: white;">Notes:</label>
+              <textarea style="color: white; width: 350px; height: 350px;" id="textarea-input" name="textarea-input"
+                placeholder="Initiate Typing Protocol . . . " required></textarea><br><br>
+
+              <!-- Dropdown for Rush Order -->
+              <br>
+              <label style="color: white;" for="dropdown-input">Rush Order?:</label>
+              <select style="color: white; width: 200px; " id="rushOrder-input" name="rushOrder-input" required>
+                <option value="No" disabled selected>No</option>
+                <option value="Rush order 4 day">4 Days | 25% Increment</option>
+                <option value="Rush order 3 day">3 Days | 25% Increment</option>
+                <option value="Rush order 2 day">2 Days | 50% Increment</option>
+                <option value="Rush order 1 day">1 Day&nbsp;&nbsp;&nbsp;&nbsp;| 100% Increment</option>
+              </select>
+
+              <!-- Checkbox for Publish Date -->
+              <label style="color: white;">
+                Publish the showcase on specific date?
+              </label>
+
+
+
+              <div style="display: flex; ">
+                <!-- Date input and checkbox side by side -->
+                <input type="checkbox" id="publish-checkbox" name="publish-checkbox" style="width: 60px; height: 60px; "
+                  onchange="toggleDateInput()">
+
+                <!-- Textarea for Publish Date -->
+                <textarea id="publish-date"
+                  style="display: none ; margin-left: 20px ;color: white; width: 250px; height: 63px;"
+                  placeholder="Enter publish date (e.g., DD/MM/YYYY)"></textarea>
+              </div>
+
+
+
+
+
+
+              <!-- File Input -->
+              <label for="file-upload" style="color: white;">Upload References:</label>
+              <input type="file" id="file-upload" name="file-upload" accept="image/*" multiple required><br><br>
+
+              <!-- Submit Button -->
+              <button type="button" class="download-btn" onclick="downloadFormAsZip()">Download Form as ZIP</button>
+              <div id="notice"
+                style="visibility: hidden ; opacity: 0; transition: opacity 0.5s ease; color: white; margin-top: 10px;">
+                <a>Your ZIP file has been downloaded successfully!
+                  Please send it to my email<br>
+                  <p><a href="mailto:funfreshnew.work@gmail.com"
+                      class="asrieldremurr">[funfreshnew.work@gmail.com]</a><a> don't forget to mark it as important
+                      email!</a>
+                  </p>
+                  or <br><br> Discord [funfreshnew]
+                  <br> <br>
+
+                  or<br><br>you can send me the file on Google Drive.
+                  <br><br><br>
+                  <a href="/queue-landing-page.html" class="button-m">Final Destination</a>
+                </a>
+
+                <br><br><br><br>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div style="margin-bottom: 20px;">
+          <p>Contact me:</p>
+          <div>
+            <a href="https://x.com/FunFreshNew" target="_blank" class="button-twitter">Twitter</a>
+            <a class="discord" style="padding-left: 5%;padding-right: 5%; " onclick="copyText(event)">Discord</a>
+            <a href="mailto:funfreshnew.work@gmail.com" target="_blank" class="button-mail">E-mail</a>
+          </div>
+        </div>
+
+        <div style="background-color:#353535;">
+          <a class="jiggies asrieldremurr" style="background-color: #353535; "></a>
+        </div>
+
+        <div>© 2014-2025+ FunFreshNew</div>
+        <!--site version-->
+        <div style="background-color: #1f1f1f;">
+          <div style="background-color:#353535; margin-left: 599px; font-family: pixeltxt;">
+            <a href="../changelog/" class="asrieldremurr date-version"></a>
+          </div>
+        </div>
+      </div>
+
+    </center>
+  </table>
+  <script src="/js/skin-mc.js"></script>
+  <script type="text/javascript">
+    window.onloadstart = function () {
+      setTimeout(function () {
+        document.getElementById("body").style.display = "";
+      }, 4000);
+    }
+  </script>
+
+</html>
+<script src="/script.js"></script>
+</body>
+
+</html>
