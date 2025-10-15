@@ -3,12 +3,14 @@ const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = document.documentElement.scrollHeight;
 const killZoneOffset = -40;
+const tenkiButton = document.getElementById("disableTenki");
 
 
 const particles = [];
-let running = true;
+let running = localStorage.getItem("tenkiRunning") !== "true";
 let paused = false;
 let mouse = { x: 1, y: 1 };
+
 
 
 // --- Particle Class ---
