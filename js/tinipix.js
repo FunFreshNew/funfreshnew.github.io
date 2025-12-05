@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (Tinipix.fpsPopup) return; // Prevent duplicate popups
     
             let popup = document.createElement("div");
-            popup.innerText = `Detected Refresh Rate: ${fps} Hz`;
+            popup.innerText = `Average Refresh Rate: ${fps} Hz`;
             popup.style.position = "fixed";
             popup.style.top = "10px";
             popup.style.left = "50%";

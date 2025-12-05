@@ -187,7 +187,7 @@ h2 {
   }
 }
 
-.availibity-notice-close {
+.availibity-notice-nope {
   color: #ffffff;
   padding-block: 15px;
   padding-inline: 40px;
@@ -214,9 +214,8 @@ h2 {
 
 .commission-table {
   flex: 1;
-  border: 2px solid #ffffff;
-
-
+  border: px solid #ffffff;
+  background-color: #303030;
 }
 
 
@@ -1769,7 +1768,7 @@ input[type="radio"] {
 .CL-timeline-current {
   font-family: inter;
   font-weight: light;
-  border-left: 6px solid #ffffff;
+  border-left: 5px solid #ffffff;
   padding-left: 20px;
   margin-left: 100px;
   padding-bottom: 50px;
@@ -1837,13 +1836,13 @@ input[type="radio"] {
   width: 333px;
   transition: transform 0.3s cubic-bezier(0.77, 0, 0.175, 1), box-shadow 0.3s ease-in-out;
   position: relative;
-  z-index: 10000;
+  z-index: 666;
   image-rendering: pixelated;
 }
 
 .zoom-image:hover {
   transform: scale(2);
-  z-index: 10000;
+  z-index: 666;
 }
 
 .zoom {
@@ -1852,12 +1851,11 @@ input[type="radio"] {
   transform-origin: var(--zoom-origin, center);
   z-index: -5;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-  --hover-margin: var(--zoom-origin, 150px)
-  image-rendering: pixelated;
+  --hover-margin: var(--zoom-origin, 150px) image-rendering: pixelated;
 }
 
 .zoom:hover {
-  transform: scale(2) ;
+  transform: scale(2);
   z-index: 5000;
   margin-bottom: var(--hover-margin);
 
@@ -1871,14 +1869,26 @@ input[type="radio"] {
   transform-origin: top left;
   z-index: -5;
   transition: cubic-bezier(0.075, 0.82, 0.165, 1) 0.5s;
-  --hover-margin: 250px;
 }
 
 .zoom-image-CL:hover {
-  transform: scale(2) ;
+  transform: scale(2);
+  /* default hover scale = 2 */
   z-index: 5000;
-  margin-bottom: var(--hover-margin);
+  margin-bottom: var(--hover-margin, 250px);
+}
 
+/*<div class="zoom-image-CL" data-hover-scale="1.5">...</div> */
+.zoom-image-CL[data-hover-scale="1"]:hover {
+  transform: scale(2);
+}
+
+.zoom-image-CL[data-hover-scale="2"]:hover {
+  transform: scale(1.9);
+}
+
+.zoom-image-CL[data-hover-scale="3"]:hover {
+  transform: scale(1.8);
 }
 
 
@@ -2275,6 +2285,19 @@ model-viewer::before {
   color: #333;
 }
 
+.turntable-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.turntable-container:active {
+  cursor: grabbing;
+}
+
 
 .protect {
   -webkit-user-select: none;
@@ -2282,8 +2305,13 @@ model-viewer::before {
   pointer-events: none;
 }
 
-.date-service-chances::before { content: "16 October 2025"; }
-.date-version::before { content: "v0.6.1"; }
+.date-service-chances::before {
+  content: "16 October 2025";
+}
+
+.date-version::before {
+  content: "v0.6.2";
+}
 
 
 

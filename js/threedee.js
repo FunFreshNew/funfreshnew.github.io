@@ -1,4 +1,4 @@
-// FunFreshNew © //
+
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".model-container").forEach(container => {
         const modelPath = container.dataset.model.trim();

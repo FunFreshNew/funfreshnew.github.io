@@ -12,7 +12,7 @@
   <!-- Loaders -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/loaders/GLTFLoader.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/three@0.128/examples/js/controls/OrbitControls.js"></script>
-  
+
   <title>FFN</title>
 
   <link rel="preload" href="../source/tenki/tenki-off.png" as="image">
@@ -46,6 +46,8 @@
   <!-- Icons Buttons preload -->
   <link rel="preload" href="../source/icon/ico_ableton_off.png" as="image">
   <link rel="preload" href="../source/icon/ico_ableton_on.png" as="image">
+  <link rel="preload" href="../source/icon/ico_affinity_off.png" as="image">
+  <link rel="preload" href="../source/icon/ico_affinity_on.png" as="image">
   <link rel="preload" href="../source/icon/ico_aseprite_off.png" as="image">
   <link rel="preload" href="../source/icon/ico_aseprite_on.png" as="image">
   <link rel="preload" href="../source/icon/ico_blender_off.png" as="image">
@@ -285,6 +287,15 @@
                     <a href="#" target="_blank"></a>
                   </div>
                 </div>
+                <!-- Affinity -->
+                <div class="pixbutton-container">
+                  <a class="pixbutton" data-software="Affinity" data-url="https://www.affinity.studio/"
+                    style="--default-img: url('source/icon/ico_affinity_off.png'); --clicked-img: url('source/icon/ico_affinity_on.png');">
+                  </a>
+                  <div class="bubble hidden">
+                    <a href="#" target="_blank"></a>
+                  </div>
+                </div>
                 <!-- VisualStudio -->
                 <div class="pixbutton-container">
                   <a class="pixbutton" data-software="VisualStudio" data-url="https://code.visualstudio.com/"
@@ -320,19 +331,19 @@
               </div>
             </div>
             <div>
-              
 
-              <iframe width="100%" scrolling="no" frameborder="no" allow="autoplay" 
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/337825383&color=%2355454d&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+
+              <iframe width="100%" scrolling="no" frameborder="no" allow="autoplay"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/337825383&color=%2355454d&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
               <iframe width="100%" scrolling="no" frameborder="no" allow="autoplay"
                 src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/319227587&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
               <div
                 style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
                 <a href="https://soundcloud.com/lianhuaofficial" title="lianhua" target="_blank"
-                  style="color: #cccccc; text-decoration: none;">lianhua</a> · <a
+                  style="color: #cccccc; text-decoration: none;">Adam Tell</a> · <a
                   href="https://soundcloud.com/lianhuaofficial/dorm" title="Dorm" target="_blank"
-                  style="color: #cccccc; text-decoration: none;">Dorm</a>
+                  style="color: #cccccc; text-decoration: none;">Roll the Tape</a>
                 <br>
                 <a href="https://soundcloud.com/dreamscape_records" title="Dreamscape" target="_blank"
                   style="color: #cccccc; text-decoration: none;">Dreamscape</a> · <a
@@ -440,6 +451,13 @@
 
         <a class="video-container" style="display: flexbox;">
 
+          <video autoplay loop muted width="360" height="360" id="autoplay-video">
+            <source src="\portfolio\portfolio-files\orange.mp4" type="video/mp4">
+          </video>
+
+          <video autoplay loop muted width="360" height="360" id="autoplay-video">
+            <source src="\portfolio\portfolio-files\sword.mp4" type="video/mp4">
+          </video>
 
           <video autoplay loop muted width="360" height="360" id="autoplay-video">
             <source src="\portfolio\portfolio-files\spear.mp4" type="video/mp4">
@@ -447,17 +465,10 @@
 
 
           <video autoplay loop muted width="360" height="360" id="autoplay-video">
-            <source src="\portfolio\portfolio-files\fox.mp4" type="video/mp4">
-          </video>
-
-
-          <video autoplay loop muted width="360" height="360" id="autoplay-video">
-            <source src="\portfolio\portfolio-files\furry.mp4" type="video/mp4">
-          </video>
-
-          <video autoplay loop muted width="360" height="360" id="autoplay-video">
             <source src="\portfolio\portfolio-files\bird.mp4" type="video/mp4">
           </video>
+
+
 
 
 
@@ -607,16 +618,26 @@
 
 
             <div class=" model-container" id="Kani" data-model="/portfolio/portfolio-files/Fig Kani outline.glb"
-              data-camera="-0.96,2.23,3.67" data-camera-target="-0.20,1.84,0.74" data-width="666" data-height="333"
+              data-camera="-0.96,2.23,3.67" data-camera-target="-0.20,1.84,0.74" data-width="333" data-height="333"
               data-shadow-res="128" data-info="Kikan" data-ambient-intensity="0.01" data-ambient-color="#ffffff"
               data-light-intensity="0.01" data-light-color="#ffffff" data-light-angle="60" data-light-angle="60"
               data-light-radius="15" data-light-height="8" data-light-color="#ffcc00" data-light-intensity="0.1">
+            </div>
+            <div id="turntable-container" style="width:333px;height:333px;overflow:hidden;cursor:grab;">
+              <img id="turntable-viewer" src="" draggable="false" style="width:100%;height:100%;object-fit:contain;">
             </div>
 
 
 
 
           </div>
+
+
+
+
+
+
+
 
           <div class="detail-container">
             <div class="buttons-wrapper">
@@ -1109,7 +1130,7 @@
       </div>
       </div>
 
-
+      <script src="../js/turtable.js"></script>
       <script src="../js/tenki.js"></script>
       <script src="../js/tinipix.js"></script>
       <script src="../js/threedee.js"></script>

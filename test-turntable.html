@@ -1,0 +1,207 @@
+<div id="turntable-container" style="width:400px;height:400px;overflow:hidden;cursor:grab;">
+    <img id="turntable-viewer" src="" draggable="false" style="width:100%;height:100%;object-fit:contain;">
+</div>
+
+<select id="turntable-select" style="margin-top:10px;"></select>
+
+<script>
+    // ================== Turntable.js ==================
+    class Turntable {
+        constructor(config) {
+            this.container = document.getElementById(config.containerId);
+            this.viewer = document.getElementById(config.imageId);
+            this.select = document.getElementById(config.selectId);
+
+            this.fps = config.fps || 24;
+            this.idleDelay = config.idleDelay || 3000;
+            this.models = config.models;
+            this.currentModel = null;
+            this.images = [];
+            this.frame = 0;
+
+            // interaction and motion settings
+            this.isPlaying = true;
+            this.isDragging = false;
+            this.lastX = 0;
+            this.velocity = 0;
+            this.momentum = 0;
+            this.momentumDecay = 0.94;       // how fast momentum slows (lower = faster stop)
+            this.dragSensitivity = 0.5;     // how much frame change per px
+            this.momentumSensitivity = 1.2;  // flick speed multiplier
+            this.autoPlayTimer = null;
+            this.cooldownAfterInteraction = 1500; // time after drag/flick before autoplay resumes
+
+            this.loadSelectOptions();
+            this.addListeners();
+
+            // start with first model
+            const firstKey = Object.keys(this.models)[0];
+            if (firstKey) this.loadModel(firstKey);
+        }
+
+        loadSelectOptions() {
+            for (const key in this.models) {
+                const opt = document.createElement("option");
+                opt.value = key;
+                opt.textContent = key.charAt(0).toUpperCase() + key.slice(1);
+                this.select.appendChild(opt);
+            }
+            this.select.addEventListener("change", () => this.loadModel(this.select.value));
+        }
+
+        async loadModel(name) {
+            this.currentModel = this.models[name];
+            this.images = [];
+            this.frame = 0;
+            this.isPlaying = true;
+            this.viewer.src = "";
+
+            const model = this.currentModel;
+            const promises = [];
+
+            for (let i = 0; i < model.frameCount; i++) {
+                const img = new Image();
+                img.src = `${model.path}${String(i).padStart(model.padding, '0')}${model.ext}`;
+                promises.push(new Promise(res => img.onload = res));
+                this.images.push(img);
+            }
+
+            await Promise.all(promises);
+            this.viewer.src = this.images[0].src;
+            this.playLoop();
+        }
+
+        playLoop() {
+            const interval = 1000 / this.fps;
+            let lastTime = performance.now();
+
+            const loop = (time) => {
+                const delta = time - lastTime;
+                if (delta >= interval) {
+                    lastTime = time;
+
+                    if (this.isPlaying || Math.abs(this.momentum) > 0.001) {
+                        this.frame += this.isPlaying ? 1 : this.momentum;
+
+                        // wrap around
+                        if (this.frame < 0) this.frame += this.images.length;
+                        if (this.frame >= this.images.length) this.frame -= this.images.length;
+
+                        this.viewer.src = this.images[Math.floor(this.frame) % this.images.length].src;
+
+                        // apply smooth deceleration to flick
+                        if (!this.isPlaying && Math.abs(this.momentum) > 0.001) {
+                            this.momentum *= this.momentumDecay;
+                            if (Math.abs(this.momentum) < 0.001) {
+                                this.momentum = 0;
+                                this.scheduleAutoPlay();
+                            }
+                        }
+                    }
+                }
+                requestAnimationFrame(loop);
+            };
+            requestAnimationFrame(loop);
+        }
+
+        addListeners() {
+            this.container.addEventListener("mousedown", e => this.startDrag(e));
+            this.container.addEventListener("mousemove", e => this.drag(e));
+            window.addEventListener("mouseup", () => this.endDrag());
+            this.container.addEventListener("click", () => this.togglePlay());
+        }
+
+        startDrag(e) {
+            this.isDragging = true;
+            this.lastX = e.clientX;
+            this.stopPlay();
+            this.momentum = 0;
+            clearTimeout(this.autoPlayTimer);
+            this.container.style.cursor = 'grabbing';
+        }
+
+        drag(e) {
+            if (!this.isDragging) return;
+            const dx = e.clientX - this.lastX;
+            this.lastX = e.clientX;
+            this.frame -= dx * this.dragSensitivity; // keep consistent direction
+            if (this.frame < 0) this.frame += this.images.length;
+            if (this.frame >= this.images.length) this.frame -= this.images.length;
+            this.viewer.src = this.images[Math.floor(this.frame) % this.images.length].src;
+            this.velocity = -dx * this.dragSensitivity;
+        }
+
+        endDrag() {
+            if (!this.isDragging) return;
+            this.isDragging = false;
+            this.container.style.cursor = 'grab';
+
+            // calculate flick momentum
+            this.momentum = this.velocity * this.momentumSensitivity;
+
+            clearTimeout(this.autoPlayTimer);
+
+            // if momentum too small, just stop
+            if (Math.abs(this.momentum) < 0.05) {
+                this.momentum = 0;
+            }
+
+            // after any interaction, wait cooldown time before resuming autoplay
+            this.autoPlayTimer = setTimeout(() => {
+                if (!this.isPlaying && this.momentum === 0) {
+                    this.isPlaying = true;
+                }
+            }, this.cooldownAfterInteraction);
+        }
+
+        togglePlay() {
+            if (this.isDragging) return;
+            this.isPlaying = !this.isPlaying;
+            this.momentum = 0;
+        }
+
+        stopPlay() {
+            this.isPlaying = false;
+            clearTimeout(this.autoPlayTimer);
+        }
+
+        scheduleAutoPlay() {
+            clearTimeout(this.autoPlayTimer);
+            // only schedule after momentum naturally decays
+            this.autoPlayTimer = setTimeout(() => {
+                if (!this.isPlaying && this.momentum === 0 && !this.isDragging) {
+                    this.isPlaying = true;
+                }
+            }, this.cooldownAfterInteraction);
+        }
+    }
+
+    // ================== CONFIG + INIT ==================
+    const viewer = new Turntable({
+        containerId: 'turntable-container',
+        imageId: 'turntable-viewer',
+        selectId: 'turntable-select',
+        fps: 24,
+        idleDelay: 3000,
+        models: {
+            kani: {
+                path: 'source/turntable/kani-viewport/Kani poly wf',
+                frameCount: 250,
+                padding: 4,
+                ext: '.jpg'
+            },
+            fox: {
+                path: 'source/turntable/fox-viewport/Fox wf',
+                frameCount: 100,
+                padding: 4,
+                ext: '.jpg'
+            },
+            robot: {
+                path: 'source/turntable/robot-viewport/Robot wf',
+                frameCount: 80,
+                padding: 4,
+                ext: '.jpg'
+            }
+        }
+    });
+</script>
